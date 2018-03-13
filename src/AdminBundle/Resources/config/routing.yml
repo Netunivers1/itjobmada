@@ -1,3 +1,9 @@
 admin_homepage:
     path:     /
     defaults: { _controller: AdminBundle:Default:index }
+admin_demandeur_create:
+    path:     /demandeur/create
+    defaults: { _controller: AdminBundle:Demandeur:create }
+admin_demandeur_save:
+    path:     /demandeur/save
+    defaults: { _controller: AdminBundle:Demandeur:save }

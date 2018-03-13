@@ -258,6 +258,13 @@
                             <i class="fa fa-dashboard"></i> Dashboard
                         </a>
                     </li>
+
+                    <li>
+                        <a class="active-menu" href="{{ path('admin_demandeur_create') }}">
+                            <i class="fa fa-users"></i> Demandeurs d'emploi
+                        </a>
+                    </li>
+
                     <li>
                         <a href="{{ path('admin_homepage') }}">
                             <i class="fa fa-desktop"></i> UI Elements
@@ -323,10 +330,9 @@
         {% endblock %}
 
         <!-- /. NAV SIDE  -->
-        {% block body %}
         <div id="page-wrapper">
             <div id="page-inner">
-
+            {% block body %}
 
                 <div class="row">
                     <div class="col-md-12">
@@ -528,6 +534,7 @@
                     </div>
                 </div>
                 <!-- /. ROW  -->
+            {% endblock %}
                 <footer>
                     <div class="footer-cp-container">
                         <span class="">Copyright 2018. ITJob</span>
@@ -536,10 +543,12 @@
                         <span class=""> | <a href="#">Liens Partenaires</a></span>
                     </div>
                 </footer>
+
             </div>
             <!-- /. PAGE INNER  -->
         </div>
-        {% endblock %}
+
+
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->

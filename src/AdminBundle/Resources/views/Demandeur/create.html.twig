@@ -1,0 +1,383 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="page-header row">
+        <h1 class="col-sm-9" > Création CV</h1>
+        <div class="col-sm-8" ></div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-horizontal" method="post" action="{{ path('admin_demandeur_save') }}" enctype='multipart/form-data'>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="position"> Achat de place </label>
+                    <div class="col-sm-4">
+                        <input type="checkbox" id="position" name="position" value="1" >
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <label class="control-label col-sm-3" for="statut"> Ce candidat a-t-il été auditionné </label>
+                    <div class="col-sm-4 select">
+                        <select name="audition" class="form-control" id="statut">
+                            <option value="1" selected="" > oui </option>
+                            <option value="3" selected="" > non car il refuse l’entretien </option>
+                            <option value="4" selected="" > non car il vit en province </option>
+                            <option value="2" selected="" > Pas encore </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="statut">Ce candidat a trouvé un emploi</label>
+                    <div class="col-sm-4">
+                        <select id="emploi_trouve" name="emploi_trouve" class="selectpicker form-control" >
+                            <option value="1" selected=""> grâce à Itjobmada </option>
+                            <option value="2" selected=""> a trouvé du travail via un autre canal </option>
+                            <option value="3" selected=""> non il est encore à la recherche d’un emploi </option>
+                        </select>
+                    </div>
+                </div>
+        <!--  </div> -->
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="nom">Photo</label>
+                <div class="col-sm-4" style="border: none!important;">
+                    <input type="hidden" name="imgupload" id="imgupload"  />
+                    <input type="file" class="col-sm-6 form-control" style="box-shadow: none;" name="photoupload" id="photoupload"/>
+                </div>
+            </div>
+            <div class="form-group " >
+                <label class="control-label col-sm-4" for="statut">Titre</label>
+                <div class="col-sm-6  select" >
+                    <select id="titre" name="titre" class="form-control">
+                        <option value="Mr" selected="">Monsieur</option>
+                        <option value="Mme" selected="">Madame</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="control-label col-sm-4" for="nom">Nom</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="nom" name="nom" >
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="control-label col-sm-4" for="prenom" >Prénom</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="prenom" name="prenom" >
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="control-label col-sm-4" for="prenom">Email</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="email" name="email" >
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="control-label col-sm-4" for="adresse">Adresse</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="adresse" name="adresse" >
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="control-label col-sm-4" for="adresse">Ville</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="ville" name="newVille" placeholder=" Ville"  >
+                </div>
+            </div>
+            <div class="form-group " style="display: block !important;" >
+                <label class="control-label col-sm-4" for="adresse">Région</label>
+                <div class="col-sm-6  select" >
+                    <select name="region" class="form-control" >
+                        <option value='1' selected>Région</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="control-label col-sm-4" for="telephone">Téléphone</label>
+                <div class="col-sm-6">
+                    <input type="text" class="tel form-control" id="telephone" name="telephone" >
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="control-label col-sm-4"  for="date_de_naissance">Date de naissance</label>
+                <div class=" col-sm-6">
+                    <div class="input-group">
+                        <input type="date" name="date_de_naissance" id="date_de_naissance" class="form-control" />
+                        <span class="input-group-addon">
+                            <label class="glyphicon glyphicon-calendar" for="date_de_naissance"></label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group " style="display: block !important;" >
+                <label class="control-label col-sm-4" for="statut">Statut</label>
+                <div class="col-sm-6" >
+                    <select id="statut" name="statut"  class="form-control">
+                        <option value='1' selected>je cherche un emploi</option>
+                        <option value='2' selected>je souhaite entretenir mon réseau</option>
+                        <option value='3' selected>je cherche un stage</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="control-label col-sm-4" for="statut">Permis</label>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-1 checkbox-region" ><input type="checkbox" class="checkPermis withoutPermis" id="checkPermisA1" name="permis" value="A`" /></div>
+                        <div class="col-sm-2 checkbox-region">A`</div>
+                        <div class="col-sm-1 checkbox-region" ><input type="checkbox" class="checkPermis withoutPermis" id="checkPermisA2" name="permis" value="A" /></div>
+                        <div class="col-sm-2 checkbox-region">A</div>
+                        <div class="col-sm-1 checkbox-region" ><input type="checkbox" class="checkPermis withoutPermis" id="checkPermisB" name="permis" value="B" /></div>
+                        <div class="col-sm-2 checkbox-region">B</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1 checkbox-region" ><input type="checkbox" class="checkPermis withPermis" id="checkPermisC" name="permis" value="C" /></div>
+                        <div class="col-sm-2 checkbox-region">C</div>
+                        <div class="col-sm-1 checkbox-region" ><input type="checkbox" class="checkPermis withPermis" id="checkPermisD" name="permis" value="D" /></div>
+                        <div class="col-sm-2 checkbox-region">D</div>
+                        <div class="col-sm-1 checkbox-region" ><input type="checkbox" class="checkPermis withoutPermis" id="aucunPermis" name="permis" value="aucun" /></div>
+                        <div class="col-sm-2 checkbox-region">aucun</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Emploi recherché -->
+            <div class="form-group ">
+                <label class="col-sm-4 control-label"> Emploi recherché </label>
+                <div class="col-sm-6 select" style="margin-bottom: 0px;">
+                    <select name="newEmploi_recherche" class="selectlangue form-control">
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-6">
+                    <input type="text" name="addEmploi_recherche"  class="form-control" placeholder="Créer les emplois si inexistants dans la liste">
+                    <div class="btn btn-default btn_addEmploi_recherche other-chosen" >Ajouter</div>
+                </div>
+            </div>
+
+            <div class="form-group " >
+                <label class="control-label">Souhaitez-vous recevoir une notification quand une offre d’emploi est postée sur Itjobmada ? </label>
+                <input type="radio" name="notification_emploi_poste" value="Oui" >Oui
+                <input type="radio" name="notification_emploi_poste" value="Non" >Non
+            </div>
+
+            <div class="form-group ">
+                <label class="col-sm-4 control-label">Recevoir une notification pour quel emploi ?</label>
+                <div class="col-sm-6  select" >
+                    <select name="choix_emploi"  class="form-control">
+                        <option value="toutes les offres d'emploi" selected>Toutes les offres d'emploi</option>
+                        <option value="aucune">aucune</option>
+                    </select>
+                    <input type="text" class="form-control" name="new_choix_emploi">
+                    <span class="col-md-12 col-sm-12 col-xs-12 spanSlt">Ajouter votre emploi si inexistant dans la liste</span>
+                    <div class="btn btn-default " >Ajouter</div>
+                </div>
+            </div>
+
+            <div class="form-group " style="margin-left: 10px;">
+                <label class="control-label" for="notification_formation_poste">Souhaitez-vous recevoir une notification quand une formation est postée sur Itjobmada</label>
+                <input type="radio" name="notification_formation_poste" value="Oui" style="margin-left: 10px; margin-top: 12px;" >Oui
+                <input type="radio" name="notification_formation_poste" value="Non" style="margin-left: 10px; margin-top: 12px;">Non
+            </div>
+
+            <div class="form-group ">
+                <label class="col-sm-4 control-label">Recevoir une notification pour quelle formation ?</label>
+                <div class="col-sm-6  select" >
+                    <select name="choix_formation"  class="form-control">
+                        <option value="toutes les formations" selected>Toutes les formations</option>
+                        <option value="aucune">aucune</option>
+                    </select>
+                    <input type="text" class="form-control" name="new_choix_formation">
+                    <span class="col-md-12 col-sm-12 col-xs-12 spanSlt">Ajouter votre formation si inexistante dans la liste</span>
+                    <div class="btn btn-default " >Ajouter</div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" >Voulez-vous recevoir nos nouvelles du mois ?</label>
+                <div class="col-md-6" style="padding-top: 8px;">
+                    <input type="radio" name="newsletter" id="newsletter" value="Oui" > Oui
+                    <input type="radio" name="newsletter" id="newsletter" value="Non" style="margin-left: 10px;"> Non
+                </div>
+            </div>
+
+            <hr/>
+            <div class="form-group">
+                <label class="col-sm-12"  style="text-align: center;">Formations / Diplômes</label>
+            </div>
+            <hr/>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label">Année</label>
+                <div class="col-sm-6 select">
+                    <select name="formation_annee" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="new_ville">Ville</label>
+                <div class="col-sm-6" style="margin-bottom: 0px;">
+                    <input type="text" id="new_ville" name="new_ville" value="" class="form-control ui-autocomplete-input" placeholder="Ville" autocomplete="off" >
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="pays">Pays</label>
+                <div class="col-sm-6">
+                    <input type="text" name="formation_pays" id="pays" class="form-control"  />
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="new_diplome">Diplôme</label>
+                <div class="col-sm-6" style="margin-bottom: 0px;">
+                    <input type="text" id="new_diplome" name="new_diplome" value="" class="form-control ui-autocomplete-input" placeholder="Diplôme" autocomplete="off" >
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="new_universite">Université/Ecole</label>
+                <div class="col-sm-6" style="margin-bottom: 0px;">
+                    <input type="text" id="new_universite" name="new_universite" value="" class="form-control ui-autocomplete-input" placeholder="Université/Ecole" autocomplete="off" >
+                </div>
+            </div>
+            <!-- champ nouveau formation -->
+            <div class="addFormation"></div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary" id="addNewFormation">Ajouter formation</button>
+                </div>
+            </div>
+            <hr/>
+            <div style="text-align: center;" class="">
+                <label class="control-label">Logiciels maitrisés</label>
+            {#</div><br>#}
+            {#<div class="row form-group ">#}
+                {#<select id='pre-selected-options' multiple='multiple'>#}
+
+                {#</select>#}
+            {#</div>#}
+            {#<input type="hidden" name="new_logiciel_recent">#}
+            {#<input type="hidden" name="libele_logiciels_recent">#}
+
+            <br>
+            <div class="row form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" name="newLogiciel" id="newLogiciel" class="form-control" placeholder="Créer le logiciel un par un si inexistant dans la liste et valider par le bouton 'Ajouter Logiciel' à chaque nouveau.">
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-primary" id="addLogiciels">Ajouter Logiciel</button>
+                </div>
+            </div>
+            <br>
+            <hr/>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="newLangue">Les langues</label>
+                <div class="col-sm-6">
+                    <select name="langue" size="5" class="form-control" >
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-6">
+                  {#langue inexistant#}
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label class="col-sm-12" style="text-align: center;">Expériences professionnelles</label>
+            </div>
+            <hr/>
+            <div class="col-sm-12 form-group ">
+                <label class="col-sm-4 control-label" for="experience_mois_a_mois_debut">De mois de</label>
+                <div class="col-sm-3 dateExp">
+                    <input type="text"  name="experience_mois_a_mois_debut" id="experience_mois_a_mois_debut" class="form-control date dpicker" data-date-format="mm/yyyy" ></input>
+                </div>
+                <div class="col-sm-1 dateExp ">
+                    <label class=" control-label" for="experience_mois_a_mois_debut">à</label>
+                </div>
+                <div class="col-sm-3 dateExp ">
+                    <input type="text" name="experience_mois_a_mois_fin" id="experience_mois_a_mois_fin" class="form-control date dpicker" data-date-format="mm/yyyy" ></input>
+                </div>
+
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="experience_ville">Ville</label>
+                <div class="col-sm-6">
+                    <input type="text" name="experience_ville" id="experience_ville" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="experience_pays">Pays</label>
+                <div class="col-sm-6">
+                    <input type="text" name="experience_pays" id="experience_pays" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="experience_nom_entreprise">Nom entreprise</label>
+                <div class="col-sm-6">
+                    <input type="text" name="experience_nom_entreprise" id="experience_nom_entreprise" class="form-control"  />
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="experience_new_secteur_activite">Secteur d\'activite</label>
+                <div class="col-sm-6" style="margin-bottom: 0px;">
+                    <select class="form-control" name="experience_new_secteur_activite" >
+
+                    </select>
+                    <!-- <input type="text" name="experience_new_secteur_activite" id="experience_new_secteur_activite" class="form-control" placeholder="Secteur d'activite" >   -->
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="experience_new_poste_occupe">Poste occupé</label>
+                <div class="col-sm-6" style="margin-bottom: 0px;">
+                    <input type="text" name="experience_new_poste_occupe" id="experience_new_poste_occupe" class="form-control" placeholder="Poste occupé" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 col-sm-3 col-xs-12 control-label" for="experience_mission">Missions et tâche réalisées</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <textarea type="text" class="col-md-12 col-sm-12 col-xs-12 form-control" id="experience_mission" name="experience_missionk" placeholder="Missions et tâche réalisées"></textarea>
+                </div>
+            </div>
+
+            <!-- champ nouveau experience -->
+            <div class="addExperience"></div>
+
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-primary" id="addNewExperience">Ajouter experience</button>
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label class="col-sm-12" style="text-align: center;">Centre d\'intérêt</label>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="centre_interet_certificat">Divers</label>
+                <div class="col-sm-6">
+                    <input type="text" name="centre_interet_certificat" id="centre_interet_certificat" class="form-control" placeholder="Divers" />
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-4 control-label" for="centre_interet_projet">Projet</label>
+                <div class="col-sm-6">
+                    <input type="text" name="centre_interet_projet" id="centre_interet_projet" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-11 notif" style="text-align: center;">Tous les champs marqués d'un <span style="color:#f00;">* </span> sont obligatoires</div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <button id="SaveButton" type="submit" class="btn btn-primary pull-right" >Save</button> <!-- disabled -->
+                </div>
+            </div>
+        </div>
+        </form>
+        </div>
+    </div>
+{% endblock %}
