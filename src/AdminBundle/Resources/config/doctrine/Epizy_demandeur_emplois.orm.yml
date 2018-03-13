@@ -1,0 +1,72 @@
+AdminBundle\Entity\Epizy_demandeur_emplois:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\Epizy_demandeur_emploisRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+            column: id_user
+        audition:
+            type: string
+            length: 255
+        emploiTrouve:
+            type: string
+            length: 255
+            column: emploi_trouve
+        titre:
+            type: string
+            length: 255
+        nom:
+            type: string
+            length: 255
+        prenom:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        adresse:
+            type: string
+            length: 255
+        ville:
+            type: string
+            length: 255
+        villeId:
+            type: integer
+            column: ville_id
+        region:
+            type: string
+            length: 255
+        telephone:
+            type: string
+            length: 255
+        dateDeNaissance:
+            type: date
+            column: date_de_naissance
+        choixEmploi:
+            type: string
+            length: 255
+            column: choix_emploi
+        choixFormation:
+            type: string
+            length: 255
+            column: choix_formation
+        notificationEmploiPoste:
+            type: string
+            length: 255
+            column: notification_emploi_poste
+        photo:
+            type: string
+            length: 255
+        status:
+            type: integer
+        newsletter:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
