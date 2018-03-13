@@ -1,3 +1,15 @@
 admin_homepage:
     path:     /
     defaults: { _controller: AdminBundle:Default:index }
+
+admin_entreprise_index:
+    path:     /entreprise/index
+    defaults: { _controller: AdminBundle:Entreprise:index }
+
+admin_entreprise_create:
+    path:     /entreprise/create
+    defaults: { _controller: AdminBundle:Entreprise:create }
+
+admin_entreprise_secteur_index:
+    path:     /entreprise/secteur
+    defaults: { _controller: AdminBundle:Entreprise:listeSecteur }

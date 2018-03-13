@@ -251,7 +251,7 @@
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
+                    <ul class="nav" id="main-menu">
 
                     <li>
                         <a class="active-menu" href="{{ path('admin_homepage') }}">
@@ -260,8 +260,46 @@
                     </li>
                     <li>
                         <a href="{{ path('admin_homepage') }}">
-                            <i class="fa fa-desktop"></i> UI Elements
+                            <i class="fa fa-desktop"></i> Offres d'emploi
                         </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ path('admin_entreprise_index') }}">Liste de toutes les entreprises</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_homepage') }}">Liste de toutes les offres d'emplois</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_homepage') }}">Liste des offres désactivées </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_homepage') }}">Gestion de CV par offre d'emploi</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_homepage') }}">Publicités</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_homepage') }}">Historiques des publicités</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_entreprise_secteur_index') }}">Liste de tous les secteurs d'activité</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_homepage') }}">Paramètre de la notification</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_homepage') }}">Lettre d'information</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_homepage') }}">Informations commerciales</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_homepage') }}">Compteur</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_homepage') }}">Réinitialisation  du mot de passe</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{{ path('admin_homepage') }}">
