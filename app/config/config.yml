@@ -49,6 +49,8 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
+        mapping_types:
+            enum: string
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/../var/data/data.sqlite"
@@ -82,8 +84,10 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     providers:
+        in_memory:
+            memory: ~
         fos_userbundle:
-            id: fos_user.user_provider.username
+            entity: { class: AppBundle\Entity\User, property: email }
 
     firewalls:
         dev:
@@ -103,4 +107,3 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/user/, role: ROLE_USER }
-        - { path: ^/admin/, role: ROLE_ADMIN }    

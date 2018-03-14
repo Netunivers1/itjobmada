@@ -22,15 +22,9 @@ class User extends FosUser
      */
     protected $id;
 
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
+        parent::__construct();
     }
 }
 

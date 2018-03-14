@@ -1,0 +1,64 @@
+AppBundle\Entity\Epizy_ecole:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\Epizy_ecoleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        place:
+            type: integer
+        newsletter:
+            type: string
+            length: 255
+        idUser:
+            type: integer
+            column: id_user
+        nom:
+            type: string
+            length: 255
+        address:
+            type: string
+            length: 255
+        bp:
+            type: integer
+        email:
+            type: string
+            length: 255
+        region:
+            type: string
+            length: 255
+        tel:
+            type: integer
+        nomResp:
+            type: string
+            length: 255
+            column: nom_resp
+        diplReconnu:
+            type: string
+            length: 255
+            column: dipl_reconnu
+        photo:
+            type: string
+            length: 255
+        site:
+            type: string
+            length: 255
+        lienfb:
+            type: string
+            length: 255
+        status:
+            type: integer
+        nbrVue:
+            type: integer
+            column: nbr_vue
+        created:
+            type: datetime
+        published:
+            type: datetime
+        featured:
+            type: datetime
+    lifecycleCallbacks: {  }
