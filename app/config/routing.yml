@@ -1,11 +1,16 @@
 front:
-    resource: "@FrontBundle/Resources/config/routing.yml"
+    resource: "@FrontBundle/Controller/"
     prefix:   /front
+    type: annotation
 
 admin:
-    resource: "@AdminBundle/Resources/config/routing.yml"
+    resource: "@AdminBundle/Controller/"
     prefix:   /admin
+    type: annotation
 
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"    
