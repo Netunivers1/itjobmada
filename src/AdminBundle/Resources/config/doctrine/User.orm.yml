@@ -1,0 +1,118 @@
+AdminBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        seoname:
+            type: string
+            length: 255
+            nullable: true
+        email:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        mdpChange:
+            type: integer
+            column: mdp_change
+        description:
+            type: text
+        status:
+            type: integer
+        idRole:
+            type: integer
+            column: id_role
+        idLocation:
+            type: integer
+            nullable: true
+            column: id_location
+        created:
+            type: datetime
+        lastModified:
+            type: datetime
+            nullable: true
+            column: last_modified
+        logins:
+            type: integer
+        lastLogin:
+            type: datetime
+            nullable: true
+            column: last_login
+        lastIp:
+            type: bigint
+            nullable: true
+            column: last_ip
+        userAgent:
+            type: string
+            length: 255
+            nullable: true
+            column: user_agent
+        token:
+            type: string
+            length: 255
+            nullable: true
+        tokenCreated:
+            type: datetime
+            column: token_created
+        tokenExpires:
+            type: datetime
+            column: token_expires
+        apiToken:
+            type: string
+            length: 255
+            nullable: true
+            column: api_token
+        hypridauthProviderName:
+            type: string
+            length: 255
+            nullable: true
+            column: hypridauth_provider_name
+        hypridauthProviderUid:
+            type: string
+            length: 255
+            nullable: true
+            column: hypridauth_provider_uid
+        subscriber:
+            type: integer
+        rate:
+            type: float
+        hasImage:
+            type: smallint
+            column: has_image
+        failedAttempts:
+            type: integer
+            column: failed_attempts
+        lastFailed:
+            type: datetime
+            nullable: true
+            column: last_failed
+        notificationDate:
+            type: datetime
+            nullable: true
+            column: notification_date
+        deviceId:
+            type: string
+            length: 255
+            nullable: true
+            column: device_id
+        stripeUserId:
+            type: string
+            length: 255
+            nullable: true
+            column: stripe_user_id
+        googleAuthenticator:
+            type: string
+            length: 255
+            nullable: true
+            column: google_authenticator
+    lifecycleCallbacks: {  }
