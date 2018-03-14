@@ -1,0 +1,63 @@
+AdminBundle\Entity\epizy_demandeur_cvs:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\epizy_demandeur_cvsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idDemandeur:
+            type: integer
+            column: id_demandeur
+        permis:
+            type: string
+            length: 255
+        emploiRecherche:
+            type: string
+            length: 255
+            column: emploi_recherche
+        emploirechercheId:
+            type: integer
+            column: emploirecherche_id
+        logiciel:
+            type: string
+            length: 255
+        logicielId:
+            type: integer
+            column: logiciel_id
+        langue:
+            type: string
+            length: 255
+        statu:
+            type: integer
+        reference:
+            type: string
+            length: 255
+        centreInteretCertificat:
+            type: string
+            length: 255
+            column: centre_interet_certificat
+        certificationId:
+            type: integer
+            column: certification_id
+        centreInteretProjet:
+            type: string
+            length: 255
+            column: centre_interet_projet
+        dateCreation:
+            type: datetime
+            column: date_creation
+        datePublished:
+            type: datetime
+            nullable: true
+            column: date_published
+        nbrVue:
+            type: integer
+            column: nbr_vue
+        position:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

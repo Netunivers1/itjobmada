@@ -1,0 +1,21 @@
+AdminBundle\Entity\epizy_logiciels:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\epizy_logicielsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        libele:
+            type: string
+            length: 255
+        etat:
+            type: integer
+            nullable: true
+        datetime:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
