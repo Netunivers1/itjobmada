@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Routing\Annotation\Route;
 class EntrepriseController extends Controller
 {
@@ -32,39 +33,27 @@ class EntrepriseController extends Controller
      * Matches /blog exactly
      *
      * @Route("/entreprise/create", name="admin_entreprise_create")
+     * * @Method({"GET", "POST"})
      */
     public function createAction(Request $request){
-        $entreprise = new epizy_entreprises();
-        $entreprise->setNotificationCvPoste('Oui');
-        $entreprise->setEmailResponsable('user@shasama.com');
-        $entreprise->setIdRole('11');
-        $entreprise->setIdUser('3');
-        $form = $this->createFormBuilder($entreprise)
-            ->add('nom_entreprise', TextType::class,array('label' => 'Nom de l\'entreprise'))
-            ->add('adresse_physique', TextType::class,array('label' => 'Adresse physique de l\'entreprise'))
-            ->add('nif',TextType::class, array('label'=>'Nif'))
-            ->add('statistique', TextType::class,array('label' => 'Numéro statistique'))
-            ->add('tel_fixe_entreprise', TextType::class,array('label' => 'Téléphone fixe de l\'entreprie'))
-            ->add('titre',TextType::class,array('label' => 'Titre') )
-            ->add('nom_responsable', TextType::class,array('label' => 'Nom du responsable'))
-            ->add('prenom_responsable', TextType::class, array('label'=> 'Prénom duresponsable'))
-            ->add('tel_mobil_responsable',TextType::class,array( 'label'=>'Téléphone mobile du responsable'))
-            ->add('secteur_activite', TextType::class, array('label'=>'secteur d\'activité'))
-            #   ->add('emaill_responsable', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Sauvegarder'))
-            ->getForm();
+        $epizy_entreprise = new Epizy_entreprise();
+        $form = $this->createForm('AdminBundle\Form\epizy_entreprisesType', $epizy_entreprise);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            $entreprise = $form->getData();
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($entreprise);
-            $em->flush($entreprise);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($epizy_entreprise);
+            $em->flush($epizy_entreprise);
+
             return $this->redirectToRoute('admin_entreprise_index');
         }
-        return  $this->render('AdminBundle:OffreEmploi:create_entreprise.html.twig',array(
+
+        return $this->render('AdminBundle:OffreEmploi:create_entreprise.html.twig', array(
+            'epizy_entreprise' => $epizy_entreprise,
             'form' => $form->createView(),
         ));
     }
+
     /**
      * Matches /blog exactly
      *
@@ -75,4 +64,27 @@ class EntrepriseController extends Controller
         $listSecteur = $em->getRepository('AdminBundle:epizy_secteur_activites')->findAll();
         return  $this->render('AdminBundle:OffreEmploi:liste_secteur.html.twig', array('listSecteur'=>$listSecteur));
     }
+
+    /**
+     * Finds and displays a epizy_entreprise entity.
+     *
+     * @Route("/detail/{id}", name="entreprise_show")
+     * @Method("GET")
+     */
+    public function showAction($id)
+    {
+        $em =  $this->getDoctrine()->getManager();
+        $epizy_entreprise = $em->getRepository('AdminBundle:epizy_entreprises')->find($id);
+        if(null == $epizy_entreprise){
+            throw new NotFoundHttpException('entreprise introuvable');
+        }
+        $deleteForm = $this->createDeleteForm($epizy_entreprise);
+
+        return $this->render('AdminBundle:OffreEmploi:liste_secteur.html.twig', array(
+            'epizy_entreprise' => $epizy_entreprise,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+
 }

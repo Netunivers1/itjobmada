@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Details entreprise {{ epizy_entreprise.nomEntreprise }} </h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Nomentreprise</th>
+            <td>{{ epizy_entreprise.nomEntreprise }}</td>
+        </tr>
+        <tr>
+            <th>Adressephysique</th>
+            <td>{{ epizy_entreprise.adressePhysique }}</td>
+        </tr>
+        <tr>
+            <th>Nif</th>
+            <td>{{ epizy_entreprise.nif }}</td>
+        </tr>
+        <tr>
+            <th>Statistique</th>
+            <td>{{ epizy_entreprise.statistique }}</td>
+        </tr>
+        <tr>
+            <th>Telfixeentreprise</th>
+            <td>{{ epizy_entreprise.telFixeEntreprise }}</td>
+        </tr>
+        <tr>
+            <th>Titre</th>
+            <td>{{ epizy_entreprise.titre }}</td>
+        </tr>
+        <tr>
+            <th>Nomresponsable</th>
+            <td>{{ epizy_entreprise.nomResponsable }}</td>
+        </tr>
+        <tr>
+            <th>Prenomresponsable</th>
+            <td>{{ epizy_entreprise.prenomResponsable }}</td>
+        </tr>
+        <tr>
+            <th>Emailresponsable</th>
+            <td>{{ epizy_entreprise.emailResponsable }}</td>
+        </tr>
+        <tr>
+            <th>Telmobilresponsable</th>
+            <td>{{ epizy_entreprise.telMobilResponsable }}</td>
+        </tr>
+        <tr>
+            <th>Secteuractivite</th>
+            <td>{{ epizy_entreprise.secteurActivite }}</td>
+        </tr>
+        <tr>
+            <th>Newsletter</th>
+            <td>{{ epizy_entreprise.newsletter }}</td>
+        </tr>
+        <tr>
+            <th>Notificationcvposte</th>
+            <td>{{ epizy_entreprise.notificationCvPoste }}</td>
+        </tr>
+        <tr>
+            <th>Notificationdatelimiteoffre</th>
+            <td>{{ epizy_entreprise.notificationDatelimiteOffre }}</td>
+        </tr>
+
+        <tr>
+            <th>Dateajout</th>
+            <td>{{ epizy_entreprise.dateAjout }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('entreprise_index') }}">Retour à la liste</a>
+        </li>
+        <li>
+            <a href="{{ path('entreprise_edit', { 'id': epizy_entreprise.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
