@@ -17,10 +17,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Routing\Annotation\Route;
 
 class EntrepriseController extends Controller
 {
-
+    /**
+     * Matches /blog exactly
+     *
+     * @Route("/entreprise/index", name="admin_entreprise_index")
+     */
     public function indexAction(){
         $entreprise = new epizy_entreprises();
         $em = $this->getDoctrine()->getManager();
@@ -28,7 +33,11 @@ class EntrepriseController extends Controller
 
         return $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig', array('listEntreprise'=>$listEntreprise));
     }
-
+    /**
+     * Matches /blog exactly
+     *
+     * @Route("/entreprise/create", name="admin_entreprise_create")
+     */
     public function createAction(Request $request){
         $entreprise = new epizy_entreprises();
         $entreprise->setNotificationCvPoste('Oui');
@@ -65,7 +74,11 @@ class EntrepriseController extends Controller
         ));
     }
 
-
+    /**
+     * Matches /blog exactly
+     *
+     * @Route("/entreprise/secteur", name="admin_entreprise_secteur_index")
+     */
     public function listeSecteurAction(){
         $em =  $this->getDoctrine()->getManager();
 
