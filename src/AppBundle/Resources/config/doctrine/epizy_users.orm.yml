@@ -1,0 +1,121 @@
+AppBundle\Entity\epizy_users:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\epizy_usersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: true
+        seoname:
+            type: string
+            length: 255
+            nullable: true
+        email:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        mdpChange:
+            type: integer
+            column: mdp_change
+        description:
+            type: text
+            nullable: true
+        status:
+            type: integer
+        idRole:
+            type: integer
+            nullable: true
+            column: id_role
+        idLocation:
+            type: integer
+            nullable: true
+            column: id_location
+        created:
+            type: time
+        lastModified:
+            type: datetime
+            nullable: true
+            column: last_modified
+        logins:
+            type: integer
+            nullable: true
+        lastLogin:
+            type: datetime
+            nullable: true
+            column: last_login
+        lastIp:
+            type: bigint
+            nullable: true
+            column: last_ip
+        userAgent:
+            type: string
+            length: 255
+            nullable: true
+            column: user_agent
+        token:
+            type: string
+            length: 255
+            nullable: true
+        tokenCreated:
+            type: datetime
+            nullable: true
+            column: token_created
+        tokenExpires:
+            type: datetime
+            nullable: true
+            column: token_expires
+        apiToken:
+            type: string
+            length: 255
+            nullable: true
+            column: api_token
+        hybridauthProviderName:
+            type: string
+            length: 255
+            nullable: true
+            column: hybridauth_provider_name
+        hybridauthProviderUid:
+            type: string
+            length: 255
+            nullable: true
+            column: hybridauth_provider_uid
+        subscriber:
+            type: smallint
+        rate:
+            type: float
+            nullable: true
+        hasImage:
+            type: smallint
+            column: has_image
+        failedAttempts:
+            type: integer
+            column: failed_attempts
+        notificationDate:
+            type: datetime
+            nullable: true
+            column: notification_date
+        deviceId:
+            type: string
+            length: 255
+            nullable: true
+            column: device_id
+        stripeUserId:
+            type: string
+            length: 255
+            nullable: true
+            column: stripe_user_id
+        googleAuthentificator:
+            type: string
+            length: 255
+            nullable: true
+            column: google_authentificator
+    lifecycleCallbacks: {  }
