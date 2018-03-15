@@ -1,0 +1,42 @@
+AdminBundle\Entity\epizy_demandeur_formations:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\epizy_demandeur_formationsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idDemandeur:
+            type: integer
+            column: id_demandeur
+        idCvs:
+            type: integer
+            column: id_cvs
+        annee:
+            type: string
+            length: 255
+        ville:
+            type: string
+            length: 255
+        villeId:
+            type: integer
+            column: ville_id
+        pays:
+            type: string
+            length: 255
+        diplome:
+            type: string
+            length: 255
+        diplomeId:
+            type: integer
+            column: diplome_id
+        universite:
+            type: string
+            length: 255
+        universiteId:
+            type: integer
+            column: universite_id
+    lifecycleCallbacks: {  }

@@ -1,0 +1,58 @@
+AdminBundle\Entity\epizy_demandeur_experience:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\epizy_demandeur_experienceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idDemandeur:
+            type: integer
+            column: id_demandeur
+        idCvs:
+            type: integer
+            column: id_cvs
+        moisDebut:
+            type: string
+            length: 255
+            column: mois_debut
+        moisFin:
+            type: string
+            length: 255
+            column: mois_fin
+        annee:
+            type: integer
+        ville:
+            type: string
+            length: 255
+        villeId:
+            type: integer
+            column: ville_id
+        pays:
+            type: string
+            length: 255
+        nomEntreprise:
+            type: string
+            length: 255
+            column: nom_entreprise
+        secteurActivite:
+            type: string
+            length: 255
+            column: secteur_activite
+        secteuractiviteId:
+            type: integer
+            column: secteuractivite_id
+        posteOccupe:
+            type: string
+            length: 255
+            column: poste_occupe
+        posteoccupeId:
+            type: integer
+            column: posteoccupe_id
+        missionTache:
+            type: text
+            column: mission_tache
+    lifecycleCallbacks: {  }

@@ -1,0 +1,20 @@
+AdminBundle\Entity\epizy_poste_occupes:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\epizy_poste_occupesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        libele:
+            type: string
+            length: 255
+        etat:
+            type: string
+            length: 255
+        created:
+            type: datetime
+    lifecycleCallbacks: {  }
