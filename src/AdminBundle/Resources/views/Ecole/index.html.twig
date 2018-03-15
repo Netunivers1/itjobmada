@@ -1,0 +1,38 @@
+{% extends '@Admin/list-base-admin.html.twig' %}
+
+{% block title %}
+    Ecole ou Université
+{% endblock title %}
+
+{% block body %}
+    <div id="form_holder">
+        {{ parent() }}
+        <a href="{{ path('ecole_new') }}">Nouveau Ecole</a>
+        <table>
+            <thead>
+                <tr>
+                    <td><input type="checkbox" class="checkbox_select_all"/></td>
+                    <td>#</td>
+                    <td>Nom école</td>
+                    <td>Vues</td>
+                    <td>Statut</td>
+                    <td>Publiée</td>
+                    <td>Crée</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ecole_value in ecole %}
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>{{ ecole_value.id }}</td>
+                        <td>{{ ecole_value.nom }}</td>
+                        <td>{{ ecole_value.nbrvue }}</td>
+                        <td>{{ (ecole_value.status == 1) ? "activé" : "désactivé" }}</td>
+                        <td>{{ ecole_value.published }}</td>
+                        <td>{{ ecole_value.created }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock body %}
