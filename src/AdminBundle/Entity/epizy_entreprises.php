@@ -2,201 +2,143 @@
 
 namespace AdminBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * epizy_entreprises
- *
- * @ORM\Table(name="epizy_entreprises")
- * @ORM\Entity(repositoryClass="AdminBundle\Repository\epizy_entreprisesRepository")
  */
 class epizy_entreprises
 {
     /**
      * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer")
      */
     private $idUser;
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="id_role", type="integer")
      */
     private $idRole;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nom_entreprise", type="string", length=255)
      */
     private $nomEntreprise;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="adresse_physique", type="string", length=255)
      */
     private $adressePhysique;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nif", type="string", length=255)
      */
     private $nif;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="statistique", type="string", length=255)
      */
     private $statistique;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="tel_fixe_entreprise", type="string", length=255)
      */
     private $telFixeEntreprise;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="titre", type="string", length=255, nullable=true)
      */
     private $titre;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nom_responsable", type="string", length=255)
      */
     private $nomResponsable;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="prenom_responsable", type="string", length=255)
      */
     private $prenomResponsable;
 
-
     /**
      * @var string
-     *
-     * @ORM\Column(name="emaill_responsable", type="string", length=255,unique=true)
-     */
-    private $emailResponsable;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="tel_mobil_responsable", type="string", length=255)
      */
     private $telMobilResponsable;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="secteur_activite", type="string", length=255)
+     */
+    private $emailResponsable;
+
+    /**
+     * @var string
      */
     private $secteurActivite;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="newsletter", type="string", length=255, nullable=true)
      */
     private $newsletter;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="notification_cv_poste", type="string", length=255, nullable=true)
      */
     private $notificationCvPoste;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="notification_datelimite_offre", type="string", length=255, nullable=true)
      */
     private $notificationDatelimiteOffre;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="voeux", type="string", length=255, nullable=true)
      */
     private $voeux;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="region", type="string", length=100, nullable=true)
      */
     private $region;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="produit_vendu", type="string", length=1024, nullable=true)
      */
     private $produitVendu;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="photo1", type="string", length=255, nullable=true)
      */
     private $photo1;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="photo2", type="string", length=255, nullable=true)
      */
     private $photo2;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="autres", type="string", length=1024, nullable=true)
      */
     private $autres;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="reference", type="string", length=255, nullable=true)
      */
     private $reference;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="date_ajout", type="datetimetz")
      */
     private $dateAjout;
 
+    
     public function __construct()
     {
 
         $this->dateAjout = new \Datetime();
 
     }
-
     /**
      * Get id
      *
@@ -469,6 +411,30 @@ class epizy_entreprises
     public function getTelMobilResponsable()
     {
         return $this->telMobilResponsable;
+    }
+
+    /**
+     * Set emailResponsable
+     *
+     * @param string $emailResponsable
+     *
+     * @return epizy_entreprises
+     */
+    public function setEmailResponsable($emailResponsable)
+    {
+        $this->emailResponsable = $emailResponsable;
+
+        return $this;
+    }
+
+    /**
+     * Get emailResponsable
+     *
+     * @return string
+     */
+    public function getEmailResponsable()
+    {
+        return $this->emailResponsable;
     }
 
     /**
@@ -757,29 +723,5 @@ class epizy_entreprises
     public function getDateAjout()
     {
         return $this->dateAjout;
-    }
-
-    /**
-     * Set emailResponsable
-     *
-     * @param string $emailResponsable
-     *
-     * @return epizy_entreprises
-     */
-    public function setEmailResponsable($emailResponsable)
-    {
-        $this->emailResponsable = $emailResponsable;
-
-        return $this;
-    }
-
-    /**
-     * Get emailResponsable
-     *
-     * @return string
-     */
-    public function getEmailResponsable()
-    {
-        return $this->emailResponsable;
     }
 }

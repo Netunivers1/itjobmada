@@ -2,59 +2,36 @@
 
 namespace AdminBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * epizy_roles
- *
- * @ORM\Table(name="epizy_roles")
- * @ORM\Entity(repositoryClass="AdminBundle\Repository\epizy_rolesRepository")
  */
 class epizy_roles
 {
     /**
      * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="id_role", type="integer")
      */
     private $idRole;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=45, nullable=true, unique=true)
      */
     private $name;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=245, nullable=true)
      */
     private $description;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="date_created", type="datetimetz")
      */
     private $dateCreated;
 
-    public function __construct()
-    {
-
-        $this->dateCreated = new \Datetime();
-
-    }
 
     /**
      * Get id
@@ -162,3 +139,4 @@ class epizy_roles
         return $this->dateCreated;
     }
 }
+
