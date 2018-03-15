@@ -23,7 +23,7 @@ class epizy_logiciels
     private $etat;
 
     /**
-     * @var string
+     * @var datetime
      */
     private $created;
 
@@ -109,33 +109,6 @@ class epizy_logiciels
     {
         return $this->created;
     }
-    /**
-     * @var string
-     */
-    private $datetime;
 
 
-    /**
-     * Set datetime
-     *
-     * @param string $datetime
-     *
-     * @return epizy_logiciels
-     */
-    public function setDatetime($datetime)
-    {
-        $this->datetime = $datetime;
-
-        return $this;
-    }
-
-    /**
-     * Get datetime
-     *
-     * @return string
-     */
-    public function getDatetime()
-    {
-        return $this->datetime;
-    }
 }

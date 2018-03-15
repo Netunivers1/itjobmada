@@ -53,6 +53,10 @@ AdminBundle\Entity\epizy_demandeur_emplois:
             type: string
             length: 255
             column: choix_emploi
+        choixFormation:
+            type: string
+            length: 255
+            column: choix_formation
         notificationEmploiPoste:
             type: string
             length: 255
