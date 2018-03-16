@@ -1,0 +1,100 @@
+AdminBundle\Entity\epizy_entreprises:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\epizy_entreprisesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+            column: id_user
+        idRole:
+            type: integer
+            column: id_role
+        nomEntreprise:
+            type: string
+            length: 255
+            column: nom_entreprise
+        adressePhysique:
+            type: string
+            length: 255
+            column: adresse_physique
+        nif:
+            type: string
+            length: 255
+        statistique:
+            type: string
+            length: 255
+        telFixeEntreprise:
+            type: string
+            length: 255
+            column: tel_fixe_entreprise
+        titre:
+            type: string
+            length: 255
+            nullable: true
+        nomResponsable:
+            type: string
+            length: 255
+            column: nom_responsable
+        prenomResponsable:
+            type: string
+            length: 255
+            column: prenom_responsable
+        telMobilResponsable:
+            type: string
+            length: 255
+            column: tel_mobil_responsable
+        emailResponsable:
+            type: string
+            length: '500'
+            column: email_responsable
+        secteurActivite:
+            type: string
+            length: 255
+            column: secteur_activite
+        newsletter:
+            type: string
+            length: 255
+            nullable: true
+        notificationCvPoste:
+            type: string
+            length: 255
+            nullable: true
+            column: notification_cv_poste
+        notificationDatelimiteOffre:
+            type: string
+            length: 255
+            nullable: true
+            column: notification_datelimite_offre
+        voeux:
+            type: string
+            length: 255
+            nullable: true
+        region:
+            type: string
+            length: '100'
+        produitVendu:
+            type: string
+            length: '1024'
+            column: produit_vendu
+        photo1:
+            type: string
+            length: 255
+        photo2:
+            type: string
+            length: 255
+        autres:
+            type: string
+            length: '1024'
+        reference:
+            type: string
+            length: 255
+        dateAjout:
+            type: datetimetz
+            column: date_ajout
+    lifecycleCallbacks: {  }

@@ -1,0 +1,27 @@
+AdminBundle\Entity\epizy_roles:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\epizy_rolesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idRole:
+            type: integer
+            column: id_role
+        name:
+            type: string
+            length: 255
+            nullable: true
+            unique: true
+        description:
+            type: string
+            length: '245'
+            nullable: true
+        dateCreated:
+            type: datetimetz
+            column: date_created
+    lifecycleCallbacks: {  }

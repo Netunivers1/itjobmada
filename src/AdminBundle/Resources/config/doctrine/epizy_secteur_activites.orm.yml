@@ -1,0 +1,21 @@
+AdminBundle\Entity\epizy_secteur_activites:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\epizy_secteur_activitesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        libele:
+            type: string
+            length: 255
+        etat:
+            type: string
+            length: 255
+        created:
+            type: datetimetz
+            length: 255
+    lifecycleCallbacks: {  }
