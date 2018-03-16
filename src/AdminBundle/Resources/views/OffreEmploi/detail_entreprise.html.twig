@@ -1,0 +1,90 @@
+{% extends '::base.html.twig' %}
+    {% block body %}
+        <div id="page-wrapper">
+            <div id="page-inner">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('admin_homepage')}}">Tableau de bord</a></li>
+                    <li class="breadcrumb-item">Detail entreprise</li>
+                </ol>
+            </nav>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                           Detail entreprise : {{entreprises.nomEntreprise}}
+                        </h1>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form>
+                          <fieldset>
+                             <legend>Description : </legend>
+                           <table>
+                                <tbody>
+                                    <tr>
+                                        <th>Secteur d'activité:</th>
+                                        <td>{{ entreprises.secteurActivite}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Adresse entreprise:</th>
+                                        <td>{{ entreprises.adressePhysique }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nif:</th>
+                                        <td>{{ entreprises.nif }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Statistique:</th>
+                                        <td>{{ entreprises.statistique }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Téléphone entreprise:</th>
+                                        <td>{{ entreprises.telFixeEntreprise }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nom responsable:</th>
+                                        <td>{{ entreprises.nomResponsable }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Téléphone responsable:</th>
+                                        <td>{{ entreprises.telMobilResponsable }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email responsable</th>
+                                        <td>{{ entreprises.emailResponsable }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date d'ajout</th>
+                                        <td>{{ entreprises.dateAjout|date("m/d/Y") }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Newsletter</th>
+                                        <td>{{ entreprises.newsletter }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Notification quand un nouveau CV est insérer</th>
+                                        <td>{{ entreprises.notificationCvPoste}} </td>
+                                    </tr>
+                                </tbody>
+                           </table>
+                          </fieldset>
+                        </form>
+                       
+                    </div>
+                    <div class="panel-footer" >
+                         <a href="{{ path('admin_entreprise_index')}} " class="btn btn-light">Retour</a>
+                         <a href="{{ path('admin_entreprise_edit', { 'id': entreprises.id}) }}" class="btn btn-success">Modifier</a>
+                    </div>
+                   
+                </div>
+
+
+
+              
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+    {% endblock body %}
+  
