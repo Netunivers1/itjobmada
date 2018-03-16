@@ -1,0 +1,40 @@
+{% extends '@Admin/base-admin.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset("assets/animate/animate.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/select2/select2.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main-table.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/admin-list.css') }}"
+{% endblock stylesheets %}
+
+{% block body %}
+    <div class="rubrique_list_value" >
+        <div class="table_caption">
+            <section class="list_option">
+                <nav>
+                    <ul>
+                        <li><a href="" class="btn btn-primary">Tous les éléments</a></li>
+                        <li><a href="" class="btn btn-primary">Désactivés</a></li>
+                        <li><a href="" class="btn btn-primary">Activés</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <aside class="new_element">
+                {% block inner_body_new %}{% endblock inner_body_new %}
+            </aside>
+        </div>
+        {% block inner_body_table %}
+        {% endblock inner_body_table %}
+    </div>
+
+{% endblock body %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{{ asset('assets/js/admin/ecole/scripts.js') }}"></script>
+{% endblock scripts %}
