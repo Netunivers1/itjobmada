@@ -1,1 +1,33 @@
-{{ form_widget(form) }}
+{% extends '::base.html.twig' %}
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_errors(form_emplois)}}
+        {{ form_row( form_emplois.audition, {'label':'Achat de place :' } )}}
+        {{ form_row( form_emplois.emploiTrouve, {'label':'Ce candidat a trouvé un emploi :' } )}}
+        {{ form_row( form_emplois.photo, {'label':'Photo :' } )}}
+        {{ form_row( form_emplois.titre, {'label':'Titre :' } )}}
+        {{ form_row( form_emplois.nom, {'label':'Nom:' } )}}
+        {{ form_row( form_emplois.prenom, {'label':'Prenom:' } )}}
+        {{ form_row( form_emplois.email, {'label':'Email :' } )}}
+        {{ form_row( form_emplois.adresse, {'label':'Adresse :' } )}}
+        {{ form_row( form_emplois.ville, {'label':'Ville :' } )}}
+        {{ form_row( form_emplois.region, {'label':'Région :' } )}}
+        {{ form_row( form_emplois.telephone, {'label':'Telephone :' } )}}
+        {{ form_row( form_emplois.dateDeNaissance, {'label':'Date De Naissance :' } )}}
+        {{ form_row( form_emplois.status, {'label':'Status :' } )}}
+        {{ form_row( form_cvs.permis, {'label':'Permis :' } )}}
+        {{ form_row( form_cvs.emploiRecherche, {'label':'Emploi Recherché :' } )}}
+        {{ form_row( form_emplois.notificationEmploiPoste, {'label':'Souhaitez-vous recevoir une notification quand une offre d’emploi est postée sur Itjobmada :' } )}}
+        {{ form_row( form_emplois.choixEmploi, {'label':'Recevoir une notification pour quel emploi ?' } )}}
+        {{ form_row( form_emplois.notificationFormationPoste, {'label':'Souhaitez-vous recevoir une notification quand une formation est postée sur Itjobmada:' } )}}
+        {{ form_row( form_emplois.choixFormation, {'label':'Recevoir une notification pour quelle formation ? :' } )}}
+        {{ form_row( form_emplois.newsletter, {'label':'Voulez-vous recevoir nos nouvelles du mois :' } )}}
+        {{ form_row( form_cvs.logiciel, { 'labe': 'Logiciel :'}) }}
+        {{ form_row( form_cvs.langue, { 'labe': 'Langue :'}) }}
+        {{ form_row( form_formation) }}
+        {{ form_row( form_experience) }}
+        {{ form_row( form_cvs.centreInteretCertificat, {'label':'Divers :' } )}}
+        {{ form_row( form_cvs.centreInteretProjet, {'label':'Projet :' } )}}
+        <input type="submit" class="btn btn-primary">
+    {{ form_end(form) }}
+{% endblock %}

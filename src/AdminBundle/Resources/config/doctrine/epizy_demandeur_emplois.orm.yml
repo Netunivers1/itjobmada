@@ -64,6 +64,7 @@ AdminBundle\Entity\epizy_demandeur_emplois:
         photo:
             type: string
             length: 255
+            nullable: true
         status:
             type: integer
         newsletter:

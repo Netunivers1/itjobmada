@@ -90,6 +90,7 @@ AppBundle\Entity\epizy_users:
             column: hybridauth_provider_uid
         subscriber:
             type: smallint
+            nullable: true
         rate:
             type: float
             nullable: true
@@ -99,6 +100,7 @@ AppBundle\Entity\epizy_users:
         failedAttempts:
             type: integer
             column: failed_attempts
+            nullable: true
         notificationDate:
             type: datetime
             nullable: true

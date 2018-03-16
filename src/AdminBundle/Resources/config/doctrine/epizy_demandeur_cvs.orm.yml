@@ -60,4 +60,5 @@ AdminBundle\Entity\epizy_demandeur_cvs:
         position:
             type: string
             length: 255
+            nullable: true
     lifecycleCallbacks: {  }
