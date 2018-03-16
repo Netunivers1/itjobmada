@@ -1,0 +1,51 @@
+{% extends '@Admin/form-base-admin.html.twig' %}
+
+{% block title %}
+    Ecole ou Université
+{% endblock title %}
+
+{% block breadcrumb %}
+    test
+{% endblock breadcrumb %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_label(form.nom) }}
+        {{ form_widget(form.nom, {'attr': {'value': (ecole is defined) ? ecole.nom : ""}}) }}
+
+        {{ form_label(form.adress) }}
+        {{ form_widget(form.adress, {'attr': {'value': (ecole is defined) ? ecole.adress : ""}}) }}
+
+        {{ form_label(form.adress) }}
+        {{ form_widget(form.adress, {'attr': {'value': (ecole is defined) ? ecole.adress : ""}}) }}
+
+        {{ form_label(form.bp) }}
+        {{ form_widget(form.bp, {'attr': {'value': (ecole is defined) ? ecole.bp : ""}}) }}
+
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email, {'attr': {'value': (ecole is defined) ? ecole.email : ""}}) }}
+
+        {{ form_label(form.region) }}
+        {{ form_widget(form.region, {'attr': {'value': (ecole is defined) ? ecole.region : ""}}) }}
+
+        {{ form_label(form.tel) }}
+        {{ form_widget(form.tel, {'attr': {'value': (ecole is defined) ? ecole.tel : ""}}) }}
+
+        {{ form_label(form.nom_resp) }}
+        {{ form_widget(form.nom_resp, {'attr': {'value': (ecole is defined) ? ecole.nomResp : ""}}) }}
+
+        {{ form_label(form.diplReconnu) }}
+        {{ form_widget(form.diplReconnu, {'attr': {'value': (ecole is defined) ? ecole.diplReconnu : ""}}) }}
+
+        {{ form_label(form.photo) }}
+        {{ form_widget(form.photo, {'attr': {'value': (ecole is defined) ? ecole.photo : ""}}) }}
+
+        {{ form_label(form.site) }}
+        {{ form_widget(form.site, {'attr': {'value': (ecole is defined) ? ecole.nom : ""}}) }}
+
+        {{ form_label(form.lienfb) }}
+        {{ form_widget(form.lienfb, {'attr': {'value': (ecole is defined) ? ecole.lienfb : ""}}) }}
+
+        <a href="{{ path('ecole_homepage') }}" class="btn btn-primary">Retour</a>
+    {{ form_end(form) }}
+{% endblock body %}

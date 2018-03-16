@@ -1,0 +1,62 @@
+{% extends '@Admin/list-base-admin.html.twig' %}
+
+{% block title %}
+    Ecole ou Université
+{% endblock title %}
+
+{% block inner_body_new %}
+    <a href="{{ path('ecole_new') }}" class="btn btn-primary">Nouveau Ecole</a>
+{% endblock inner_body_new %}
+
+{% block inner_body_table %}
+<table>
+    <thead>
+        <tr>
+            <th><input type="checkbox" class="checkbox_select_all"/></th>
+            <th>#</th>
+            <th>Nom école</th>
+            <th>Vues</th>
+            <th>Statut</th>
+            <th>Publiée</th>
+            <th>Crée</th>
+            <th><span class="ti-settings" ></span></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ecole_value in ecole %}
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>{{ ecole_value.id }}</td>
+                <td>{{ ecole_value.nom }}</td>
+                <td>{{ ecole_value.nbrvue }}</td>
+                <td>{{ (ecole_value.status == 1) ? "activé" : "désactivé" }}</td>
+                <td>{{ ecole_value.published }}</td>
+                <td>{{ ecole_value.created|date('Y-m-d') }}</td>
+                <td>
+                    <a href="{{ path('ecole_edit', {'ecole_id': ecole_value.id}) }}">
+                        <span class="ti-pencil btn btn-primary"></span>
+                    </a>
+
+                    <span class="ti-settings btn">
+                        <div id="ti-close-menu">
+                            {% if (ecole_value.status == 1) %}
+                                <a href="{{ path('ecole_change_status', {'status': 0, 'ecole_id': ecole_value.id}) }}">
+                                    <span class="ti-close status btn"></span>
+                                </a>
+                            {% else %}
+                                <a href="{{ path('ecole_change_status', {'status': 1, 'ecole_id': ecole_value.id}) }}">
+                                    <span class="ti-check status btn"></span>
+                                </a>
+                            {% endif %}
+
+                            <a href="{{ path('ecole_delete', {'ecole_id': ecole_value.id}) }}">
+                                <span class="ti-close btn"></span>
+                            </a>
+                    </div>
+                    </span>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock inner_body_table %}

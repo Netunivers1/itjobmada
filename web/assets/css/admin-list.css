@@ -1,0 +1,24 @@
+.rubrique_list_value section.list_option
+{
+    float: left;
+}
+.rubrique_list_value section.list_option li
+{
+    list-style: none;
+    display: inline-block;
+}
+.rubrique_list_value aside.new_element
+{
+    float: right;
+}
+.rubrique_list_value div.table_caption
+{
+    height: 60px;
+}
+#ti-close-menu
+{
+    display: none;
+    position: absolute;
+    top: -21%;
+    right: -1%;
+}
