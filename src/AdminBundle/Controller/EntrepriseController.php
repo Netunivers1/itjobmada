@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -28,9 +28,21 @@ class EntrepriseController extends Controller
      * @Route("/entreprise/index", name="admin_entreprise_index")
      */
     public function indexAction(){
-        $entreprise = new epizy_entreprises();
+      /*  $entreprise = new epizy_entreprises();
         $em = $this->getDoctrine()->getManager();
         $listEntreprise= $em->getRepository('AdminBundle:epizy_entreprises')->findAll();
+        return $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig', array('listEntreprise'=>$listEntreprise));
+        */
+         $entreprise = new epizy_entreprises();
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+        $qb ->select('e.id,e.idUser,e.nomEntreprise, e.secteurActivite, e.telMobilResponsable,e.emailResponsable, e.adressePhysique,e.notificationCvPoste, u.status')
+            ->from('AdminBundle\Entity\epizy_entreprises', 'e')
+            ->from('AppBundle\Entity\epizy_users', 'u')
+            ->where('e.idUser = u.id');
+
+        $listEntreprise= $qb->getQuery()->getResult();
+         //var_dump($listEntreprise);
         return $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig', array('listEntreprise'=>$listEntreprise));
     }
     /**
@@ -46,9 +58,8 @@ class EntrepriseController extends Controller
         $libelleSecteur = array();
                 foreach ($listeSecteur as $secteur) {
                                  array_push($libelleSecteur,$secteur->getLibele());
-                                }
-                                     
-        
+                                }                         
+        $entreprise -> setPrenomResponsable('null');
         $entreprise -> setRegion('null');
         $entreprise -> setProduitVendu('null');
         $entreprise -> setPhoto1('null');
@@ -81,50 +92,39 @@ class EntrepriseController extends Controller
                       'Mr'  =>'Mr',
                       'Mme' =>'Mme',
                       'Mlle'=> 'Mlle'  ),
-                    'attr'=>array('class'=>'form-control')
+                    'attr'=>array('class'=>'form-control', /*'style'=>'width:9%'*/)
                      )
                 )
             ->add('nom_responsable', TextType::class,array(
                 'label'=> 'Nom du responsable',
                 'attr' =>array('class'=>'form-control')
                 ))
-            ->add('prenom_responsable', TextType::class, array(
-                'label'=> 'Prénom du responsable:',
-                'attr' =>array('class'=>'form-control')
-                ))
-            ->add('emailResponsable',EmailType::class, array(
-                'label'=>'Email du responsable:',
-                'attr' =>array('class'=>'form-control')
-                ) )
             ->add('tel_mobil_responsable',TextType::class,array( 
                 'label'=>'Téléphone mobile du responsable:',
                 'attr' =>array('class'=>'form-control')
                 ))
+           /* ->add('prenom_responsable', TextType::class, array(
+                'label'=> 'Prénom du responsable:',
+                'attr' =>array('class'=>'form-control')
+                ))*/
+            ->add('emailResponsable',EmailType::class, array(
+                'label'=>'Email du responsable:',
+                'attr' =>array('class'=>'form-control')
+                ) )          
            
             ->add('secteurActivite', ChoiceType::class, 
-                       array('choices' => $libelleSecteur                        )  
-                )
-           /*
-            ->add('secteurActivite', EntityType::class, array(
-                'class' => 'AdminBundle:epizy_secteur_activites',
-                 'query_builder' => function (entityRepository $er) {
-                 return $er->createQueryBuilder('s')
-                            ->select('s.libele')
-                            ->where('s.etat = :etat')
-                            ->setParamater('etat', 1);
-                 },
-                 'choice_label' => 'Secteur d\' activité' ,
-                ));
-                */
-            ->add('notificationCvPoste',ChoiceType::class ,
-                array(
-                    'label'   => 'Souhaitez-vous recevoir une notification à chaque nouvelle insertion d\'un CV ?',
-                    'attr'    =>array('class'=>'form-control'),
-                    'choices' =>array(
+                       array('choices' => array_flip($libelleSecteur) 
+                                              )  
+                )           
+             ->add('notificationCvPoste', ChoiceType::class, [
+                    'choices'  => array(
                       'Oui'=>'Oui',
                       'Non'=>'Non'
                      ),
-                ) )
+                    'multiple' => false,
+                    'expanded' => true,
+                    'label'   => 'Souhaitez-vous recevoir une notification à chaque nouvelle insertion d\'un CV ?'
+                ])
 
             ->add('save', SubmitType::class, array(
                 'label'=> 'Sauvegarder', 
@@ -145,6 +145,8 @@ class EntrepriseController extends Controller
             $em = $this->getDoctrine()->getEntityManager();
             $em ->persist($entreprise);
             $em ->flush($entreprise);
+
+            $this-> addFlash('message','L\' inscription a bien été enregistrée. Un email de confirmation contenant l\'identifiant et le mot de passe a été envoyé au client.');
             return $this->redirectToRoute('admin_entreprise_index');
         }
         return  $this->render('AdminBundle:OffreEmploi:create_entreprise.html.twig',array(
@@ -174,18 +176,159 @@ class EntrepriseController extends Controller
                    ->getResult();
     }
 
-    public function updateAction(){
+      /**
+     * @Route("/entreprise/edit/{id}", name="admin_entreprise_edit")
+     */
+    public function updateAction(Request $request, $id){
+        $em           = $this->getDoctrine()->getManager();
+        $listeSecteur = new epizy_secteur_activites();
+        $listeSecteur = $this->getDoctrine()->getManager()
+                            ->getRepository('AdminBundle:epizy_secteur_activites')->findByEtat(1);
+        $libelleSecteur = array();
+                foreach ($listeSecteur as $secteur) {
+                                 array_push($libelleSecteur,$secteur->getLibele());
+                                }
+
+        $entreprises = $em->getRepository('AdminBundle:epizy_entreprises')->find($id);
+        $entreprises -> setNomEntreprise($entreprises->getNomEntreprise());
+        $entreprises -> setAdressePhysique($entreprises->getAdressePhysique());
+        $entreprises -> setNif($entreprises->getNif());
+        $entreprises -> setStatistique($entreprises->getStatistique());
+        $entreprises -> setTelFixeEntreprise($entreprises->getTelFixeEntreprise());
+        $entreprises -> setTitre($entreprises->getTitre());
+        $entreprises -> setNomResponsable($entreprises->getNomResponsable());
+        $entreprises -> setPrenomResponsable($entreprises->getPrenomResponsable());
+        $entreprises -> setTelMobilResponsable($entreprises->getTelMobilResponsable());
+        $entreprises -> setEmailResponsable($entreprises->getEmailResponsable());
+        $entreprises -> setSecteurActivite($entreprises->getSecteurActivite());
+        $entreprises -> setNewsletter($entreprises->getNewsletter());
+        $entreprises -> setNotificationCvPoste($entreprises->getNotificationCvPoste());
+        $entreprises -> setIdRole($entreprises->getIdRole());
+        $entreprises -> setIdUser($entreprises->getIdUser());        
+        $entreprises -> setRegion($entreprises->getRegion());
+        $entreprises -> setProduitVendu($entreprises->getProduitVendu());
+        $entreprises -> setPhoto1($entreprises->getPhoto1());
+        $entreprises -> setPhoto2($entreprises->getPhoto2());
+        $entreprises -> setAutres($entreprises->getAutres());
+        $entreprises -> setReference($entreprises->getReference());
+
+         $form = $this->createFormBuilder($entreprises)
+            ->add('nom_entreprise', TextType::class,array(
+                'label'=> 'Nom de l\'entreprise:' ,
+                'attr' =>array('class'=>'form-control')
+                ))
+            ->add('adresse_physique', TextType::class,array(
+                'label'=> 'Adresse physique de l\'entreprise:',
+                'attr' =>array('class'=>'form-control')
+                ))
+            ->add('nif',TextType::class, array(
+                'label'=>'Nif:',
+                'attr' =>array('class'=>'form-control')))
+            ->add('statistique', TextType::class,array(
+                'label'=> 'Numéro statistique:',
+                'attr' =>array('class'=>'form-control')
+                ))
+            ->add('tel_fixe_entreprise', TextType::class,array(
+                'label'=> 'Téléphone fixe de l\'entreprie:',
+                'attr' =>array('class'=>'form-control')
+                ))
+            ->add('titre',ChoiceType::class ,
+                array('choices' =>array(
+                      'Mr'  =>'Mr',
+                      'Mme' =>'Mme',
+                      'Mlle'=> 'Mlle'  ),
+                    'attr'=>array('class'=>'form-control')
+                     )
+                )
+            ->add('nom_responsable', TextType::class,array(
+                'label'=> 'Nom du responsable',
+                'attr' =>array('class'=>'form-control')
+                ))
+            ->add('emailResponsable',EmailType::class, array(
+                'label'=>'Email du responsable:',
+                'disabled' => true,
+                'attr' =>array('class'=>'form-control')
+                ) )
+            ->add('tel_mobil_responsable',TextType::class,array( 
+                'label'=>'Téléphone mobile du responsable:',
+                'attr' =>array('class'=>'form-control')
+                ))
+           
+            ->add('secteurActivite', ChoiceType::class, 
+                       array('choices' => array_flip($libelleSecteur) 
+                                              )  
+                )
+            ->add('newsletter', ChoiceType::class, [
+                    'choices'  => array(
+                      'Oui'=>'Oui',
+                      'Non'=>'Non'
+                     ),
+                    'multiple' => false,
+                    'expanded' => true,
+                    'label'   => 'Voulez-vous recevoir nos nouvelles du mois'
+            ])           
+             ->add('notificationCvPoste', ChoiceType::class, [
+                    'choices'  => array(
+                      'Oui'=>'Oui',
+                      'Non'=>'Non'
+                     ),
+                    'multiple' => false,
+                    'expanded' => true,
+                    'label'   => 'Notification quand un nouveau CV est insérer'
+                ])
+
+            ->add('save', SubmitType::class, array(
+                'label'=> 'Sauvegarder', 
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                    ]  ))
+
+            ->getForm();
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $entreprise = $form->getData();
+            $name       = $form['nom_responsable']->getData(); 
+            $idUser     = $entreprises->getIdUser();
+
+            $this->updateUser($name,$idUser);
+
+            $em ->persist($entreprise);
+            $em ->flush($entreprise);
+
+            $this-> addFlash('message','Mise à jour entreprise  a été bien enregistré');
+            return $this->redirectToRoute('admin_entreprise_index');
+        }
+
+         return $this->render('AdminBundle:OffreEmploi:edit_entreprise.html.twig', array(
+            'form' => $form->createView(),
+        ));
         
     }
 
+    
+      /**
+     * @Route("/entreprise/detail/{id}", name="admin_entreprise_detail")
+     */
+    public function  detailEntrepriseAction($id){
+        $em         = $this->getDoctrine()->getManager();
+        $entreprises = $em->getRepository('AdminBundle:epizy_entreprises')->find($id);
 
-    public function addUser($name,$emailResponsable,$idRole)
-    {
-        $users= new epizy_users(); 
+        return $this->render('AdminBundle:OffreEmploi:detail_entreprise.html.twig', array('entreprises'=>$entreprises));
+    }
+
+
+    public function addUser($name,$emailResponsable,$idRole) {
+        $users   = new epizy_users(); 
+        $str = 'abcdefghijklmnopqrstuvwxyz01234567891011121314151617181920212223242526';
+        $passWord = str_shuffle($str);
+
+        $passWord = substr($passWord,1,6); // $passWord visible par l'entreprise   
+       
+        $pass = password_hash($passWord, PASSWORD_BCRYPT);
         $users -> setName($name);
         $users -> setSeoname(strtolower($name));
         $users -> setEmail($emailResponsable);
-        $users -> setPassword('pass');
+        $users -> setPassword($pass);
         $users -> setMdpChange('0');
         $users -> setStatus('1');
         $users -> setCreated(new \Datetime());
@@ -200,6 +343,16 @@ class EntrepriseController extends Controller
         $em -> flush($users);
 
         return $users->getId();
+    }
+
+    public function updateUser($name,$idUser) {
+        $em    = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('AppBundle:epizy_users')->find($idUser);
+
+        $users -> setName($name);
+              
+        $em -> persist($users);
+        $em -> flush($users);
     }
 
 

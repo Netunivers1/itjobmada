@@ -66,9 +66,11 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/assets/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="1411">
+              <caret line="92" column="14" lean-forward="false" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
+              <folding>
+                <element signature="e#43#90#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,9 +78,11 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Ecole/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="47" column="64" lean-forward="false" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
-              <folding />
+            <state relative-caret-position="1547">
+              <caret line="106" column="13" lean-forward="false" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
+              <folding>
+                <element signature="e#126#167#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -215,6 +219,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -399,8 +405,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -507,16 +511,15 @@
       <workItem from="1521018484500" duration="2046000" />
       <workItem from="1521027429993" duration="11156000" />
       <workItem from="1521113059280" duration="202000" />
-      <workItem from="1521182590916" duration="1757000" />
-      <workItem from="1521186966456" duration="19794000" />
+      <workItem from="1521183579918" duration="1000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59269000" />
+    <option name="totallyTimeSpent" value="37719000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="0" />
+    <frame x="-8" y="-8" width="1296" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2193646" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -552,76 +555,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/EntrepriseController.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/OffreEmploi/liste_secteur.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/OffreEmploi/liste_entreprise.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_entreprises.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/OffreEmploi/create_entreprise.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml" />
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml" />
-    <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml" />
-    <entry file="file://$PROJECT_DIR$/app/config/config_test.yml" />
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml" />
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/OffreEmploi/liste_entreprise.htm.twig" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_secteur_activites.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_roles.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/OffreEmploi/footer.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/OffreEmploi/sideBar.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_entreprises.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/OffreEmploi/liste_secteur.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" />
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/config/routing.yml" />
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Controller/DefaultController.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/routing.yml" />
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Model/User.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="408" column="20" lean-forward="true" selection-start-line="408" selection-start-column="20" selection-end-line="408" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_diplomes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/OffreEmploi/create_entreprise.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/OffreEmploi/liste_entreprise.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_logiciels.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1436">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/UserType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="5168">
+          <caret line="304" column="70" lean-forward="false" selection-start-line="304" selection-start-column="70" selection-end-line="304" selection-end-column="70" />
           <folding />
         </state>
       </provider>
@@ -638,7 +575,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/Demandeurcontroller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
+        <state relative-caret-position="1411">
           <caret line="92" column="14" lean-forward="false" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
           <folding>
             <element signature="e#43#90#0#PHP" expanded="false" />
@@ -648,110 +585,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="304" column="70" lean-forward="false" selection-start-line="304" selection-start-column="70" selection-end-line="304" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/form-base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/base-admin.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/css/util.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-64771">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Ecole/new-ecole.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="48" column="69" lean-forward="false" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/list-base-admin.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/form-base-admin.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="43" lean-forward="false" selection-start-line="0" selection-start-column="43" selection-end-line="0" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/css/admin-list.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/js/admin/ecole/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Epizy_ecole.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-448">
-          <caret line="439" column="29" lean-forward="false" selection-start-line="439" selection-start-column="20" selection-end-line="439" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/EcoleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="111" column="42" lean-forward="false" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+        <state relative-caret-position="1547">
+          <caret line="106" column="13" lean-forward="false" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
           <folding>
             <element signature="e#1756#2554#0#PHP" expanded="false" />
           </folding>
