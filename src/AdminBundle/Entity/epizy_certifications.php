@@ -110,4 +110,3 @@ class epizy_certifications
         return $this->created;
     }
 }
-

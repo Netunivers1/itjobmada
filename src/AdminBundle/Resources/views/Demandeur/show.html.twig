@@ -1,0 +1,144 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th rowspan="2" style="vertical-align: middle;">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="select-all" onclick="check_all();">
+                            </label>
+                        </div>
+                    </th>
+                    <th rowspan="2" style="vertical-align: middle;">#</th>
+                    <th rowspan="2"> Réference</th>
+                    <th rowspan="2">L'emploi recherché</th>
+                    <th rowspan="2">Permis</th>
+                    <th rowspan="2">Logiciels maîtrisée</th>
+                    <th rowspan="2">Langues</th>
+                    <th colspan="2" style="text-align: center;">Notifications</th>
+                    </th>
+                    <th rowspan="2">Status</th>
+                    <!-- in case there are no demandeurs we dont show buttons -->
+                    <th rowspan="2">
+                        <div class="toolbar btn btn-default"><i class="glyphicon glyphicon-cog"></i>
+                            <div id="user-toolbar-options-all" class="hide user-toolbar-options">
+                                <a class="deactivate btn btn-warning"
+                                   href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'deactivate'))?>"
+                                   rel="tooltip"
+                                   title="<?=__('Deactivate')?>"
+                                   data-id="tr1"
+                                   data-text="<?=__('Are you sure you want to deactivate?')?>"
+                                   data-toggle="confirmation"
+                                   data-btnOkLabel="<?=__('Yes')?>"
+                                   data-btnCancelLabel="<?=__('No')?>"
+                                >
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </a>
+                                <a class="activate btn btn-success"
+                                   href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'activate'))?>"
+                                   rel="tooltip"
+                                   title="<?=__('Activate')?>"
+                                   data-id="tr1"
+                                   data-text="<?=__('Are you sure you want to activate?')?>"
+                                   data-toggle="confirmation"
+                                   data-btnOkLabel="<?=__('Yes')?>"
+                                   data-btnCancelLabel="<?=__('No')?>"
+                                >
+                                    <i class="glyphicon glyphicon-ok-sign"></i>
+                                </a>
+                                <a class="delete btn btn-danger"
+                                   href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'delete'))?>"
+                                   rel="tooltip"
+                                   title="<?=__('Delete')?>"
+                                   data-id="tr1"
+                                   data-text="<?=__('Are you sure you want to delete?')?>"
+                                   data-toggle="confirmation"
+                                   data-btnOkLabel="<?=__('Yes')?>"
+                                   data-btnCancelLabel="<?=__('No')?>"
+                                >
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Emploi</th>
+                    <th>Formation</th>
+                </tr>
+                <?if(isset($res)):?>
+                <? $i = 0; foreach($res as $demandeur):?>
+                <tbody>
+                {% for cv in all_cv %}
+                    <tr>
+                        <td width="45" style="vertical-align: middle;">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"  class="checkbox">
+                                </label>
+                            </div>
+                        </td>
+                        <td width="45" style="vertical-align: middle;"> {{ cv.id }} </td>
+
+                        <td width="40" style="vertical-align: middle;">
+                            <a href=""> {{  cv.reference }} </a>
+                        </td>
+
+                        <td width="150"> </td>
+                        <td width="40"> {{  cv.permis }}</td>
+                        <td width="80"> </td>
+                        <td width="45"> </td>
+
+                        <td width="80"></td>
+                        <td width="80" style="text-align: left;"></td>
+                        </td>
+                        <td width="50">
+
+                        </td>
+
+                        <td width="120" style="width:120px">
+                            <a class="btn btn-primary"
+                               href=""
+                               rel="tooltip" title="update">
+                                <i class="glyphicon   glyphicon-edit"></i>
+                            </a>
+                            <div class="toolbar btn btn-default"><i class="glyphicon glyphicon-cog"></i>
+                                <div id="user-toolbar-options" class="hide user-toolbar-options">
+
+                                    <a class="btn btn-warning " href=""  >
+                                        <i class="glyphicon   glyphicon-remove"></i>
+                                    </a>
+
+                                    <a class="btn btn-success"  href="" >
+                                        <i class="glyphicon glyphicon-ok-sign"></i>
+                                    </a>
+
+                                    <!-- sel_url_to_redirect is important because is quick selector. This works with dynamic check boxes, where we select href to build new url -->
+                                    <a class="btn btn-danger  sel_url_to_redirect" href="">
+                                        <i class="glyphicon   glyphicon-remove"></i>
+                                    </a>
+                                    <a class="btn btn-primary " href="">
+                                        <i class="glyphicon   glyphicon-bookmark"></i>
+                                    </a>
+                                    <a class="btn btn-primary "  href="">
+                                    </a>
+                                    <a class="btn btn-info" href="">
+                                        <i class="glyphicon   glyphicon-circle-arrow-up"></i>
+                                    </a>
+
+                                    <a class="btn btn-primary" href="">
+                                        <i class="glyphicon glyphicon-align-left"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

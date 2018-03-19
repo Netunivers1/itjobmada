@@ -110,4 +110,3 @@ class epizy_emploi_recherches
         return $this->created;
     }
 }
-

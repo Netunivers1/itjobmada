@@ -313,4 +313,3 @@ class epizy_demandeur_formations
         return $this->universiteId;
     }
 }
-

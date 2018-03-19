@@ -110,4 +110,3 @@ class epizy_diplomes
         return $this->created;
     }
 }
-

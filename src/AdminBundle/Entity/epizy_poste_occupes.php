@@ -110,4 +110,3 @@ class epizy_poste_occupes
         return $this->created;
     }
 }
-
