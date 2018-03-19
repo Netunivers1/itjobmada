@@ -18,6 +18,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Routing\Annotation\Route;
 class EntrepriseController extends Controller
@@ -28,12 +29,6 @@ class EntrepriseController extends Controller
      * @Route("/entreprise/index", name="admin_entreprise_index")
      */
     public function indexAction(){
-      /*  $entreprise = new epizy_entreprises();
-        $em = $this->getDoctrine()->getManager();
-        $listEntreprise= $em->getRepository('AdminBundle:epizy_entreprises')->findAll();
-        return $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig', array('listEntreprise'=>$listEntreprise));
-        */
-         $entreprise = new epizy_entreprises();
         $em = $this->getDoctrine()->getManager();
         $qb = $em->createQueryBuilder();
         $qb ->select('e.id,e.idUser,e.nomEntreprise, e.secteurActivite, e.telMobilResponsable,e.emailResponsable, e.adressePhysique,e.notificationCvPoste, u.status')
@@ -45,8 +40,25 @@ class EntrepriseController extends Controller
          //var_dump($listEntreprise);
         return $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig', array('listEntreprise'=>$listEntreprise));
     }
+
     /**
-     * Matches /blog exactly
+     *
+     * @Route("/entreprise/filter/status=0", name="admin_entreprise_filter")
+     */
+    public function list_desactiveAction(){
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+        $qb ->select('e.id,e.idUser,e.nomEntreprise, e.secteurActivite, e.telMobilResponsable,e.emailResponsable, e.adressePhysique,e.notificationCvPoste, u.status')
+            ->from('AdminBundle\Entity\epizy_entreprises', 'e')
+            ->from('AppBundle\Entity\epizy_users', 'u')
+            ->where('e.idUser = u.id')
+            ->andWhere('u.status= 0');
+
+        $listEntreprise= $qb->getQuery()->getResult();
+        return $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig', array('listEntreprise'=>$listEntreprise));
+    }
+
+    /**
      *
      * @Route("/entreprise/create", name="admin_entreprise_create")
      */
@@ -164,16 +176,6 @@ class EntrepriseController extends Controller
         $em =  $this->getDoctrine()->getManager();
         $listSecteur = $em->getRepository('AdminBundle:epizy_secteur_activites')->findAll();
         return  $this->render('AdminBundle:OffreEmploi:liste_secteur.html.twig', array('listSecteur'=>$listSecteur));
-    }
-
-    // find secteur
-    public function findByEtat($etat){
-        $qb = $this->createQueryBuilder('s');
-        $qb ->where('s.etat = :etat')
-            ->setParamater('etat', $etat);
-
-        return $qb ->getQuery()
-                   ->getResult();
     }
 
       /**
@@ -316,6 +318,47 @@ class EntrepriseController extends Controller
         return $this->render('AdminBundle:OffreEmploi:detail_entreprise.html.twig', array('entreprises'=>$entreprises));
     }
 
+     /**
+     * @Route("/entreprise/changestatus/{id}", name="admin_entreprise_change_status")
+     */
+    public function ChangeStatus($id){
+        $em = $this->getDoctrine()->getManager();
+        $user_modifier = $em->getRepository('AppBundle:epizy_users')->find($id);
+        $user_modifier->setStatus($user_modifier->getStatus() == 0 ? 1 : 0);
+        $em->flush($user_modifier);
+        return $this->redirectToRoute('admin_entreprise_index');
+
+    }
+
+     /**
+     * @Route("/entreprise/delete/{id}", name="admin_entreprise_delete")
+     */
+    public function deleteAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $entreprise_a_sup = $em->getRepository('AdminBundle:epizy_entreprises')->find($id);
+        $id_user = $entreprise_a_sup->getIdUser();
+        $user_correspondant = $em->getRepository('AppBundle:epizy_users')->find($id_user);
+        $em->remove($entreprise_a_sup);
+        $em->remove($user_correspondant);
+        $em->flush();
+        
+        $this->addFlash('message', 'L\'entreprise est supprimée');
+       
+        return $this->redirectToRoute('admin_entreprise_index');
+        
+        
+    }
+
+    // find secteur
+    public function findByEtat($etat){
+        $qb = $this->createQueryBuilder('s');
+        $qb ->where('s.etat = :etat')
+            ->setParamater('etat', $etat);
+
+        return $qb ->getQuery()
+                   ->getResult();
+    }
+
 
     public function addUser($name,$emailResponsable,$idRole) {
         $users   = new epizy_users(); 
@@ -354,6 +397,42 @@ class EntrepriseController extends Controller
         $em -> persist($users);
         $em -> flush($users);
     }
+ 
+
+     /**
+     * @Route("/entreprise/search", name="admin_entreprise_search")
+     */
+    /*
+    public function searchAction(Request $request){
+        $entreprise = new epizy_entreprises();
+
+        $form_search = $this->createFormBuilder()
+            ->add('nom_entreprise', SearchType::class,array(
+                'label'=> 'Nom de l\'entreprise:' ,
+                'attr' =>array('class'=>'form-control')
+                ))
+            ->add('save', SubmitType::class, array(
+                'label'=> 'Chercher', 
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                    ]  ))
+
+            ->getForm();
+
+        $form_search->handleRequest($request);
+        if ($form_search->isSubmitted() && $form_search->isValid())
+        {
+           
+
+            return $this->redirectToRoute('admin_entreprise_index');
+        }
+
+      return  $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig',array(
+            'form_search' => $form_search->createView()  ));
+    }
+    */
+    
 
 
 }
+       
