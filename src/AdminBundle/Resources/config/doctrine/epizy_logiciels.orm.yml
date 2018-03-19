@@ -15,7 +15,6 @@ AdminBundle\Entity\epizy_logiciels:
         etat:
             type: integer
             nullable: true
-        datetime:
-            type: string
-            length: 255
+        created:
+            type: datetime
     lifecycleCallbacks: {  }

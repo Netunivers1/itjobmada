@@ -1,0 +1,29 @@
+AdminBundle\Entity\epizy_langues:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Repository\epizy_languesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        isoLang:
+            type: string
+            length: 255
+            nullable: true
+            column: iso_lang
+        nom:
+            type: string
+            length: 255
+        libele:
+            type: string
+            length: 255
+            nullable: true
+        etat:
+            type: string
+            length: 255
+        created:
+            type: datetimetz
+    lifecycleCallbacks: {  }

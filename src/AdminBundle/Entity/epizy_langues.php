@@ -3,9 +3,9 @@
 namespace AdminBundle\Entity;
 
 /**
- * epizy_logiciels
+ * epizy_langues
  */
-class epizy_logiciels
+class epizy_langues
 {
     /**
      * @var int
@@ -15,15 +15,25 @@ class epizy_logiciels
     /**
      * @var string
      */
+    private $isoLang;
+
+    /**
+     * @var string
+     */
+    private $nom;
+
+    /**
+     * @var string
+     */
     private $libele;
 
     /**
-     * @var int
+     * @var string
      */
     private $etat;
 
     /**
-     * @var datetime
+     * @var \DateTime
      */
     private $created;
 
@@ -39,11 +49,59 @@ class epizy_logiciels
     }
 
     /**
+     * Set isoLang
+     *
+     * @param string $isoLang
+     *
+     * @return epizy_langues
+     */
+    public function setIsoLang($isoLang)
+    {
+        $this->isoLang = $isoLang;
+
+        return $this;
+    }
+
+    /**
+     * Get isoLang
+     *
+     * @return string
+     */
+    public function getIsoLang()
+    {
+        return $this->isoLang;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return epizy_langues
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
      * Set libele
      *
      * @param string $libele
      *
-     * @return epizy_logiciels
+     * @return epizy_langues
      */
     public function setLibele($libele)
     {
@@ -65,9 +123,9 @@ class epizy_logiciels
     /**
      * Set etat
      *
-     * @param integer $etat
+     * @param string $etat
      *
-     * @return epizy_logiciels
+     * @return epizy_langues
      */
     public function setEtat($etat)
     {
@@ -79,7 +137,7 @@ class epizy_logiciels
     /**
      * Get etat
      *
-     * @return int
+     * @return string
      */
     public function getEtat()
     {
@@ -89,9 +147,9 @@ class epizy_logiciels
     /**
      * Set created
      *
-     * @param string $datetime
+     * @param \DateTime $created
      *
-     * @return epizy_logiciels
+     * @return epizy_langues
      */
     public function setCreated($created)
     {
@@ -103,12 +161,11 @@ class epizy_logiciels
     /**
      * Get created
      *
-     * @return string
+     * @return \DateTime
      */
     public function getCreated()
     {
         return $this->created;
     }
-
-
 }
+

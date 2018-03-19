@@ -85,6 +85,11 @@ class epizy_demandeur_emplois
     /**
      * @var string
      */
+    private $choixFormation;
+
+    /**
+     * @var string
+     */
     private $notificationEmploiPoste;
 
     /**
@@ -455,6 +460,30 @@ class epizy_demandeur_emplois
     }
 
     /**
+     * Set choixFormation
+     *
+     * @param string $choixFormation
+     *
+     * @return epizy_demandeur_emplois
+     */
+    public function setChoixFormation($choixFormation)
+    {
+        $this->choixFormation = $choixFormation;
+
+        return $this;
+    }
+
+    /**
+     * Get choixEmploi
+     *
+     * @return string
+     */
+    public function getChoixFormation()
+    {
+        return $this->choixFormation;
+    }
+
+    /**
      * Set notificationEmploiPoste
      *
      * @param string $notificationEmploiPoste
@@ -574,4 +603,3 @@ class epizy_demandeur_emplois
         return $this->newsletter;
     }
 }
-
