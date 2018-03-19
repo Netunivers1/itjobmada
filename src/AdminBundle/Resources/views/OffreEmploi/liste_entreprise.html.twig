@@ -2,16 +2,24 @@
     {% block body %}
         <div id="page-wrapper">
             <div id="page-inner">
-
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('admin_homepage')}}">Tableau de bord</a></li>
+                    <li class="breadcrumb-item">Entreprise</li>
+                    <li class="breadcrumb-item active" aria-current="page">Liste</li>
+                </ol>
+            </nav>
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-header">
+                          <h1 class="page-header">
                             Toutes les Entreprises<small></small>
                         </h1>
                     </div>
                 </div>
-
+                {% for success_message in app.session.flashbag.get('message') %}
+                    <div class="alert alert-success"> {{ success_message }} </div>
+                {% endfor %}
 
 
 
@@ -24,8 +32,9 @@
                                 Toutes les Entreprises
                             </div>
                             <div class="panel-body">
-                                <a class="btn btn-primary" href="{{ path('admin_entreprise_create') }}"> NOUVELLE ENTREPRISE</a>
+                                <a class="btn btn-primary" style="margin-bottom: 7%" href="{{ path('admin_entreprise_create') }}"> NOUVELLE ENTREPRISE</a>
                                 <div class="table-responsive">
+                                {% if listEntreprise|length >0 %} 
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                         <tr>
@@ -40,24 +49,44 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                        {% if listEntreprise|length >0 %}
+                                       
+                                       
+                                         <tbody>
                                             {% for entreprise in listEntreprise %}
                                                 <tr>
                                                     <th scope="row">{{ entreprise.idUser }}</th>
-                                                    <td>{{ entreprise.nomEntreprise }}</td>
+                                                    <td>
+                                                        <a href="{{ path('admin_entreprise_detail', { 'id': entreprise.id}) }}"> 
+                                                            {{entreprise.nomEntreprise }}
+                                                        </a>
+                                                    </td>
                                                     <td>{{ entreprise.secteurActivite }}</td>
                                                     <td>{{ entreprise.telMobilResponsable }}</td>
                                                     <td>{{ entreprise.emailResponsable }}</td>
                                                     <td>{{ entreprise.adressePhysique }}</td>
                                                     <td>{{ entreprise.notificationCvPoste }}</td>
+                                                    {% if entreprise.status == 0 %}
+                                                        <td>Désactiver</td>
+                                                    {% else %}
+                                                        <td>Activer</td>
+                                                    {% endif %}
+                                                    <td>
+                                                          <a href="{{ path('admin_entreprise_edit', { 'id': entreprise.id}) }} " class="btn btn-primary">
+                                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                                         </a>
+                                                         <a href="{{ path('admin_entreprise_edit', { 'id': entreprise.id}) }} " class="btn btn-danger ">
+                                                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                                                         </a>
+                                                    </td>
 
                                                 </tr>
-                                            {% endfor %}
-                                        {% endif %}
+                                            {% endfor %}                                       
 
                                         </tbody>
                                     </table>
+                                {% else %}
+                                        <center>AUCUNE ENTREPRISE  </center>            
+                                {% endif %}
                                 </div>
                             </div>
                         </div>

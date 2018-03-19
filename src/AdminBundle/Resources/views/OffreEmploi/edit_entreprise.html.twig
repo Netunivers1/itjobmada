@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+    {% block body %}
+        <div id="page-wrapper">
+            <div id="page-inner">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('admin_homepage')}}">Tableau de bord</a></li>
+                    <li class="breadcrumb-item">Mise à jour Entreprise</li>
+                </ol>
+            </nav>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                           Formulaire entreprise
+                        </h1>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        
+                       <div class="form-group row">
+
+                                        {{ form_start(form) }}
+                                        {{ form_widget(form) }}
+                                        {{ form_end(form) }}
+                        </div>
+                    </div>
+                  
+                   
+                </div>
+
+
+
+              
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+    {% endblock body %}
+  
