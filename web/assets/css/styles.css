@@ -1,0 +1,27 @@
+span[class*="ti-"]
+{
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    color: white;
+    font-weight: bolder;
+}
+span[class*="ti-check"]
+{
+    background-color: green;
+}
+span[class*="ti-close"]
+{
+    background-color: #e64141fa;
+}
+span[class*="ti-close"][class*="status"]
+{
+    background-color: #ff9800;
+}
+span[class*="ti-settings"]
+{
+    color: black;
+}
+td, th {
+    padding: 19px;
+    padding-right: 0;
+    width: 1px;
+}
