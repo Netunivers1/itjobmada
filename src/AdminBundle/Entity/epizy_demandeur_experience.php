@@ -429,4 +429,3 @@ class epizy_demandeur_experience
         return $this->missionTache;
     }
 }
-

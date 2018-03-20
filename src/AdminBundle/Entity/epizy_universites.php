@@ -110,4 +110,3 @@ class epizy_universites
         return $this->created;
     }
 }
-

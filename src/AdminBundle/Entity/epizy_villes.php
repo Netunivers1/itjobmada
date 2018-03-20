@@ -110,4 +110,3 @@ class epizy_villes
         return $this->created;
     }
 }
-

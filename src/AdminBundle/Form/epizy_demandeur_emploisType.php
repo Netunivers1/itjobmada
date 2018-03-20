@@ -3,6 +3,7 @@
 namespace AdminBundle\Form;
 
 use AdminBundle\Controller\Demandeurcontroller;
+use AdminBundle\Entity\epizy_villes;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -10,9 +11,13 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class epizy_demandeur_emploisType extends AbstractType
 {
+    private $ville ;
+
     /**
      * {@inheritdoc}
      */
@@ -22,12 +27,11 @@ class epizy_demandeur_emploisType extends AbstractType
             ->add('audition', CheckboxType::class, array('required'=>false))
             ->add('emploiTrouve', ChoiceType::class,
                 array(
-                    'choices'=>
-                        array(
-                            'grâce à Itjobmada'=>1,
-                            'a trouvé du travail via un autre canal'=>2,
-                            'non il est encore à la recherche d’un emploi '=>3
-                        )
+                    'choices'=>array(
+                        'grâce à Itjobmada'=>1,
+                        'a trouvé du travail via un autre canal'=>2,
+                        'non il est encore à la recherche d’un emploi '=>3
+                    )
                 )
             )
             ->add('titre', ChoiceType::class,
@@ -86,6 +90,7 @@ class epizy_demandeur_emploisType extends AbstractType
                 )
             )
         ;
+
     }
     
     /**
@@ -106,6 +111,5 @@ class epizy_demandeur_emploisType extends AbstractType
     {
         return 'adminbundle_epizy_demandeur_emplois';
     }
-
 
 }

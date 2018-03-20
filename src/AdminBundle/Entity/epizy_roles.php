@@ -139,4 +139,3 @@ class epizy_roles
         return $this->dateCreated;
     }
 }
-
