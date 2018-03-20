@@ -18,3 +18,7 @@ AdminBundle\Entity\epizy_emploi_recherches:
         created:
             type: datetime
     lifecycleCallbacks: {  }
+    oneToMany:
+        cvs_id:
+            targetEntity: epizy_demandeur_cvs
+            mappedBy : epizy_emploi_recherches

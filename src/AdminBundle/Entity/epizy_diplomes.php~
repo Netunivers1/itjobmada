@@ -1,12 +1,11 @@
 <?php
 
 namespace AdminBundle\Entity;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * epizy_emploi_recherches
+ * epizy_diplomes
  */
-class epizy_emploi_recherches
+class epizy_diplomes
 {
     /**
      * @var int
@@ -28,12 +27,6 @@ class epizy_emploi_recherches
      */
     private $created;
 
-    private $cvs_id;
-
-    public function __construct()
-    {
-        $this->cvs_id = new ArrayCollection();
-    }
 
     /**
      * Get id
@@ -50,7 +43,7 @@ class epizy_emploi_recherches
      *
      * @param string $libele
      *
-     * @return epizy_emploi_recherches
+     * @return epizy_diplomes
      */
     public function setLibele($libele)
     {
@@ -74,7 +67,7 @@ class epizy_emploi_recherches
      *
      * @param string $etat
      *
-     * @return epizy_emploi_recherches
+     * @return epizy_diplomes
      */
     public function setEtat($etat)
     {
@@ -98,7 +91,7 @@ class epizy_emploi_recherches
      *
      * @param \DateTime $created
      *
-     * @return epizy_emploi_recherches
+     * @return epizy_diplomes
      */
     public function setCreated($created)
     {
@@ -115,39 +108,5 @@ class epizy_emploi_recherches
     public function getCreated()
     {
         return $this->created;
-    }
-
-    /**
-     * Add cvsId
-     *
-     * @param \AdminBundle\Entity\epizy_demandeur_cvs $cvsId
-     *
-     * @return epizy_emploi_recherches
-     */
-    public function addCvsId(\AdminBundle\Entity\epizy_demandeur_cvs $cvsId)
-    {
-        $this->cvs_id[] = $cvsId;
-
-        return $this;
-    }
-
-    /**
-     * Remove cvsId
-     *
-     * @param \AdminBundle\Entity\epizy_demandeur_cvs $cvsId
-     */
-    public function removeCvsId(\AdminBundle\Entity\epizy_demandeur_cvs $cvsId)
-    {
-        $this->cvs_id->removeElement($cvsId);
-    }
-
-    /**
-     * Get cvsId
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCvsId()
-    {
-        return $this->cvs_id;
     }
 }
