@@ -9,12 +9,6 @@ AdminBundle\Entity\epizy_demandeur_formations:
             generator:
                 strategy: AUTO
     fields:
-        idDemandeur:
-            type: integer
-            column: id_demandeur
-        idCvs:
-            type: integer
-            column: id_cvs
         annee:
             type: string
             length: 255
@@ -40,3 +34,19 @@ AdminBundle\Entity\epizy_demandeur_formations:
             type: integer
             column: universite_id
     lifecycleCallbacks: {  }
+
+    manyToOne:
+        id_demandeur:
+            targetEntity: epizy_demandeur_emplois
+            joinColumn:
+                name: id_demandeur
+                referencedColumnName: id
+                nullable: true
+                onDelete: SET NULL
+        id_cvs:
+            targetEntity: epizy_demandeur_formations
+            joinColumn:
+                name: id_cvs
+                referencedColumnName: id
+                nullable: true
+                onDelete: SET NULL

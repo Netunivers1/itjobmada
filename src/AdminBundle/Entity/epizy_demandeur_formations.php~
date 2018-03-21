@@ -312,4 +312,16 @@ class epizy_demandeur_formations
     {
         return $this->universiteId;
     }
+    /**
+     * @var \AdminBundle\Entity\epizy_demandeur_emplois
+     */
+    private $id_demandeur;
+
+
+    /**
+     * @var \AdminBundle\Entity\epizy_demandeur_formations
+     */
+    private $id_cvs;
+
+
 }

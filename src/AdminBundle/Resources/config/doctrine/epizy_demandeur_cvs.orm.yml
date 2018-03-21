@@ -16,9 +16,6 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             type: string
             length: 255
             column: emploi_recherche
-        emploirechercheId:
-            type: integer
-            column: emploirecherche_id
         logiciel:
             type: string
             length: 255
@@ -59,25 +56,28 @@ AdminBundle\Entity\epizy_demandeur_cvs:
     manyToOne:
         id_demandeur:
             targetEntity: epizy_demandeur_emplois
-            inversedBy: epizy_demandeur_cvs
             joinColumn:
                 name: id_demandeur
                 referencedColumnName: id
         logiciel_id:
             targetEntity: epizy_logiciels
-            inversedBy: epizy_demandeur_cvs
+            inversedBy: demandeur_cvs
             joinColumn:
                 name: logiciel_id
                 referencedColumnName: id
+                cascade: [ persist ]
         langue_id:
             targetEntity: epizy_langues
-            inversedBy: epizy_demandeur_cvs
             joinColumn:
                 name: langue_id
                 referencedColumnName: id
-        dmd__emploirecherche_id:
+        emploirecherche_id:
             targetEntity: epizy_emploi_recherches
-            inversedBy: epizy_demandeur_cvs
+            inversedBy: cvs_id
             joinColumn:
                 name: emploirecherche_id
                 referencedColumnName: id
+    OneToMany:
+        experience:
+            targetEntity: epizy_demandeur_experience
+            mappedBy: id_cv

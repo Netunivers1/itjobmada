@@ -21,4 +21,4 @@ AdminBundle\Entity\epizy_emploi_recherches:
     oneToMany:
         cvs_id:
             targetEntity: epizy_demandeur_cvs
-            mappedBy : epizy_emploi_recherches
+            mappedBy : emploirecherche_id
