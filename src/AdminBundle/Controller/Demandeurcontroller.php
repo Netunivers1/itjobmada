@@ -58,8 +58,7 @@ class Demandeurcontroller extends Controller
      * @Route("/demandeur/index", name="admin_demandeur_index")
      */
     public function indexAction( Request $request)
-    {       
-
+    {
         $form_emplois   = $this->createForm(epizy_demandeur_emploisType::class, $this->dmd_emplois);
         $form_cvs       = $this->createForm(epizy_demandeur_cvsType::class, $this->dmd_cvs);
         $form_formation = $this->createForm(epizy_demandeur_formationsType::class, $this->dmd_formation);
@@ -141,6 +140,8 @@ class Demandeurcontroller extends Controller
                         $em->persist($this->emploi_recherche);
                         $em->flush();
                         $emploi_recherche_id = $this->emploi_recherche->getId();
+                    }else{
+                        $emploi_recherche_id = $emploi_exist->getId();
                     }//else get id for select
 
                     $log = $form_cvs->get('logiciel')->getData();
@@ -154,6 +155,8 @@ class Demandeurcontroller extends Controller
                         $em->flush();
                         $logiciel_id = $this->logiciel->getId();
 
+                    }else{
+                        $logiciel_id =$logiciel_exist->getId();
                     }//else get id for select
 
                     $langues = $form_cvs->get('langue')->getData();
@@ -165,6 +168,9 @@ class Demandeurcontroller extends Controller
                         $this->langue->setCreated($this->date_created);
                         $em->persist($this->langue);
                         $em->flush();
+                        $langue_id = $this->langue->getId();
+                    }else{
+                        $langue_id =$langue_exist->getId();
                     }//else get id for select
 
                     $certificat_id = null;
@@ -179,8 +185,8 @@ class Demandeurcontroller extends Controller
                     }
 
                     $id_cvs = null;
-                    if (isset($this->emploi_recherche_id) && !empty($this->emploi_recherche_id)) {
-                        $this->dmd_cvs->setEmploirechercheId($this->emploi_recherche_id);
+                    if (isset($emploi_recherche_id) && !empty($emploi_recherche_id)) {
+                        $this->dmd_cvs->setEmploirechercheId($emploi_recherche_id);
                         $this->dmd_cvs->setLogicielId($logiciel_id);
                         $this->dmd_cvs->setCertificationId($certificat_id);
                         $this->dmd_cvs->setIdDemandeur($id_demandeur);
@@ -275,6 +281,8 @@ class Demandeurcontroller extends Controller
                             $em->persist($this->poste);
                             $em->flush();
                             $post_id = $this->poste->getId();
+                        }else{
+                            $post_id = $poste_exist->getId();
                         } // else get id for select option
 
                         $this->dmd_experience->setIdDemandeur($id_demandeur);
@@ -293,18 +301,8 @@ class Demandeurcontroller extends Controller
             } else {
                 return new Response('Votre email est déjà utilisé, veuillez le changer pour pouvoir insérer un nouveau CV.');
             }
-        }else{
 
-            return $this->render('AdminBundle:Demandeur:index.html.twig',
-                array(
-                    'form_emplois' => $form_emplois->createView(),
-                    'form_cvs' => $form_cvs->createView(),
-                    'form_formation' => $form_formation->createView(),
-                    'form_experience' => $form_experience->createView(),
-                    'form_logiciel' => $form_logiciel->createView(),
-                    'form' => $form->createView()
-                )
-            );
+            return $this->redirectToRoute('admin_demandeur_show');
         }
 
         return $this->view('index.html.twig',
@@ -325,13 +323,63 @@ class Demandeurcontroller extends Controller
      */
     public function showCVAction(){
         $demandeur_cv = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs') ;
-        $demandeur_emplois = $this->getRepositoryClass('AdminBundle:epizy_demandeur_emplois') ;
         $all_cv = $demandeur_cv->findAll() ;
         return $this->view('show.html.twig', array('all_cv'=>$all_cv ) );
     }
 
-    private function getRepositoryClass( $class ){
-        $repository = $this->getDoctrine()->getManager()->getRepository($class);
+    /**
+     * @Route("/demandeur/edit/{id}", name="admin_demandeur_edit")
+     */
+    public function editCVAction(){
+        $form_emplois   = $this->createForm(epizy_demandeur_emploisType::class, $this->dmd_emplois);
+        $form_cvs       = $this->createForm(epizy_demandeur_cvsType::class, $this->dmd_cvs);
+        $form_formation = $this->createForm(epizy_demandeur_formationsType::class, $this->dmd_formation);
+        $form_experience= $this->createForm(epizy_demandeur_experienceType::class, $this->dmd_experience);
+        $form_logiciel  = $this->createForm(epizy_logicielsType::class, $this->logiciel);
+
+        $form = $this->createFormBuilder(FormType::class)->setAction('')->setMethod('post')->getForm();
+        return $this->view('index.html.twig',
+            array(
+                'form_emplois' => $form_emplois->createView(),
+                'form_cvs' => $form_cvs->createView(),
+                'form_formation' => $form_formation->createView(),
+                'form_experience' => $form_experience->createView(),
+                'form_logiciel' => $form_logiciel->createView(),
+                'form' => $form->createView()
+            )
+        );
+    }
+
+    /**
+     * @Route("/demandeur/delete/{id}", name="admin_demandeur_delete")
+     */
+    public function deleteAction( Request $request){
+        if ($request->isMethod('GET')){
+            $id = intval($request->get('id') ) ;
+            // demandeur cvs
+            $cv = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id);
+            // demandeur emplois
+            $emploi = $cv->getIdDemandeur();
+            // users
+            $user = $emploi->getIdUser();
+            // experiences
+            //$experiences = $emploi->getIdDemandeur;
+
+            //return new Response(var_dump($experiences));
+
+
+
+
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($cv);
+            $em->flush();
+            return $this->redirectToRoute("admin_demandeur_show") ;
+        }
+        return $this->redirectToRoute("admin_demandeur_show") ;
+    }
+
+    private function getRepositoryClass( $entity_bundle ){
+        $repository = $this->getDoctrine()->getManager()->getRepository($entity_bundle);
         return $repository ;
     }
 

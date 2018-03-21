@@ -18,3 +18,7 @@ AdminBundle\Entity\epizy_logiciels:
         created:
             type: datetime
     lifecycleCallbacks: {  }
+    oneToMany:
+        demandeur_cvs:
+            targetEntity: epizy_demandeur_cvs
+            mappedBy: epizy_logiciels

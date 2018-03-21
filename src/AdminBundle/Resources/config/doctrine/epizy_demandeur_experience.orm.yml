@@ -9,9 +9,6 @@ AdminBundle\Entity\epizy_demandeur_experience:
             generator:
                 strategy: AUTO
     fields:
-        idDemandeur:
-            type: integer
-            column: id_demandeur
         idCvs:
             type: integer
             column: id_cvs
@@ -56,3 +53,11 @@ AdminBundle\Entity\epizy_demandeur_experience:
             type: text
             column: mission_tache
     lifecycleCallbacks: {  }
+
+#    manyToOne:
+#        id_demandeur:
+#            targetEntity: epizy_demandeur_emplois
+#            inversedBy: epizy_demandeur_experiences
+#            joinColumn:
+#                name: id_demandeur
+#                referencedColumnName: id

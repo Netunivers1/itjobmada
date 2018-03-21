@@ -87,21 +87,30 @@
                             <a href=""> {{  cv.reference }} </a>
                         </td>
 
-                        <td width="150"> </td>
-                        <td width="40"> {{  cv.permis }}</td>
-                        <td width="80"> </td>
-                        <td width="45"> </td>
-
-                        <td width="80"></td>
-                        <td width="80" style="text-align: left;"></td>
+                        <td width="150"> {{ cv.DmdEmploirechercheId.libele }} </td>
+                        <td width="40"> {{ cv.permis }}</td>
+                        <td width="80">
+                            {% if (cv.LogicielId != null) %}
+                                {{  cv.LogicielId.libele }}
+                            {% endif %}
                         </td>
+                        <td width="45">
+                            {% if (cv.LangueId != null) %}
+                                {{  cv.LangueId.nom }}
+                            {% endif %}
+                        </td>
+                        <td width="80"> {{ cv.idDemandeur.notificationEmploiPoste}}</td>
+                        <td width="80" style="text-align: left;"> {{ cv.idDemandeur.notificationFormationPoste}}  </td>
                         <td width="50">
-
+                            {% if( cv.idDemandeur.status == 0 ) %}
+                                Activé
+                            {% else %}
+                                Désactivé
+                            {% endif %}
                         </td>
 
-                        <td width="120" style="width:120px">
-                            <a class="btn btn-primary"
-                               href=""
+                        <td width="120" style="width:150px">
+                            <a class="btn btn-primary" href=" {{ path('admin_demandeur_edit', {'id': cv.id}) }}"
                                rel="tooltip" title="update">
                                 <i class="glyphicon   glyphicon-edit"></i>
                             </a>
@@ -134,6 +143,9 @@
                                     </a>
                                 </div>
                             </div>
+                            <a class="btn btn-danger  sel_url_to_redirect" href="{{ path('admin_demandeur_delete', {'id': cv.id}) }}">
+                                <i class="glyphicon   glyphicon-remove"></i>
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -121,3 +121,7 @@ AppBundle\Entity\epizy_users:
             nullable: true
             column: google_authentificator
     lifecycleCallbacks: {  }
+    oneToMany:
+         demandeur_emplois:
+             targetEntity: AdminBundle\Entity\epizy_demandeur_emplois
+             mappedBy: AppBundle\Entity\epizy_users

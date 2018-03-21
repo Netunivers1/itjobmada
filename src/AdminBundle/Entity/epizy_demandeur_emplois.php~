@@ -648,43 +648,4 @@ class epizy_demandeur_emplois
         return $this->id_user;
     }
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $demandeur_emplois;
-
-
-    /**
-     * Add demandeurEmplois
-     *
-     * @param \AdminBundle\Entity\epizy_demandeur_experiences $demandeurEmplois
-     *
-     * @return epizy_demandeur_emplois
-     */
-    public function addDemandeurEmplois(\AdminBundle\Entity\epizy_demandeur_experiences $demandeurEmplois)
-    {
-        $this->demandeur_emplois[] = $demandeurEmplois;
-
-        return $this;
-    }
-
-    /**
-     * Remove demandeurEmplois
-     *
-     * @param \AdminBundle\Entity\epizy_demandeur_experiences $demandeurEmplois
-     */
-    public function removeDemandeurEmplois(\AdminBundle\Entity\epizy_demandeur_experiences $demandeurEmplois)
-    {
-        $this->demandeur_emplois->removeElement($demandeurEmplois);
-    }
-
-    /**
-     * Get demandeurEmplois
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getDemandeurEmplois()
-    {
-        return $this->demandeur_emplois;
-    }
 }

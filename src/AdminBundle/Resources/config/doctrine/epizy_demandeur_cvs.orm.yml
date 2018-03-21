@@ -9,9 +9,6 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             generator:
                 strategy: AUTO
     fields:
-        idDemandeur:
-            type: integer
-            column: id_demandeur
         permis:
             type: string
             length: 255
@@ -25,9 +22,6 @@ AdminBundle\Entity\epizy_demandeur_cvs:
         logiciel:
             type: string
             length: 255
-        logicielId:
-            type: integer
-            column: logiciel_id
         langue:
             type: string
             length: 255
@@ -62,3 +56,28 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             length: 255
             nullable: true
     lifecycleCallbacks: {  }
+    manyToOne:
+        id_demandeur:
+            targetEntity: epizy_demandeur_emplois
+            inversedBy: epizy_demandeur_cvs
+            joinColumn:
+                name: id_demandeur
+                referencedColumnName: id
+        logiciel_id:
+            targetEntity: epizy_logiciels
+            inversedBy: epizy_demandeur_cvs
+            joinColumn:
+                name: logiciel_id
+                referencedColumnName: id
+        langue_id:
+            targetEntity: epizy_langues
+            inversedBy: epizy_demandeur_cvs
+            joinColumn:
+                name: langue_id
+                referencedColumnName: id
+        dmd__emploirecherche_id:
+            targetEntity: epizy_emploi_recherches
+            inversedBy: epizy_demandeur_cvs
+            joinColumn:
+                name: emploirecherche_id
+                referencedColumnName: id
