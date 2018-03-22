@@ -4,10 +4,12 @@ namespace AdminBundle\Form;
 
 use AdminBundle\Controller\DemandeurController;
 use AdminBundle\Entity\epizy_demandeur_emplois;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -45,11 +47,24 @@ class epizy_demandeur_emploisType extends AbstractType
             ->add('prenom')
             ->add('email')
             ->add('adresse')
-            ->add('ville')
+            ->add('ville', TextType::class,array('required'=>false) )
+            ->add('villeId', EntityType::class,
+                array(
+                    'class'=> 'AdminBundle:epizy_villes',
+                    'choice_label'=>'libele'
+                )
+            )
             ->add('region')
             ->add('telephone')
             ->add('dateDeNaissance')
-            ->add('choixEmploi')
+            ->add('choixEmploi', EntityType::class,
+                array(
+                    'class'=>'AdminBundle:epizy_emploi_recherches',
+                    'choice_label'=>'libele',
+                    'empty_data'=>'Tous les offres d\'emploi'
+                )
+            )
+
             ->add('choixFormation')
             ->add('notificationEmploiPoste', ChoiceType::class,
                 array(

@@ -18,11 +18,6 @@ class epizy_demandeur_formations
     private $idDemandeur;
 
     /**
-     * @var int
-     */
-    private $idCvs;
-
-    /**
      * @var string
      */
     private $annee;
@@ -97,29 +92,6 @@ class epizy_demandeur_formations
         return $this->idDemandeur;
     }
 
-    /**
-     * Set idCvs
-     *
-     * @param integer $idCvs
-     *
-     * @return epizy_demandeur_formations
-     */
-    public function setIdCvs($idCvs)
-    {
-        $this->idCvs = $idCvs;
-
-        return $this;
-    }
-
-    /**
-     * Get idCvs
-     *
-     * @return int
-     */
-    public function getIdCvs()
-    {
-        return $this->idCvs;
-    }
 
     /**
      * Set annee
@@ -324,4 +296,28 @@ class epizy_demandeur_formations
     private $id_cvs;
 
 
+
+    /**
+     * Set idCvs
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_cvs $idCvs
+     *
+     * @return epizy_demandeur_formations
+     */
+    public function setIdCvs(\AdminBundle\Entity\epizy_demandeur_cvs $idCvs = null)
+    {
+        $this->id_cvs = $idCvs;
+
+        return $this;
+    }
+
+    /**
+     * Get idCvs
+     *
+     * @return \AdminBundle\Entity\epizy_demandeur_cvs
+     */
+    public function getIdCvs()
+    {
+        return $this->id_cvs;
+    }
 }

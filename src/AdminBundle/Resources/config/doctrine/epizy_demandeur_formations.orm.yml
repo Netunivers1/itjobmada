@@ -44,7 +44,8 @@ AdminBundle\Entity\epizy_demandeur_formations:
                 nullable: true
                 onDelete: SET NULL
         id_cvs:
-            targetEntity: epizy_demandeur_formations
+            targetEntity: epizy_demandeur_cvs
+            inversedBy: formation
             joinColumn:
                 name: id_cvs
                 referencedColumnName: id

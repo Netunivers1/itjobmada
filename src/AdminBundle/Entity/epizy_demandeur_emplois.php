@@ -54,11 +54,6 @@ class epizy_demandeur_emplois
     private $ville;
 
     /**
-     * @var int
-     */
-    private $villeId;
-
-    /**
      * @var string
      */
     private $region;
@@ -308,30 +303,6 @@ class epizy_demandeur_emplois
     public function getVille()
     {
         return $this->ville;
-    }
-
-    /**
-     * Set villeId
-     *
-     * @param integer $villeId
-     *
-     * @return epizy_demandeur_emplois
-     */
-    public function setVilleId($villeId)
-    {
-        $this->villeId = $villeId;
-
-        return $this;
-    }
-
-    /**
-     * Get villeId
-     *
-     * @return int
-     */
-    public function getVilleId()
-    {
-        return $this->villeId;
     }
 
     /**
@@ -602,4 +573,33 @@ class epizy_demandeur_emplois
         return $this->id_user;
     }
 
+    /**
+     * @var \AdminBundle\Entity\epizy_villes
+     */
+    private $ville_id;
+
+
+    /**
+     * Set villeId
+     *
+     * @param \AdminBundle\Entity\epizy_villes $villeId
+     *
+     * @return epizy_demandeur_emplois
+     */
+    public function setVilleId(\AdminBundle\Entity\epizy_villes $villeId = null)
+    {
+        $this->ville_id = $villeId;
+
+        return $this;
+    }
+
+    /**
+     * Get villeId
+     *
+     * @return \AdminBundle\Entity\epizy_villes
+     */
+    public function getVilleId()
+    {
+        return $this->ville_id;
+    }
 }
