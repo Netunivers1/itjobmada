@@ -27,7 +27,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class Demandeurcontroller extends Controller
+class DemandeurController extends Controller
 {
     private $date_created,$dmd_emplois ,$dmd_cvs,$dmd_formation,$dmd_experience,$users ,$ville_emp,$ville_for,
         $ville_exp ,$emploi_recherche,$logiciel ,$langue ,$certificat ,$diplome ,$universite ,$secteur ,$poste ;
@@ -52,7 +52,6 @@ class Demandeurcontroller extends Controller
         $this->secteur = new epizy_secteur_activites();
         $this->poste = new epizy_poste_occupes();
     }
-
 
     /**
      * @Route("/demandeur/index", name="admin_demandeur_index")
@@ -90,7 +89,7 @@ class Demandeurcontroller extends Controller
 
             $email_user = $repo_users->findOneBy(['email' => $form_emplois->get('email')->getData()]);
             $email_dmd = $repo_dmd->findOneBy(['email' => $form_emplois->get('email')->getData()]);
-
+            //$email_user = null ; $email_dmd = null ;
             if ($email_user == null || !$email_user && $email_dmd == null || !$email_dmd) {
                 $this->users->setName($form_emplois->get('nom')->getData());
                 $this->users->setSeoname($form_emplois->get('prenom')->getData());
@@ -102,7 +101,7 @@ class Demandeurcontroller extends Controller
                 $form_emplois->get('photo')->getData() == null ? $this->users->setHasImage('0') : $this->users->setHasImage('1');
                 $em->persist($this->users);
                 $em->flush();
-                $id_user = $this->users->getId();
+                $id_user = $this->users;
 
                 $ville_emploi = $repo_ville->findOneBy(['libele' => $form_emplois->get('ville')->getData()]);
 
@@ -126,7 +125,7 @@ class Demandeurcontroller extends Controller
                     $em->persist($this->dmd_emplois);
                     $em->persist($form_emplois->getData());
                     $em->flush();
-                    $id_demandeur = $this->dmd_emplois->getId();
+                    $id_demandeur = $this->dmd_emplois;
                 }
 
                 if ($id_demandeur != null) {
@@ -139,10 +138,12 @@ class Demandeurcontroller extends Controller
                         $this->emploi_recherche->setCreated($this->date_created);
                         $em->persist($this->emploi_recherche);
                         $em->flush();
-                        $emploi_recherche_id = $this->emploi_recherche->getId();
+                        $emploi_recherche_id = $this->emploi_recherche;
                     }else{
-                        $emploi_recherche_id = $emploi_exist->getId();
+                        $emploi_recherche_id = $emploi_exist;
                     }//else get id for select
+
+
 
                     $log = $form_cvs->get('logiciel')->getData();
                     $logiciel_exist = $repo_log->findOneBy(['libele' => $log]);
@@ -153,10 +154,10 @@ class Demandeurcontroller extends Controller
                         $this->logiciel->setCreated($this->date_created);
                         $em->persist($this->logiciel);
                         $em->flush();
-                        $logiciel_id = $this->logiciel->getId();
+                        $logiciel_id = $this->logiciel;
 
                     }else{
-                        $logiciel_id =$logiciel_exist->getId();
+                        $logiciel_id =$logiciel_exist;
                     }//else get id for select
 
                     $langues = $form_cvs->get('langue')->getData();
@@ -168,9 +169,9 @@ class Demandeurcontroller extends Controller
                         $this->langue->setCreated($this->date_created);
                         $em->persist($this->langue);
                         $em->flush();
-                        $langue_id = $this->langue->getId();
+                        $langue_id = $this->langue;
                     }else{
-                        $langue_id =$langue_exist->getId();
+                        $langue_id =$langue_exist;
                     }//else get id for select
 
                     $certificat_id = null;
@@ -186,13 +187,14 @@ class Demandeurcontroller extends Controller
 
                     $id_cvs = null;
                     if (isset($emploi_recherche_id) && !empty($emploi_recherche_id)) {
+
                         $this->dmd_cvs->setEmploirechercheId($emploi_recherche_id);
                         $this->dmd_cvs->setLogicielId($logiciel_id);
                         $this->dmd_cvs->setCertificationId($certificat_id);
                         $this->dmd_cvs->setIdDemandeur($id_demandeur);
                         $this->dmd_cvs->setDateCreation($this->date_created);
                         $this->dmd_cvs->setNbrVue('0');
-                        $this->dmd_cvs->setReference('CV_' . $id_demandeur);
+                        $this->dmd_cvs->setReference('CV_' . $id_demandeur->getId());
                         $this->dmd_cvs->setStatu('0');
                         $permis_array = $form_cvs->get('permis')->getData();
                         $permis = implode(',', $permis_array);
@@ -200,7 +202,7 @@ class Demandeurcontroller extends Controller
                         $em->persist($this->dmd_cvs);
                         $em->persist($form_cvs->getData());
                         $em->flush();
-                        $id_cvs = $this->dmd_cvs->getId();
+                        $id_cvs = $this->dmd_cvs;
                     }
 
                     // formation et experience
@@ -286,7 +288,7 @@ class Demandeurcontroller extends Controller
                         } // else get id for select option
 
                         $this->dmd_experience->setIdDemandeur($id_demandeur);
-                        $this->dmd_experience->setIdCvs($id_cvs);
+                        $this->dmd_experience->setIdCv($id_cvs);
                         $this->dmd_experience->setVilleId($id_vil);
                         $this->dmd_experience->setPosteoccupeId($post_id);
                         $this->dmd_experience->setSecteuractiviteId($id_secteur);
@@ -317,7 +319,6 @@ class Demandeurcontroller extends Controller
         );
     }
 
-
     /**
      * @Route("/demandeur/show", name="admin_demandeur_show")
      */
@@ -330,22 +331,30 @@ class Demandeurcontroller extends Controller
     /**
      * @Route("/demandeur/edit/{id}", name="admin_demandeur_edit")
      */
-    public function editCVAction(){
+    public function editCVAction(Request $request){
         $form_emplois   = $this->createForm(epizy_demandeur_emploisType::class, $this->dmd_emplois);
         $form_cvs       = $this->createForm(epizy_demandeur_cvsType::class, $this->dmd_cvs);
         $form_formation = $this->createForm(epizy_demandeur_formationsType::class, $this->dmd_formation);
         $form_experience= $this->createForm(epizy_demandeur_experienceType::class, $this->dmd_experience);
         $form_logiciel  = $this->createForm(epizy_logicielsType::class, $this->logiciel);
 
+        if ( $request->isMethod('GET')){
+            $id_cv = $request->get('id') ;
+            $d_cv  = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id_cv);
+            $id_demandeur = $d_cv->getIdDemandeur();
+            $d_emploi = $this->getRepositoryClass('AdminBundle:epizy_demandeur_emplois')->find($id_demandeur);
+        }
+
         $form = $this->createFormBuilder(FormType::class)->setAction('')->setMethod('post')->getForm();
-        return $this->view('index.html.twig',
+        return $this->view('edit.html.twig',
             array(
                 'form_emplois' => $form_emplois->createView(),
                 'form_cvs' => $form_cvs->createView(),
                 'form_formation' => $form_formation->createView(),
                 'form_experience' => $form_experience->createView(),
                 'form_logiciel' => $form_logiciel->createView(),
-                'form' => $form->createView()
+                'form' => $form->createView(),
+                'dEmploi'=>$d_emploi ,
             )
         );
     }
@@ -355,24 +364,36 @@ class Demandeurcontroller extends Controller
      */
     public function deleteAction( Request $request){
         if ($request->isMethod('GET')){
-            $id = intval($request->get('id') ) ;
-            // demandeur cvs
-            $cv = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id);
-            // demandeur emplois
-            $emploi = $cv->getIdDemandeur();
-            // users
-            $user = $emploi->getIdUser();
-            // experiences
-            //$experiences = $emploi->getIdDemandeur;
-
-            //return new Response(var_dump($experiences));
-
-
-
-
             $em = $this->getDoctrine()->getManager();
-            $em->remove($cv);
-            $em->flush();
+            $id         = intval($request->get('id') ) ;
+            if ($id != 0 || $id != null){
+                $cv         = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id);
+                $emploi     = $cv->getIdDemandeur();
+                $user       = $emploi->getIdUser();
+                $experience = $this->getRepositoryClass('AdminBundle:epizy_demandeur_experience')->findBy(['id_cv'=>$cv->getId()] );
+                if ($experience != null && $experience != ''){
+                    foreach ($experience as $exp){
+                        $em->remove($exp) ;
+                        $em->flush();
+                    }
+                }
+                $formation = $this->getRepositoryClass('AdminBundle:epizy_demandeur_formations')->findBy(['id_cvs'=>$cv->getId()] );
+                if ($formation != null && $formation != ''){
+                    foreach ($formation as $form){
+                        $em->remove($form) ;
+                        $em->flush();
+                    }
+                }
+                $em->remove($cv);
+                if ($emploi != null ){
+                    $em->remove($emploi);
+                }
+                if ( $user != null){
+                    $em->remove($user);
+                }
+                $em->flush();
+            }
+
             return $this->redirectToRoute("admin_demandeur_show") ;
         }
         return $this->redirectToRoute("admin_demandeur_show") ;

@@ -68,17 +68,10 @@ AdminBundle\Entity\epizy_demandeur_emplois:
             type: string
             length: 255
     lifecycleCallbacks: {  }
-    oneToMany:
-        cvs:
-            targetEntity: epizy_demandeur_cvs
-            mappedBy: epizy_demandeur_emplois
-#        demandeur_emplois:
-#            targetEntity: epizy_demandeur_experiences
-#            mappedBy: epizy_demandeur_emplois
     manyToOne:
         id_user:
             targetEntity: AppBundle\Entity\epizy_users
-            inversedBy: AdminBundle\Entity\epizy_demandeur_emplois
+            inversedBy: demandeur_emplois
             joinColumn:
                 name: id_user
                 referencedColumnName: id

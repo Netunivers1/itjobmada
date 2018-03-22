@@ -1,6 +1,7 @@
 <?php
 
 namespace AdminBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * epizy_demandeur_experience
@@ -11,11 +12,6 @@ class epizy_demandeur_experience
      * @var int
      */
     private $id;
-
-    /**
-     * @var int
-     */
-    private $idCvs;
 
     /**
      * @var string
@@ -77,7 +73,6 @@ class epizy_demandeur_experience
      */
     private $missionTache;
 
-
     /**
      * Get id
      *
@@ -86,30 +81,6 @@ class epizy_demandeur_experience
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idCvs
-     *
-     * @param integer $idCvs
-     *
-     * @return epizy_demandeur_experience
-     */
-    public function setIdCvs($idCvs)
-    {
-        $this->idCvs = $idCvs;
-
-        return $this;
-    }
-
-    /**
-     * Get idCvs
-     *
-     * @return int
-     */
-    public function getIdCvs()
-    {
-        return $this->idCvs;
     }
 
     /**
@@ -404,8 +375,6 @@ class epizy_demandeur_experience
      * @var \AdminBundle\Entity\epizy_demandeur_emplois
      */
     private $id_demandeur;
-
-
     /**
      * Set idDemandeur
      *
@@ -416,7 +385,6 @@ class epizy_demandeur_experience
     public function setIdDemandeur(\AdminBundle\Entity\epizy_demandeur_emplois $idDemandeur = null)
     {
         $this->id_demandeur = $idDemandeur;
-
         return $this;
     }
 
@@ -428,5 +396,35 @@ class epizy_demandeur_experience
     public function getIdDemandeur()
     {
         return $this->id_demandeur;
+    }
+
+
+    /**
+     * @var \AdminBundle\Entity\epizy_demandeur_cvs
+     */
+    private $id_cv;
+
+
+    /**
+     * Set idCv
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_cvs $idCv
+     *
+     * @return epizy_demandeur_experience
+     */
+    public function setIdCv(\AdminBundle\Entity\epizy_demandeur_cvs $idCv = null)
+    {
+        $this->id_cv = $idCv;
+        return $this;
+    }
+
+    /**
+     * Get idCv
+     *
+     * @return \AdminBundle\Entity\epizy_demandeur_cvs
+     */
+    public function getIdCv()
+    {
+        return $this->id_cv;
     }
 }

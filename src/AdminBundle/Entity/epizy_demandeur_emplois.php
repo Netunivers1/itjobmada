@@ -107,16 +107,6 @@ class epizy_demandeur_emplois
      * @var string
      */
     private $newsletter;
-    private $demandeur_experience;
-
-    private $cvs ;
-
-    public function __construct()
-    {
-        $this->cvs = new ArrayCollection();
-        $this->demandeur_experience = new ArrayCollection();
-    }
-
 
     /**
      * Get id
@@ -583,46 +573,10 @@ class epizy_demandeur_emplois
     {
         return $this->newsletter;
     }
-
-    /**
-     * Add cv
-     *
-     * @param \AdminBundle\Entity\epizy_demandeur_cvs $cv
-     *
-     * @return epizy_demandeur_emplois
-     */
-    public function addCv(\AdminBundle\Entity\epizy_demandeur_cvs $cv)
-    {
-        $this->cvs[] = $cv;
-
-        return $this;
-    }
-
-    /**
-     * Remove cv
-     *
-     * @param \AdminBundle\Entity\epizy_demandeur_cvs $cv
-     */
-    public function removeCv(\AdminBundle\Entity\epizy_demandeur_cvs $cv)
-    {
-        $this->cvs->removeElement($cv);
-    }
-
-    /**
-     * Get cvs
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCvs()
-    {
-        return $this->cvs;
-    }
-
     /**
      * @var \AppBundle\Entity\epizy_users
      */
-    private $id_user;
-
+    protected $id_user;
 
     /**
      * Set idUser
@@ -648,43 +602,4 @@ class epizy_demandeur_emplois
         return $this->id_user;
     }
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $demandeur_emplois;
-
-
-    /**
-     * Add demandeurEmplois
-     *
-     * @param \AdminBundle\Entity\epizy_demandeur_experiences $demandeurEmplois
-     *
-     * @return epizy_demandeur_emplois
-     */
-    public function addDemandeurEmplois(\AdminBundle\Entity\epizy_demandeur_experiences $demandeurEmplois)
-    {
-        $this->demandeur_emplois[] = $demandeurEmplois;
-
-        return $this;
-    }
-
-    /**
-     * Remove demandeurEmplois
-     *
-     * @param \AdminBundle\Entity\epizy_demandeur_experiences $demandeurEmplois
-     */
-    public function removeDemandeurEmplois(\AdminBundle\Entity\epizy_demandeur_experiences $demandeurEmplois)
-    {
-        $this->demandeur_emplois->removeElement($demandeurEmplois);
-    }
-
-    /**
-     * Get demandeurEmplois
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getDemandeurEmplois()
-    {
-        return $this->demandeur_emplois;
-    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace AdminBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * epizy_demandeur_cvs
@@ -76,6 +77,13 @@ class epizy_demandeur_cvs
      * @var string
      */
     private $position;
+
+    private $experience ;
+
+    public function  __construct()
+    {
+        $this->experience = new ArrayCollection() ;
+    }
 
 
     /**
@@ -403,7 +411,7 @@ class epizy_demandeur_cvs
     /**
      * @var \AdminBundle\Entity\epizy_demandeur_emplois
      */
-    private $id_demandeur;
+    protected $id_demandeur;
 
 
     /**
@@ -429,15 +437,41 @@ class epizy_demandeur_cvs
     {
         return $this->id_demandeur;
     }
-    /**
-     * @var \AdminBundle\Entity\epizy_logiciels
-     */
-    private $logiciel_id;
 
     /**
      * @var \AdminBundle\Entity\epizy_langues
      */
     private $langue_id;
+    
+
+    /**
+     * Set langueId
+     *
+     * @param \AdminBundle\Entity\epizy_langues $langueId
+     *
+     * @return epizy_demandeur_cvs
+     */
+    public function setLangueId(\AdminBundle\Entity\epizy_langues $langueId = null)
+    {
+        $this->langue_id = $langueId;
+
+        return $this;
+    }
+
+    /**
+     * Get langueId
+     *
+     * @return \AdminBundle\Entity\epizy_langues
+     */
+    public function getLangueId()
+    {
+        return $this->langue_id;
+    }
+    
+    /**
+     * @var \AdminBundle\Entity\epizy_logiciels
+     */
+    private $logiciel_id;
 
 
     /**
@@ -463,38 +497,8 @@ class epizy_demandeur_cvs
     {
         return $this->logiciel_id;
     }
-
-    /**
-     * Set langueId
-     *
-     * @param \AdminBundle\Entity\epizy_langues $langueId
-     *
-     * @return epizy_demandeur_cvs
-     */
-    public function setLangueId(\AdminBundle\Entity\epizy_langues $langueId = null)
-    {
-        $this->langue_id = $langueId;
-
-        return $this;
-    }
-
-    /**
-     * Get langueId
-     *
-     * @return \AdminBundle\Entity\epizy_langues
-     */
-    public function getLangueId()
-    {
-        return $this->langue_id;
-    }
-
     /**
      * @var \AdminBundle\Entity\epizy_emploi_recherches
-     */
-    private $emploirechercheId;
-
-    /**
-     * @var integer
      */
     private $emploirecherche_id;
 
@@ -502,13 +506,13 @@ class epizy_demandeur_cvs
     /**
      * Set emploirechercheId
      *
-     * @param integer $emploirechercheId
+     * @param \AdminBundle\Entity\epizy_emploi_recherches $emploirechercheId
      *
      * @return epizy_demandeur_cvs
      */
-    public function setEmploirechercheId( \AdminBundle\Entity\epizy_emploi_recherches $emploirechercheId)
+    public function setEmploirechercheId(\AdminBundle\Entity\epizy_emploi_recherches $emploirechercheId = null)
     {
-        $this->emploirechercheId = $emploirechercheId;
+        $this->emploirecherche_id = $emploirechercheId;
 
         return $this;
     }
@@ -520,35 +524,6 @@ class epizy_demandeur_cvs
      */
     public function getEmploirechercheId()
     {
-        return $this->emploirechercheId;
-    }
-    /**
-     * @var \AdminBundle\Entity\epizy_emploi_recherches
-     */
-    private $dmd__emploirecherche_id;
-
-
-    /**
-     * Set dmdEmploirechercheId
-     *
-     * @param \AdminBundle\Entity\epizy_emploi_recherches $dmdEmploirechercheId
-     *
-     * @return epizy_demandeur_cvs
-     */
-    public function setDmdEmploirechercheId(\AdminBundle\Entity\epizy_emploi_recherches $dmdEmploirechercheId = null)
-    {
-        $this->dmd__emploirecherche_id = $dmdEmploirechercheId;
-
-        return $this;
-    }
-
-    /**
-     * Get dmdEmploirechercheId
-     *
-     * @return \AdminBundle\Entity\epizy_emploi_recherches
-     */
-    public function getDmdEmploirechercheId()
-    {
-        return $this->dmd__emploirecherche_id;
+        return $this->emploirecherche_id;
     }
 }

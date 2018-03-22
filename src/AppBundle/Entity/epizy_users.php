@@ -873,7 +873,7 @@ class epizy_users
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $demandeur_emplois;
+    protected $demandeur_emplois;
 
     /**
      * Add demandeurEmplois

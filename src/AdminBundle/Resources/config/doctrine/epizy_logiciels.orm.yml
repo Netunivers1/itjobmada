@@ -21,4 +21,5 @@ AdminBundle\Entity\epizy_logiciels:
     oneToMany:
         demandeur_cvs:
             targetEntity: epizy_demandeur_cvs
-            mappedBy: epizy_logiciels
+            mappedBy: logiciel_id
+            cascade: [persist]

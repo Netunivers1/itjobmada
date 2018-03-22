@@ -9,9 +9,6 @@ AdminBundle\Entity\epizy_demandeur_experience:
             generator:
                 strategy: AUTO
     fields:
-        idCvs:
-            type: integer
-            column: id_cvs
         moisDebut:
             type: string
             length: 255
@@ -54,10 +51,17 @@ AdminBundle\Entity\epizy_demandeur_experience:
             column: mission_tache
     lifecycleCallbacks: {  }
 
-#    manyToOne:
-#        id_demandeur:
-#            targetEntity: epizy_demandeur_emplois
-#            inversedBy: epizy_demandeur_experiences
-#            joinColumn:
-#                name: id_demandeur
-#                referencedColumnName: id
+    manyToOne:
+        id_demandeur:
+            targetEntity: epizy_demandeur_emplois
+            joinColumn:
+                name: id_demandeur
+                referencedColumnName: id
+                onDelete: SET NULL
+        id_cv:
+            targetEntity: epizy_demandeur_cvs
+            inversedBy: experience
+            joinColumn:
+                name: id_cv
+                referencedColumnName: id
+                onDelete: SET NULL
