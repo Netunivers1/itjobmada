@@ -40,23 +40,12 @@ class epizy_demandeur_formations
     /**
      * @var string
      */
-    private $diplome;
-
-    /**
-     * @var int
-     */
-    private $diplomeId;
+    private $diplomes;
 
     /**
      * @var string
      */
-    private $universite;
-
-    /**
-     * @var int
-     */
-    private $universiteId;
-
+    private $universites;
 
     /**
      * Get id
@@ -190,112 +179,63 @@ class epizy_demandeur_formations
     }
 
     /**
-     * Set diplome
+     * Set diplomes
      *
-     * @param string $diplome
+     * @param string $diplomes
      *
      * @return epizy_demandeur_formations
      */
-    public function setDiplome($diplome)
+    public function setdiplomes($diplomes)
     {
-        $this->diplome = $diplome;
+        $this->diplomes = $diplomes;
 
         return $this;
     }
 
     /**
-     * Get diplome
+     * Get diplomes
      *
      * @return string
      */
-    public function getDiplome()
+    public function getdiplomes()
     {
-        return $this->diplome;
+        return $this->diplomes;
     }
 
     /**
-     * Set diplomeId
+     * Set universites
      *
-     * @param integer $diplomeId
+     * @param string $universites
      *
      * @return epizy_demandeur_formations
      */
-    public function setDiplomeId($diplomeId)
+    public function setuniversites($universites)
     {
-        $this->diplomeId = $diplomeId;
+        $this->universites = $universites;
 
         return $this;
     }
 
     /**
-     * Get diplomeId
-     *
-     * @return int
-     */
-    public function getDiplomeId()
-    {
-        return $this->diplomeId;
-    }
-
-    /**
-     * Set universite
-     *
-     * @param string $universite
-     *
-     * @return epizy_demandeur_formations
-     */
-    public function setUniversite($universite)
-    {
-        $this->universite = $universite;
-
-        return $this;
-    }
-
-    /**
-     * Get universite
+     * Get universites
      *
      * @return string
      */
-    public function getUniversite()
+    public function getuniversites()
     {
-        return $this->universite;
+        return $this->universites;
     }
 
-    /**
-     * Set universiteId
-     *
-     * @param integer $universiteId
-     *
-     * @return epizy_demandeur_formations
-     */
-    public function setUniversiteId($universiteId)
-    {
-        $this->universiteId = $universiteId;
 
-        return $this;
-    }
-
-    /**
-     * Get universiteId
-     *
-     * @return int
-     */
-    public function getUniversiteId()
-    {
-        return $this->universiteId;
-    }
     /**
      * @var \AdminBundle\Entity\epizy_demandeur_emplois
      */
     private $id_demandeur;
 
-
     /**
      * @var \AdminBundle\Entity\epizy_demandeur_formations
      */
     private $id_cvs;
-
-
 
     /**
      * Set idCvs
@@ -319,5 +259,64 @@ class epizy_demandeur_formations
     public function getIdCvs()
     {
         return $this->id_cvs;
+    }
+
+    /**
+     * @var \AdminBundle\Entity\epizy_diplomes
+     */
+    private $diplome;
+
+    /**
+     * @var \AdminBundle\Entity\epizy_universites
+     */
+    private $universite;
+
+
+    /**
+     * Set diplome
+     *
+     * @param \AdminBundle\Entity\epizy_diplomes $diplome
+     *
+     * @return epizy_demandeur_formations
+     */
+    public function setDiplome(\AdminBundle\Entity\epizy_diplomes $diplome = null)
+    {
+        $this->diplome = $diplome;
+
+        return $this;
+    }
+
+    /**
+     * Get diplome
+     *
+     * @return \AdminBundle\Entity\epizy_diplomes
+     */
+    public function getDiplome()
+    {
+        return $this->diplome;
+    }
+
+    /**
+     * Set universite
+     *
+     * @param \AdminBundle\Entity\epizy_universites $universite
+     *
+     * @return epizy_demandeur_formations
+     */
+    public function setUniversite(\AdminBundle\Entity\epizy_universites $universite = null)
+    {
+        $this->universite = $universite;
+
+        return $this;
+    }
+
+    /**
+     * Get universite
+     *
+     * @return \AdminBundle\Entity\epizy_universites
+     */
+    public function getUniversite()
+    {
+        return $this->universite;
     }
 }

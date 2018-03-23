@@ -54,19 +54,9 @@ class epizy_demandeur_experience
     private $secteurActivite;
 
     /**
-     * @var int
-     */
-    private $secteuractiviteId;
-
-    /**
      * @var string
      */
     private $posteOccupe;
-
-    /**
-     * @var int
-     */
-    private $posteoccupeId;
 
     /**
      * @var string
@@ -276,30 +266,6 @@ class epizy_demandeur_experience
     }
 
     /**
-     * Set secteuractiviteId
-     *
-     * @param integer $secteuractiviteId
-     *
-     * @return epizy_demandeur_experience
-     */
-    public function setSecteuractiviteId($secteuractiviteId)
-    {
-        $this->secteuractiviteId = $secteuractiviteId;
-
-        return $this;
-    }
-
-    /**
-     * Get secteuractiviteId
-     *
-     * @return int
-     */
-    public function getSecteuractiviteId()
-    {
-        return $this->secteuractiviteId;
-    }
-
-    /**
      * Set posteOccupe
      *
      * @param string $posteOccupe
@@ -321,30 +287,6 @@ class epizy_demandeur_experience
     public function getPosteOccupe()
     {
         return $this->posteOccupe;
-    }
-
-    /**
-     * Set posteoccupeId
-     *
-     * @param integer $posteoccupeId
-     *
-     * @return epizy_demandeur_experience
-     */
-    public function setPosteoccupeId($posteoccupeId)
-    {
-        $this->posteoccupeId = $posteoccupeId;
-
-        return $this;
-    }
-
-    /**
-     * Get posteoccupeId
-     *
-     * @return int
-     */
-    public function getPosteoccupeId()
-    {
-        return $this->posteoccupeId;
     }
 
     /**
@@ -426,5 +368,63 @@ class epizy_demandeur_experience
     public function getIdCv()
     {
         return $this->id_cv;
+    }
+    /**
+     * @var \AdminBundle\Entity\epizy_poste_occupes
+     */
+    private $posteoccupe_id;
+
+
+    /**
+     * Set posteoccupeId
+     *
+     * @param \AdminBundle\Entity\epizy_poste_occupes $posteoccupeId
+     *
+     * @return epizy_demandeur_experience
+     */
+    public function setPosteoccupeId(\AdminBundle\Entity\epizy_poste_occupes $posteoccupeId = null)
+    {
+        $this->posteoccupe_id = $posteoccupeId;
+
+        return $this;
+    }
+
+    /**
+     * Get posteoccupeId
+     *
+     * @return \AdminBundle\Entity\epizy_poste_occupes
+     */
+    public function getPosteoccupeId()
+    {
+        return $this->posteoccupe_id;
+    }
+    /**
+     * @var \AdminBundle\Entity\epizy_secteur_activite
+     */
+    private $secteuractivite_id;
+
+
+    /**
+     * Set secteuractiviteId
+     *
+     * @param \AdminBundle\Entity\epizy_secteur_activite $secteuractiviteId
+     *
+     * @return epizy_demandeur_experience
+     */
+    public function setSecteuractiviteId(\AdminBundle\Entity\epizy_secteur_activite $secteuractiviteId = null)
+    {
+        $this->secteuractivite_id = $secteuractiviteId;
+
+        return $this;
+    }
+
+    /**
+     * Get secteuractiviteId
+     *
+     * @return \AdminBundle\Entity\epizy_secteur_activite
+     */
+    public function getSecteuractiviteId()
+    {
+        return $this->secteuractivite_id;
     }
 }

@@ -36,16 +36,10 @@ AdminBundle\Entity\epizy_demandeur_experience:
             type: string
             length: 255
             column: secteur_activite
-        secteuractiviteId:
-            type: integer
-            column: secteuractivite_id
         posteOccupe:
             type: string
             length: 255
             column: poste_occupe
-        posteoccupeId:
-            type: integer
-            column: posteoccupe_id
         missionTache:
             type: text
             column: mission_tache
@@ -63,5 +57,17 @@ AdminBundle\Entity\epizy_demandeur_experience:
             inversedBy: experience
             joinColumn:
                 name: id_cv
+                referencedColumnName: id
+                onDelete: SET NULL
+        posteoccupe_id:
+            targetEntity: epizy_poste_occupes
+            joinColumn:
+                name: posteoccupe_id
+                referencedColumnName: id
+                onDelete: SET NULL
+        secteuractivite_id:
+            targetEntity: epizy_secteur_activites
+            joinColumn:
+                name: secteuractivite_id
                 referencedColumnName: id
                 onDelete: SET NULL

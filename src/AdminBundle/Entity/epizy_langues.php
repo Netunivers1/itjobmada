@@ -37,7 +37,6 @@ class epizy_langues
      */
     private $created;
 
-
     /**
      * Get id
      *

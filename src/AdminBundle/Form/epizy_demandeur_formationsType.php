@@ -2,7 +2,9 @@
 
 namespace AdminBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,11 +16,11 @@ class epizy_demandeur_formationsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('annee')
-            ->add('ville')
-            ->add('pays')
-            ->add('diplome')
-            ->add('universite')
+            ->add('annee', TextType::class )
+            ->add('ville', TextType::class)
+            ->add('pays', TextType::class)
+            ->add('diplomes', TextType::class)
+            ->add('universites', TextType::class)
         ;
     }
     

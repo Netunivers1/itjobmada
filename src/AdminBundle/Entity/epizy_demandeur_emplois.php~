@@ -73,6 +73,14 @@ class epizy_demandeur_emplois
      */
     private $choixEmploi;
 
+
+    private $new_choixEmploi;
+
+    /**
+     * @var string
+     */
+    private $new_choixFormation;
+
     /**
      * @var string
      */
@@ -402,6 +410,32 @@ class epizy_demandeur_emplois
     }
 
     /**
+     * Set newChoixEmploi
+     *
+     * @param string $newChoixEmploi
+     *
+     * @return epizy_demandeur_emplois
+     */
+    public function setNewChoixEmploi($newChoixEmploi)
+    {
+        $this->new_choixEmploi = $newChoixEmploi;
+
+        return $this;
+    }
+
+    /**
+     * Get newChoixEmploi
+     *
+     * @return string
+     */
+    public function getNewChoixEmploi()
+    {
+        return $this->new_choixEmploi;
+    }
+
+
+
+    /**
      * Set choixFormation
      *
      * @param string $choixFormation
@@ -423,6 +457,30 @@ class epizy_demandeur_emplois
     public function getChoixFormation()
     {
         return $this->choixFormation;
+    }
+
+    /**
+     * Set newChoixFormation
+     *
+     * @param string $newChoixFormation
+     *
+     * @return epizy_demandeur_emplois
+     */
+    public function setNewChoixFormation($newChoixFormation)
+    {
+        $this->new_choixFormation = $newChoixFormation;
+
+        return $this;
+    }
+
+    /**
+     * Get newChoixFormation
+     *
+     * @return string
+     */
+    public function getNewChoixFormation()
+    {
+        return $this->new_choixFormation;
     }
 
     /**

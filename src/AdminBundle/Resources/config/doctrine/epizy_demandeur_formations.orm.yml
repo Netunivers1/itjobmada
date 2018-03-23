@@ -21,18 +21,14 @@ AdminBundle\Entity\epizy_demandeur_formations:
         pays:
             type: string
             length: 255
-        diplome:
+        diplomes:
             type: string
             length: 255
-        diplomeId:
-            type: integer
-            column: diplome_id
-        universite:
+            column: diplomes
+        universites:
             type: string
             length: 255
-        universiteId:
-            type: integer
-            column: universite_id
+            column: universites
     lifecycleCallbacks: {  }
 
     manyToOne:
@@ -51,3 +47,13 @@ AdminBundle\Entity\epizy_demandeur_formations:
                 referencedColumnName: id
                 nullable: true
                 onDelete: SET NULL
+        diplome:
+            targetEntity: epizy_diplomes
+            joincolumn:
+                name: diplome_id
+                referencedColumnName: id
+        universite:
+            targetEntity: epizy_universites
+            joincolumn:
+                name: universite_id
+                referencedColumnName: id

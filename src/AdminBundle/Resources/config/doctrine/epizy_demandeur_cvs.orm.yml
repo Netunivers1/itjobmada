@@ -31,13 +31,12 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             type: string
             length: 255
             column: centre_interet_certificat
-        certificationId:
-            type: integer
-            column: certification_id
+            nullable: true
         centreInteretProjet:
             type: string
             length: 255
             column: centre_interet_projet
+            nullable: true
         dateCreation:
             type: datetime
             column: date_creation
@@ -65,17 +64,21 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             joinColumn:
                 name: logiciel_id
                 referencedColumnName: id
-                cascade: [ persist ]
-#        langue_id:
-#            targetEntity: epizy_langues
-#            joinColumn:
-#                name: langue_id
-#                referencedColumnName: id
+        langue_id:
+            targetEntity: epizy_langues
+            joinColumn:
+                name: langue_id
+                referencedColumnName: id
         emploirecherche_id:
             targetEntity: epizy_emploi_recherches
             inversedBy: cvs_id
             joinColumn:
                 name: emploirecherche_id
+                referencedColumnName: id
+        certification_id:
+            targetEntity: epizy_certifications
+            joincolumn:
+                name: certification_id
                 referencedColumnName: id
     OneToMany:
         experience:

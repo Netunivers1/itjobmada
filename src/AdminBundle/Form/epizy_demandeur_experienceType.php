@@ -2,7 +2,10 @@
 
 namespace AdminBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,9 +23,13 @@ class epizy_demandeur_experienceType extends AbstractType
             ->add('ville')
             ->add('pays')
             ->add('nomEntreprise')
-            ->add('secteurActivite')
+            ->add('secteurActiviteId', EntityType::class,
+                array(
+                    'class'=>'AdminBundle:epizy_secteur_activites',
+                    'choice_label'=>'libele',
+                ))
             ->add('posteOccupe')
-            ->add('missionTache')
+            ->add('missionTache',TextareaType::class,array('required'=>false))
         ;
     }
     
