@@ -2,6 +2,7 @@
 
 namespace AdminBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,6 +27,12 @@ class epizy_demandeur_cvsType extends AbstractType
                         'Aucun' => 'Aucun`'
                     ),
                     'choices_as_values' => true,'multiple'=>true,'expanded'=>true
+                )
+            )
+            ->add('emploiRechercheId', EntityType::class,
+                array(
+                    'class'=>'AdminBundle:epizy_emploi_recherches',
+                    'choice_label'=>'libele'
                 )
             )
             ->add('emploiRecherche')

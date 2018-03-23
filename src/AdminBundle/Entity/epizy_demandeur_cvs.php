@@ -80,9 +80,12 @@ class epizy_demandeur_cvs
 
     private $experience ;
 
+    private $formation ;
+
     public function  __construct()
     {
         $this->experience = new ArrayCollection() ;
+        $this->formation = new ArrayCollection() ;
     }
 
 
@@ -437,42 +440,41 @@ class epizy_demandeur_cvs
     {
         return $this->id_demandeur;
     }
-
-    /**
-     * @var \AdminBundle\Entity\epizy_langues
-     */
-    private $langue_id;
-    
-
-    /**
-     * Set langueId
-     *
-     * @param \AdminBundle\Entity\epizy_langues $langueId
-     *
-     * @return epizy_demandeur_cvs
-     */
-    public function setLangueId(\AdminBundle\Entity\epizy_langues $langueId = null)
-    {
-        $this->langue_id = $langueId;
-
-        return $this;
-    }
-
-    /**
-     * Get langueId
-     *
-     * @return \AdminBundle\Entity\epizy_langues
-     */
-    public function getLangueId()
-    {
-        return $this->langue_id;
-    }
+//
+//    /**
+//     * @var \AdminBundle\Entity\epizy_langues
+//     */
+//    private $langue_id;
+//
+//
+//    /**
+//     * Set langueId
+//     *
+//     * @param \AdminBundle\Entity\epizy_langues $langueId
+//     *
+//     * @return epizy_demandeur_cvs
+//     */
+//    public function setLangueId(\AdminBundle\Entity\epizy_langues $langueId = null)
+//    {
+//        $this->langue_id = $langueId;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get langueId
+//     *
+//     * @return \AdminBundle\Entity\epizy_langues
+//     */
+//    public function getLangueId()
+//    {
+//        return $this->langue_id;
+//    }
     
     /**
      * @var \AdminBundle\Entity\epizy_logiciels
      */
     private $logiciel_id;
-
 
     /**
      * Set logicielId
@@ -497,11 +499,11 @@ class epizy_demandeur_cvs
     {
         return $this->logiciel_id;
     }
+
     /**
      * @var \AdminBundle\Entity\epizy_emploi_recherches
      */
     private $emploirecherche_id;
-
 
     /**
      * Set emploirechercheId
@@ -526,4 +528,5 @@ class epizy_demandeur_cvs
     {
         return $this->emploirecherche_id;
     }
+
 }

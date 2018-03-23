@@ -34,9 +34,6 @@ AdminBundle\Entity\epizy_demandeur_emplois:
         ville:
             type: string
             length: 255
-        villeId:
-            type: integer
-            column: ville_id
         region:
             type: string
             length: 255
@@ -74,4 +71,9 @@ AdminBundle\Entity\epizy_demandeur_emplois:
             inversedBy: demandeur_emplois
             joinColumn:
                 name: id_user
+                referencedColumnName: id
+        ville_id:
+            targetEntity: epizy_villes
+            joinColumn:
+                name: ville_id
                 referencedColumnName: id

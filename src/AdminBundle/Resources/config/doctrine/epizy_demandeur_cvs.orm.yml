@@ -66,11 +66,11 @@ AdminBundle\Entity\epizy_demandeur_cvs:
                 name: logiciel_id
                 referencedColumnName: id
                 cascade: [ persist ]
-        langue_id:
-            targetEntity: epizy_langues
-            joinColumn:
-                name: langue_id
-                referencedColumnName: id
+#        langue_id:
+#            targetEntity: epizy_langues
+#            joinColumn:
+#                name: langue_id
+#                referencedColumnName: id
         emploirecherche_id:
             targetEntity: epizy_emploi_recherches
             inversedBy: cvs_id
@@ -81,3 +81,6 @@ AdminBundle\Entity\epizy_demandeur_cvs:
         experience:
             targetEntity: epizy_demandeur_experience
             mappedBy: id_cv
+        demandeur_cv:
+            targetEntity: epizy_demandeur_formations
+            mappedBy: id_cvs

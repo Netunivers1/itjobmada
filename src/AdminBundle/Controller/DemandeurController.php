@@ -111,9 +111,9 @@ class DemandeurController extends Controller
                     $this->ville_emp->setCreated($this->date_created);
                     $em->persist($this->ville_emp);
                     $em->flush();
-                    $ville_id = $this->ville_emp->getId();
+                    $ville_id = $this->ville_emp;
                 }else{
-                    $ville_id = $ville_emploi->getId() ;
+                    $ville_id = $ville_emploi ;
                 }// else get id for select option
 
                 $id_demandeur = null;
@@ -332,18 +332,22 @@ class DemandeurController extends Controller
      * @Route("/demandeur/edit/{id}", name="admin_demandeur_edit")
      */
     public function editCVAction(Request $request){
+
+        if ( $request->isMethod('GET')){
+            $id_cv = $request->get('id') ;
+            $d_cv  = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id_cv);
+            $id_cv_emploi = $d_cv->getIdDemandeur();
+            $d_emploi = $this->getRepositoryClass('AdminBundle:epizy_demandeur_emplois')->find($id_cv_emploi);
+            $id_cv_formation = $d_cv->getId();
+            $d_formation = $this->getRepositoryClass('AdminBundle:epizy_demandeur_formations')->findBy(['id_cvs'=>$id_cv_formation]);
+        }
+
         $form_emplois   = $this->createForm(epizy_demandeur_emploisType::class, $this->dmd_emplois);
         $form_cvs       = $this->createForm(epizy_demandeur_cvsType::class, $this->dmd_cvs);
         $form_formation = $this->createForm(epizy_demandeur_formationsType::class, $this->dmd_formation);
         $form_experience= $this->createForm(epizy_demandeur_experienceType::class, $this->dmd_experience);
         $form_logiciel  = $this->createForm(epizy_logicielsType::class, $this->logiciel);
 
-        if ( $request->isMethod('GET')){
-            $id_cv = $request->get('id') ;
-            $d_cv  = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id_cv);
-            $id_demandeur = $d_cv->getIdDemandeur();
-            $d_emploi = $this->getRepositoryClass('AdminBundle:epizy_demandeur_emplois')->find($id_demandeur);
-        }
 
         $form = $this->createFormBuilder(FormType::class)->setAction('')->setMethod('post')->getForm();
         return $this->view('edit.html.twig',
@@ -355,6 +359,8 @@ class DemandeurController extends Controller
                 'form_logiciel' => $form_logiciel->createView(),
                 'form' => $form->createView(),
                 'dEmploi'=>$d_emploi ,
+                'd_cv'=>$d_cv,
+                'd_formation'=>$d_formation
             )
         );
     }

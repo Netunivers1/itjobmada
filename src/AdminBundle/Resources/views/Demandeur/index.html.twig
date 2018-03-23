@@ -13,14 +13,16 @@
         {{ form_row( form_emplois.prenom, {'label':'Prenom:' } )}}
         {{ form_row( form_emplois.email, {'label':'Email :' } )}}
         {{ form_row( form_emplois.adresse, {'label':'Adresse :' } )}}
-        {{ form_row( form_emplois.ville, {'label':'Ville :' } )}}
+        {{ form_row( form_emplois.villeId, {'label':'Ville :' } )}}
+        {{ form_row( form_emplois.ville, {'label':'Ajouter une ville :' } )}}
         {{ form_row( form_emplois.region, {'label':'Région :' } )}}
         {{ form_row( form_emplois.telephone, {'label':'Telephone :' } )}}
         {{ form_row( form_emplois.dateDeNaissance, {'label':'Date De Naissance :' } )}}
         {{ form_row( form_emplois._token )}}
         {{ form_row( form_emplois.status, {'label':'Status :' } )}}
         {{ form_row( form_cvs.permis, {'label':'Permis :' } )}}
-        {{ form_row( form_cvs.emploiRecherche, {'label':'Emploi Recherché :' } )}}
+        {{ form_row( form_cvs.emploiRechercheId, {'label':'Emploi Recherché :' } )}}
+        {{ form_row( form_cvs.emploiRecherche, {'label':'Ajouter emploi Recherché :' } )}}
         {{ form_row( form_emplois.notificationEmploiPoste, {'label':'Souhaitez-vous recevoir une notification quand une offre d’emploi est postée sur Itjobmada :' } )}}
         {{ form_row( form_emplois.choixEmploi, {'label':'Recevoir une notification pour quel emploi ?' } )}}
         {{ form_row( form_emplois.notificationFormationPoste, {'label':'Souhaitez-vous recevoir une notification quand une formation est postée sur Itjobmada:' } )}}
@@ -29,7 +31,11 @@
         {{ form_row( form_cvs.logiciel, { 'labe': 'Logiciel :'}) }}
         {{ form_row( form_cvs.langue, { 'labe': 'Langue :'}) }}
         {{ form_row( form_cvs._token) }}
-        {{ form_row( form_formation) }}
+    {#{{ form_row( form_formation.annee) }}#}
+    {#{{ form_row( form_formation.ville) }}#}
+    {#{{ form_row( form_formation.pays) }}#}
+    {#{{ form_row( form_formation.diplome) }}#}
+    {#{{ form_row( form_formation.universite) }}#}
         {{ form_row( form_experience) }}
         {{ form_row( form_cvs.centreInteretCertificat, {'label':'Divers :' } )}}
         {{ form_row( form_cvs.centreInteretProjet, {'label':'Projet :' } )}}
