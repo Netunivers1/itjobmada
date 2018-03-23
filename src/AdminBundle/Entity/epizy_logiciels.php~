@@ -1,7 +1,6 @@
 <?php
 
 namespace AdminBundle\Entity;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * epizy_logiciels
@@ -27,14 +26,6 @@ class epizy_logiciels
      * @var datetime
      */
     private $created;
-
-    private  $demandeur_cvs ;
-
-    public function  __construct()
-    {
-        $this->demandeur_cvs = new ArrayCollection();
-    }
-
 
     /**
      * Get id
@@ -118,7 +109,18 @@ class epizy_logiciels
         return $this->created;
     }
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $demandeur_cvs;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->demandeur_cvs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Add demandeurCv

@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -45,7 +46,7 @@ class epizy_demandeur_emploisType extends AbstractType
             )
             ->add('nom')
             ->add('prenom')
-            ->add('email')
+            ->add('email', EmailType::class)
             ->add('adresse')
             ->add('ville', TextType::class,array('required'=>false) )
             ->add('villeId', EntityType::class,
@@ -61,11 +62,17 @@ class epizy_demandeur_emploisType extends AbstractType
                 array(
                     'class'=>'AdminBundle:epizy_emploi_recherches',
                     'choice_label'=>'libele',
-                    'empty_data'=>'Tous les offres d\'emploi'
+                    'choice_value'=>'libele'
+                )
+            )->add('new_choixEmploi',TextType::class, array('required'=>false))
+            ->add('new_choixFormation',TextType::class,array('required'=>false))
+            ->add('choixFormation',EntityType::class,
+                array(
+                    'class'=>'AdminBundle:epizy_demandeur_emplois',
+                    'choice_label'=>'ChoixFormation',
+                    'choice_value'=>'ChoixFormation'
                 )
             )
-
-            ->add('choixFormation')
             ->add('notificationEmploiPoste', ChoiceType::class,
                 array(
                     'choices'=>array(

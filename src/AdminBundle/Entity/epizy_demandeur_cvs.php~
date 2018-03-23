@@ -1,6 +1,7 @@
 <?php
 
 namespace AdminBundle\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -49,11 +50,6 @@ class epizy_demandeur_cvs
     private $centreInteretCertificat;
 
     /**
-     * @var int
-     */
-    private $certificationId;
-
-    /**
      * @var string
      */
     private $centreInteretProjet;
@@ -78,14 +74,14 @@ class epizy_demandeur_cvs
      */
     private $position;
 
-    private $experience ;
+    private $experience;
 
-    private $formation ;
+    private $formation;
 
-    public function  __construct()
+    public function __construct()
     {
-        $this->experience = new ArrayCollection() ;
-        $this->formation = new ArrayCollection() ;
+        $this->experience = new ArrayCollection();
+        $this->formation = new ArrayCollection();
     }
 
 
@@ -268,30 +264,6 @@ class epizy_demandeur_cvs
     }
 
     /**
-     * Set certificationId
-     *
-     * @param integer $certificationId
-     *
-     * @return epizy_demandeur_cvs
-     */
-    public function setCertificationId($certificationId)
-    {
-        $this->certificationId = $certificationId;
-
-        return $this;
-    }
-
-    /**
-     * Get certificationId
-     *
-     * @return int
-     */
-    public function getCertificationId()
-    {
-        return $this->certificationId;
-    }
-
-    /**
      * Set centreInteretProjet
      *
      * @param string $centreInteretProjet
@@ -440,37 +412,37 @@ class epizy_demandeur_cvs
     {
         return $this->id_demandeur;
     }
-//
-//    /**
-//     * @var \AdminBundle\Entity\epizy_langues
-//     */
-//    private $langue_id;
-//
-//
-//    /**
-//     * Set langueId
-//     *
-//     * @param \AdminBundle\Entity\epizy_langues $langueId
-//     *
-//     * @return epizy_demandeur_cvs
-//     */
-//    public function setLangueId(\AdminBundle\Entity\epizy_langues $langueId = null)
-//    {
-//        $this->langue_id = $langueId;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get langueId
-//     *
-//     * @return \AdminBundle\Entity\epizy_langues
-//     */
-//    public function getLangueId()
-//    {
-//        return $this->langue_id;
-//    }
-    
+
+    /**
+     * @var \AdminBundle\Entity\epizy_langues
+     */
+    private $langue_id;
+
+
+    /**
+     * Set langueId
+     *
+     * @param \AdminBundle\Entity\epizy_langues $langueId
+     *
+     * @return epizy_demandeur_cvs
+     */
+    public function setLangueId(\AdminBundle\Entity\epizy_langues $langueId = null)
+    {
+        $this->langue_id = $langueId;
+
+        return $this;
+    }
+
+    /**
+     * Get langueId
+     *
+     * @return \AdminBundle\Entity\epizy_langues
+     */
+    public function getLangueId()
+    {
+        return $this->langue_id;
+    }
+
     /**
      * @var \AdminBundle\Entity\epizy_logiciels
      */
@@ -528,5 +500,34 @@ class epizy_demandeur_cvs
     {
         return $this->emploirecherche_id;
     }
+    
+    /**
+     * @var \AdminBundle\Entity\epizy_certifications
+     */
+    private $certification_id;
 
+
+    /**
+     * Set certificationId
+     *
+     * @param \AdminBundle\Entity\epizy_certifications $certificationId
+     *
+     * @return epizy_demandeur_cvs
+     */
+    public function setCertificationId(\AdminBundle\Entity\epizy_certifications $certificationId = null)
+    {
+        $this->certification_id = $certificationId;
+
+        return $this;
+    }
+
+    /**
+     * Get certificationId
+     *
+     * @return \AdminBundle\Entity\epizy_certifications
+     */
+    public function getCertificationId()
+    {
+        return $this->certification_id;
+    }
 }

@@ -22,4 +22,4 @@ AdminBundle\Entity\epizy_logiciels:
         demandeur_cvs:
             targetEntity: epizy_demandeur_cvs
             mappedBy: logiciel_id
-            cascade: [persist]
+
