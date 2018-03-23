@@ -28,7 +28,7 @@ class EntrepriseController extends Controller
      *
      * @Route("/entreprise/index", name="admin_entreprise_index")
      */
-    public function indexAction(){
+    public function indexAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $qb = $em->createQueryBuilder();
         $qb ->select('e.id,e.idUser,e.nomEntreprise, e.secteurActivite, e.telMobilResponsable,e.emailResponsable, e.adressePhysique,e.notificationCvPoste, u.status')
@@ -36,7 +36,8 @@ class EntrepriseController extends Controller
             ->from('AppBundle\Entity\epizy_users', 'u')
             ->where('e.idUser = u.id');
 
-        $listEntreprise= $qb->getQuery()->getResult();
+        $entreprises= $qb->getQuery()->getResult();
+        $listEntreprise  = $this->get('knp_paginator')->paginate($entreprises,$request->query->get('page', 1),10);
          //var_dump($listEntreprise);
         return $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig', array('listEntreprise'=>$listEntreprise));
     }
@@ -167,17 +168,7 @@ class EntrepriseController extends Controller
     }
 
 
-    /**
-     * Matches /blog exactly
-     *
-     * @Route("/entreprise/secteur", name="admin_entreprise_secteur_index")
-     */
-    public function listeSecteurAction(){
-        $em =  $this->getDoctrine()->getManager();
-        $listSecteur = $em->getRepository('AdminBundle:epizy_secteur_activites')->findAll();
-        return  $this->render('AdminBundle:OffreEmploi:liste_secteur.html.twig', array('listSecteur'=>$listSecteur));
-    }
-
+   
       /**
      * @Route("/entreprise/edit/{id}", name="admin_entreprise_edit")
      */
