@@ -34,11 +34,6 @@ class epizy_demandeur_experience
     private $ville;
 
     /**
-     * @var int
-     */
-    private $villeId;
-
-    /**
      * @var string
      */
     private $pays;
@@ -167,30 +162,6 @@ class epizy_demandeur_experience
     public function getVille()
     {
         return $this->ville;
-    }
-
-    /**
-     * Set villeId
-     *
-     * @param integer $villeId
-     *
-     * @return epizy_demandeur_experience
-     */
-    public function setVilleId($villeId)
-    {
-        $this->villeId = $villeId;
-
-        return $this;
-    }
-
-    /**
-     * Get villeId
-     *
-     * @return int
-     */
-    public function getVilleId()
-    {
-        return $this->villeId;
     }
 
     /**
@@ -399,32 +370,61 @@ class epizy_demandeur_experience
         return $this->posteoccupe_id;
     }
     /**
-     * @var \AdminBundle\Entity\epizy_secteur_activite
+     * @var \AdminBundle\Entity\epizy_secteur_activites
      */
-    private $secteuractivite_id;
+    private $secteurActivite_id;
 
 
     /**
-     * Set secteuractiviteId
+     * Set secteurActiviteId
      *
-     * @param \AdminBundle\Entity\epizy_secteur_activite $secteuractiviteId
+     * @param \AdminBundle\Entity\epizy_secteur_activites $secteurActiviteId
      *
      * @return epizy_demandeur_experience
      */
-    public function setSecteuractiviteId(\AdminBundle\Entity\epizy_secteur_activite $secteuractiviteId = null)
+    public function setSecteurActiviteId(\AdminBundle\Entity\epizy_secteur_activites $secteurActiviteId = null)
     {
-        $this->secteuractivite_id = $secteuractiviteId;
+        $this->secteurActivite_id = $secteurActiviteId;
 
         return $this;
     }
 
     /**
-     * Get secteuractiviteId
+     * Get secteurActiviteId
      *
-     * @return \AdminBundle\Entity\epizy_secteur_activite
+     * @return \AdminBundle\Entity\epizy_secteur_activites
      */
-    public function getSecteuractiviteId()
+    public function getSecteurActiviteId()
     {
-        return $this->secteuractivite_id;
+        return $this->secteurActivite_id;
+    }
+    /**
+     * @var \AdminBundle\Entity\epizy_villes
+     */
+    private $ville_id;
+
+
+    /**
+     * Set villeId
+     *
+     * @param \AdminBundle\Entity\epizy_villes $villeId
+     *
+     * @return epizy_demandeur_experience
+     */
+    public function setVilleId(\AdminBundle\Entity\epizy_villes $villeId = null)
+    {
+        $this->ville_id = $villeId;
+
+        return $this;
+    }
+
+    /**
+     * Get villeId
+     *
+     * @return \AdminBundle\Entity\epizy_villes
+     */
+    public function getVilleId()
+    {
+        return $this->ville_id;
     }
 }

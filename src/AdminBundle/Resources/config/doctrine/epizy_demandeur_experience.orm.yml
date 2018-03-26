@@ -22,9 +22,6 @@ AdminBundle\Entity\epizy_demandeur_experience:
         ville:
             type: string
             length: 255
-        villeId:
-            type: integer
-            column: ville_id
         pays:
             type: string
             length: 255
@@ -65,9 +62,13 @@ AdminBundle\Entity\epizy_demandeur_experience:
                 name: posteoccupe_id
                 referencedColumnName: id
                 onDelete: SET NULL
-        secteuractivite_id:
+        secteurActivite_id:
             targetEntity: epizy_secteur_activites
             joinColumn:
                 name: secteuractivite_id
                 referencedColumnName: id
-                onDelete: SET NULL
+        ville_id:
+            targetEntity: epizy_villes
+            joinColumn:
+                name: ville_id
+                referencedColumnName: id

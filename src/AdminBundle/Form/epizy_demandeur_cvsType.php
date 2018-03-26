@@ -4,6 +4,7 @@ namespace AdminBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,6 +18,7 @@ class epizy_demandeur_cvsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('position', CheckboxType::class, array('required'=>false))
             ->add('permis',ChoiceType::class,
                 array(
                     'choices'=>array(
@@ -37,27 +39,29 @@ class epizy_demandeur_cvsType extends AbstractType
                 )
             )
             ->add('emploiRecherche',TextType::class,array('required'=>false) )
-            ->add('logiciel')
-//            ->add('logicielId',EntityType::class,
-//                array(
-//                    'class'=>'AdminBundle:epizy_logiciels',
-//                    'choice_label'=>'libele',
-//                    'required'=>false,
+            ->add('logiciel', TextType::class,array('required'=>false))
+            ->add('logicielId',EntityType::class,
+                array(
+                    'class'=>'AdminBundle:epizy_logiciels',
+                    'choice_label'=>'libele',
+                    'required'=>false,
+                    'empty_data'=>null,
+                    'multiple'=>false,
+                    'expanded'=>false,
+                    'placeholder'=> false
+                )
+            )
+            ->add('langue' , TextType::class,array('required'=>false))
+            ->add('langueId',EntityType::class,
+                array(
+                    'class'=>'AdminBundle:epizy_langues',
+                    'choice_label'=>'nom',
 //                    'multiple'=>true,
-//                    'choices_as_values'=>true,
-//                    'expanded'=>false
-//                )
-//            )
-            ->add('langue')
-//            ->add('langueId',EntityType::class,
-//                array(
-//                    'class'=>'AdminBundle:epizy_langues',
-//                    'choice_label'=>'nom',
-//                    'multiple'=>true,
-//                    'required'=>false
-//
-//                )
-//            )
+                    'required'=>false,
+                    'placeholder'=> false
+
+                )
+            )
             ->add('statu')
             ->add('reference')
             ->add('centreInteretCertificat', TextType::class, array('required'=>false))

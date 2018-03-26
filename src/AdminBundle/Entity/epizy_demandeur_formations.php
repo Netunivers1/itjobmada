@@ -13,11 +13,6 @@ class epizy_demandeur_formations
     private $id;
 
     /**
-     * @var int
-     */
-    private $idDemandeur;
-
-    /**
      * @var string
      */
     private $annee;
@@ -56,31 +51,6 @@ class epizy_demandeur_formations
     {
         return $this->id;
     }
-
-    /**
-     * Set idDemandeur
-     *
-     * @param integer $idDemandeur
-     *
-     * @return epizy_demandeur_formations
-     */
-    public function setIdDemandeur($idDemandeur)
-    {
-        $this->idDemandeur = $idDemandeur;
-
-        return $this;
-    }
-
-    /**
-     * Get idDemandeur
-     *
-     * @return int
-     */
-    public function getIdDemandeur()
-    {
-        return $this->idDemandeur;
-    }
-
 
     /**
      * Set annee
@@ -228,14 +198,11 @@ class epizy_demandeur_formations
 
 
     /**
-     * @var \AdminBundle\Entity\epizy_demandeur_emplois
-     */
-    private $id_demandeur;
-
-    /**
      * @var \AdminBundle\Entity\epizy_demandeur_formations
      */
     private $id_cvs;
+
+
 
     /**
      * Set idCvs
@@ -318,5 +285,34 @@ class epizy_demandeur_formations
     public function getUniversite()
     {
         return $this->universite;
+    }
+    /**
+     * @var \AdminBundle\Entity\epizy_demandeur_emplois
+     */
+    private $id_demandeur;
+
+
+    /**
+     * Set idDemandeur
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_emplois $idDemandeur
+     *
+     * @return epizy_demandeur_formations
+     */
+    public function setIdDemandeur(\AdminBundle\Entity\epizy_demandeur_emplois $idDemandeur = null)
+    {
+        $this->id_demandeur = $idDemandeur;
+
+        return $this;
+    }
+
+    /**
+     * Get idDemandeur
+     *
+     * @return \AdminBundle\Entity\epizy_demandeur_emplois
+     */
+    public function getIdDemandeur()
+    {
+        return $this->id_demandeur;
     }
 }

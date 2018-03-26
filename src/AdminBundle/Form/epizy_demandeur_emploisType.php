@@ -26,7 +26,16 @@ class epizy_demandeur_emploisType extends AbstractType
     {
         $emploi_trouve = new epizy_demandeur_emplois();
         $builder
-            ->add('audition', CheckboxType::class, array('required'=>false))
+            ->add('audition', ChoiceType::class,
+                array(
+                    'choices'=>array(
+                        'oui'=>1,
+                        'non car il refuse l\'entretien'=>2,
+                        'non car il vit en province'=>3,
+                        'Pas encore'=>4
+                    )
+                )
+            )
             ->add('emploiTrouve', ChoiceType::class,
                 array(
                     'choices'=>array(
@@ -62,7 +71,10 @@ class epizy_demandeur_emploisType extends AbstractType
                 array(
                     'class'=>'AdminBundle:epizy_emploi_recherches',
                     'choice_label'=>'libele',
-                    'choice_value'=>'libele'
+                    'choice_value'=>'libele',
+                    'required'=>false,
+                    'placeholder'=>'Toutes les offres d\' emploi',
+                    'empty_data'=>'Toutes les offres d\' emploi'
                 )
             )->add('new_choixEmploi',TextType::class, array('required'=>false))
             ->add('new_choixFormation',TextType::class,array('required'=>false))
@@ -70,7 +82,10 @@ class epizy_demandeur_emploisType extends AbstractType
                 array(
                     'class'=>'AdminBundle:epizy_demandeur_emplois',
                     'choice_label'=>'ChoixFormation',
-                    'choice_value'=>'ChoixFormation'
+                    'choice_value'=>'ChoixFormation',
+                    'placeholder'=>'Toutes les Formations',
+                    'empty_data'=>'Toutes les Formations',
+                    'required'=>false,
                 )
             )
             ->add('notificationEmploiPoste', ChoiceType::class,

@@ -74,6 +74,9 @@ class epizy_demandeur_emplois
     private $choixEmploi;
 
 
+    /**
+     * @var string
+     */
     private $new_choixEmploi;
 
     /**
