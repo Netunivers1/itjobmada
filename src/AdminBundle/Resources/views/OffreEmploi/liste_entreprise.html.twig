@@ -29,9 +29,7 @@
                     <div class="col-md-12 col-sm-24 col-xs-24">
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Toutes les Entreprises
-                            </div>
+                           
                             <div class="panel-body">
 
                                 <div class="btn-group" role="group" >
@@ -109,6 +107,7 @@
                                         <center>AUCUNE ENTREPRISE  </center>            
                                 {% endif %}
                                 </div>
+                                <div class="text-center">{{ knp_pagination_render(listEntreprise) }}</div>
                                 <!-- Modal  à refaire -->
                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="modal_center" aria-hidden="true">
                                       <div class="modal-dialog modal-dialog-centered" role="document">

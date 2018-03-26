@@ -103,3 +103,14 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/user/, role: ROLE_USER }
+        
+knp_paginator:
+    page_range: 5                      
+    default_options:
+        page_name: page               
+        sort_field_name: sort         
+        sort_direction_name: direction
+        distinct: true                
+    template:
+        pagination: 'KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig'  
+        sortable: 'KnpPaginatorBundle:Pagination:sortable_link.html.twig'
