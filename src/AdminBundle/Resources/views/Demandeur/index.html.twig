@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-    {{ form_start(form) }}
+   <form method="post" enctype="multipart/form-data" action=" {{ path('admin_demandeur_index') }}">
         {{ form_errors(form_emplois)}}
         {{ form_errors(form_cvs)}}
         {{ form_errors(form_formation)}}
@@ -66,7 +66,7 @@
     <h3> Centre d'intérêt </h3><br>
         {{ form_row( form_cvs.centreInteretCertificat, {'label':'Divers :' } )}}
         {{ form_row( form_cvs.centreInteretProjet, {'label':'Projet :' } )}}
-
+       {{ form_row( form._token) }}
         <input type="submit" class="btn btn-primary">
-    {{ form_end(form) }}
+   </form>
 {% endblock %}

@@ -20,10 +20,12 @@ use AdminBundle\Form\epizy_demandeur_emploisType;
 use AdminBundle\Form\epizy_demandeur_experienceType;
 use AdminBundle\Form\epizy_demandeur_formationsType;
 use AdminBundle\Form\epizy_logicielsType;
+use AdminBundle\ImageUpload;
 use AppBundle\Entity\epizy_users;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,7 +33,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DemandeurController extends Controller
 {
     private $date_created, $dmd_emplois, $dmd_cvs, $dmd_formation, $dmd_experience, $users, $ville_emp, $ville_for,
-        $ville_exp, $emploi_recherche, $logiciel, $langue, $certificat, $diplome, $universite, $secteur, $poste;
+        $ville_exp, $emploi_recherche, $logiciel, $langue, $certificat, $diplome, $universite, $secteur, $poste, $file;
 
     public function __construct()
     {
@@ -165,8 +167,17 @@ class DemandeurController extends Controller
                 }
 
 
-                /* insert image*/
-
+//                /* insert image*/
+//                $photo = $form_emplois->get('photo')->getData();
+//                if ($photo != null && isset($photo)) {
+//                    if ( $photo->guessExtension() == 'jpeg' || $photo->guessExtension() == 'jpg' ) {
+////                        $filename = $this->get('AdminBundle.imageUpload')->upload($photo);
+////                        $this->dmd_emplois->setPhoto($filename);
+//                        return new Response( $photo->guessExtension() ) ;
+//                    } else {
+//                        $this->addFlash('error', 'Verifier votre photo');
+//                    }
+//                }
 
                 $id_demandeur = null;
                 if ($id_user != null && $ville_id != null) {

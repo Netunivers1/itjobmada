@@ -7,3 +7,12 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    AdminBundle.imageUpload:
+        class: AdminBundle\ImageUpload
+        arguments: ['%images_directory%']
+    AdminBundle.imageListener:
+        class: AdminBundle\EventListener\ImageUploadListener
+        arguments: ['@AdminBundle.imageUpload']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
