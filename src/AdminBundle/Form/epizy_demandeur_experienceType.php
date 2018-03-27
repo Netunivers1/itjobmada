@@ -23,10 +23,11 @@ class epizy_demandeur_experienceType extends AbstractType
             ->add('ville')
             ->add('pays')
             ->add('nomEntreprise')
-            ->add('secteurActiviteId', EntityType::class,
+            ->add('secteuractivite_id', EntityType::class,
                 array(
                     'class'=>'AdminBundle:epizy_secteur_activites',
                     'choice_label'=>'libele',
+                    'choice_value'=>'libele'
                 ))
             ->add('posteOccupe')
             ->add('missionTache',TextareaType::class,array('required'=>false))

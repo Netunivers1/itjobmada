@@ -16,15 +16,15 @@
         {% set attr = false %}
     {% endif %}
     {{ form_row( form_emplois.audition,{
-            'label':'Achat de place :',
-            'value': dEmploi.audition,
-            'attr': {'checked': attr}
-        }
+        'label':'Achat de place :',
+        'value': dEmploi.audition,
+        'attr': {'checked': attr}
+    }
     )}}
     {{ form_row( form_emplois.emploiTrouve,{
         'label':'Ce candidat a trouvé un emploi :',
         'value':  dEmploi.emploiTrouve
-        }
+    }
     )}}
     {{ form_row( form_emplois.photo, {'label':'Photo :' } )}}
     {{ form_row( form_emplois.titre, {'label':'Titre :' } )}}
@@ -41,64 +41,64 @@
     {# end form emplois #}
 
     {{ form_row( form_cvs.permis,{
-            'label':'Permis :' ,
-            'value': d_cv.permis,
-            'attr': {'checked': attr}
-        }
+        'label':'Permis :' ,
+        'value': d_cv.permis,
+        'attr': {'checked': attr}
+    }
     )}}
 
     {{ form_row( form_cvs.emploiRecherche,
-        {
-            'label':'Emploi Recherché :',
-            'value': d_cv.emploiRechercheId.libele
-        }
+    {
+        'label':'Emploi Recherché :',
+        'value': d_cv.emploiRechercheId.libele
+    }
     )}}
 
     {{ form_row( form_emplois.notificationEmploiPoste,
-        {
-            'label':'Souhaitez-vous recevoir une notification quand une offre d’emploi est postée sur Itjobmada :',
-            'value':  dEmploi.notificationEmploiPoste,
-            'data': 'oui'
-        }
+    {
+        'label':'Souhaitez-vous recevoir une notification quand une offre d’emploi est postée sur Itjobmada :',
+        'value':  dEmploi.notificationEmploiPoste,
+        'data': 'oui'
+    }
     )}}
 
     {{ form_row( form_emplois.choixEmploi,
-        {
-            'label':'Recevoir une notification pour quel emploi ?',
-            'value': dEmploi.choixEmploi
-        }
+    {
+        'label':'Recevoir une notification pour quel emploi ?',
+        'value': dEmploi.choixEmploi
+    }
     )}}
     {{ form_row( form_emplois.notificationFormationPoste,
-        {
-            'label':'Souhaitez-vous recevoir une notification quand une formation est postée sur Itjobmada:',
-            'value': dEmploi.notificationFormationPoste
-        }
+    {
+        'label':'Souhaitez-vous recevoir une notification quand une formation est postée sur Itjobmada:',
+        'value': dEmploi.notificationFormationPoste
+    }
     )}}
 
     {{ form_row( form_emplois.choixFormation,
-        {
-            'label':'Recevoir une notification pour quelle formation ? :',
-            'value': dEmploi.choixFormation
-        }
+    {
+        'label':'Recevoir une notification pour quelle formation ? :',
+        'value': dEmploi.choixFormation
+    }
 
     )}}
     {{ form_row( form_emplois.newsletter,
-        {
-            'label':'Voulez-vous recevoir nos nouvelles du mois :',
-            'value': dEmploi.newsletter
-        }
+    {
+        'label':'Voulez-vous recevoir nos nouvelles du mois :',
+        'value': dEmploi.newsletter
+    }
     )}}
 
     {{ form_row( form_cvs.logiciel,{
-            'label': 'Logiciel :',
-            'value': d_cv.logicielId.libele
-        }
+        'label': 'Logiciel :',
+        'value': d_cv.logicielId.libele
+    }
     ) }}
 
     {{ form_row( form_cvs.langue,{
-            'label': 'Langue :',
-            'value': d_cv.langue
-        }
+        'label': 'Langue :',
+        'value': d_cv.langue
+    }
     )}}
     {{ form_row( form_cvs._token) }}
 
@@ -108,9 +108,9 @@
         {% for formation in  d_formation %}
 
             {{ form_row( form_formation.annee,{
-                    'label': 'Annee :',
-                    'value': formation.annee
-                }
+                'label': 'Annee :',
+                'value': formation.annee
+            }
             ) }}
             {{ form_row( form_formation.ville,
             {
@@ -119,22 +119,22 @@
             }
             )}}
             {{ form_row( form_formation.pays,
-                {
-                    'label': 'Pays :',
-                    'value': formation.pays
-                }
+            {
+                'label': 'Pays :',
+                'value': formation.pays
+            }
             ) }}
             {{ form_row( form_formation.diplome,
-                {
-                    'label': 'Diplome :',
-                    'value': formation.diplome
-                }
+            {
+                'label': 'Diplome :',
+                'value': formation.diplome
+            }
             ) }}
             {{ form_row( form_formation.universite,
-                {
-                    'label': 'Universite :',
-                    'value': formation.universite
-                }
+            {
+                'label': 'Universite :',
+                'value': formation.universite
+            }
             ) }}
 
         {% endfor %}
@@ -143,57 +143,57 @@
     <h3> Experience </h3>
 
     {{ form_row( form_experience.moisDebut,{
-            'label': 'Mois de Début :',
-            'value': 'f'
-        }
+        'label': 'Mois de Début :',
+        'value': 'f'
+    }
     ) }}
     {{ form_row( form_experience.moisFin,
-        {
-            'label': 'Mois de Fin:',
-            'value': 'f'
-        }
+    {
+        'label': 'Mois de Fin:',
+        'value': 'f'
+    }
     ) }}
     {{ form_row( form_experience.annee,
-        {
-            'label': 'Annee :',
-            'value': 'f'
-        }
+    {
+        'label': 'Annee :',
+        'value': 'f'
+    }
     ) }}
     {{ form_row( form_experience.ville,
-        {
-            'label': 'Ville :',
-            'value': 'f'
-        }
+    {
+        'label': 'Ville :',
+        'value': 'f'
+    }
     ) }}
     {{ form_row( form_experience.pays,
-        {
-            'label': 'Pays :',
-            'value': 'f'
-        }
+    {
+        'label': 'Pays :',
+        'value': 'f'
+    }
     ) }}
     {{ form_row( form_experience.nomEntreprise,
-        {
-            'label': 'Nom de l\'entreprise :',
-            'value': 'f'
-        }
+    {
+        'label': 'Nom de l\'entreprise :',
+        'value': 'f'
+    }
     ) }}
     {{ form_row( form_experience.secteurActivite,
-        {
-            'label': 'Secteur d\'activité:',
-            'value': 'f'
-        }
+    {
+        'label': 'Secteur d\'activité:',
+        'value': 'f'
+    }
     ) }}
     {{ form_row( form_experience.posteOccupe,
-        {
-            'label': 'Poste occupé :',
-            'value': 'f'
-        }
+    {
+        'label': 'Poste occupé :',
+        'value': 'f'
+    }
     ) }}
     {{ form_row( form_experience.missionTache,
-        {
-            'label': 'Mission et tache :',
-            'value': 'f'
-        }
+    {
+        'label': 'Mission et tache :',
+        'value': 'f'
+    }
     ) }}
 
     {#{{ form_row( form_cvs.centreInteretCertificat, {'label':'Divers :' } )}}#}
