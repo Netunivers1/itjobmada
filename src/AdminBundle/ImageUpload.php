@@ -15,11 +15,12 @@ class ImageUpload
 
     public function upload(UploadedFile $file)
     {
-        $fileName = md5(uniqid()).'.'.$file->guessExtension();
-
-        $file->move($this->getTargetDir(), $fileName);
-
-        return $fileName;
+        if ( $file->guessExtension() == 'jpeg' || $file->guessExtension() == 'jpg'){
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getTargetDir(), $fileName);
+            return $fileName;
+        }
+        return false ;
     }
 
     public function getTargetDir()
