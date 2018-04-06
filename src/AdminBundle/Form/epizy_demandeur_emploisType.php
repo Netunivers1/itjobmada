@@ -83,9 +83,10 @@ class epizy_demandeur_emploisType extends AbstractType
                     'class'=>'AdminBundle:epizy_demandeur_emplois',
                     'choice_label'=>'ChoixFormation',
                     'choice_value'=>'ChoixFormation',
+                    'required'=>false,
                     'placeholder'=>'Toutes les Formations',
                     'empty_data'=>'Toutes les Formations',
-                    'required'=>false,
+
                 )
             )
             ->add('notificationEmploiPoste', ChoiceType::class,

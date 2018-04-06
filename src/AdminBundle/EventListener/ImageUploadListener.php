@@ -20,31 +20,24 @@ class ImageUploadListener
     public function prePersist(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
-
         $this->uploadFile($entity);
     }
 
     public function preUpdate(PreUpdateEventArgs $args)
     {
         $entity = $args->getEntity();
-
         $this->uploadFile($entity);
     }
 
     private function uploadFile($entity)
     {
-        // upload only works for Product entities
         if (!$entity instanceof epizy_demandeur_emplois) {
             return;
         }
-
         $file = $entity->getPhoto();
-
-        // only upload new files
         if (!$file instanceof UploadedFile) {
             return;
         }
-
         $fileName = $this->uploader->upload($file);
         $entity->setPhoto($fileName);
     }
