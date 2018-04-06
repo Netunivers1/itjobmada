@@ -18,7 +18,7 @@ class epizy_demandeur_cvsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('position', CheckboxType::class, array('required'=>false))
+            ->add('position', CheckboxType::class, array('required'=>false, 'mapped'=>false))
             ->add('permis',ChoiceType::class,
                 array(
                     'choices'=>array(
@@ -29,7 +29,8 @@ class epizy_demandeur_cvsType extends AbstractType
                         'D' => 'D',
                         'Aucun' => 'Aucun`'
                     ),
-                    'choices_as_values' => true,'multiple'=>true,'expanded'=>true
+                    'choices_as_values' => true,'multiple'=>true,'expanded'=>true,
+                    'mapped' =>false
                 )
             )
             ->add('emploiRechercheId', EntityType::class,

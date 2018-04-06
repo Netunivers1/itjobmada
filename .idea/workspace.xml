@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30d4146b-15de-4104-8b29-39141a84d837" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/admin/images/328af4066ec832b54d6e19e1169ee21b.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/admin/images/4d91db36aa1dd57acd0931f6f8a3cc20.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/admin/images/5d8ed5f6550a11a8d842c4c6d4d2fe1a.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/symfony_requirements" afterPath="$PROJECT_DIR$/bin/symfony_requirements" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/EventListener/ImageUploadListener.php" afterPath="$PROJECT_DIR$/src/AdminBundle/EventListener/ImageUploadListener.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/ImageUpload.php" afterPath="$PROJECT_DIR$/src/AdminBundle/ImageUpload.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/show.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/epizy_users.orm.yml" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/epizy_users.orm.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
     </list>
@@ -34,63 +28,70 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+            <state relative-caret-position="187">
+              <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="63" column="38" lean-forward="false" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+            <state relative-caret-position="434">
+              <caret line="38" column="60" lean-forward="false" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DemandeurController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DemandeurController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="500" column="79" lean-forward="false" selection-start-line="500" selection-start-column="79" selection-end-line="500" selection-end-column="79" />
+            <state relative-caret-position="383">
+              <caret line="846" column="80" lean-forward="false" selection-start-line="846" selection-start-column="80" selection-end-line="846" selection-end-column="80" />
               <folding>
-                <element signature="e#1584#2519#0#PHP" expanded="false" />
-                <element signature="e#2525#2600#0#PHP" expanded="false" />
-                <element signature="e#2605#23394#0#PHP" expanded="false" />
-                <element signature="e#3375#22932#0#PHP" expanded="false" />
-                <element signature="e#23400#23473#0#PHP" expanded="false" />
-                <element signature="e#23478#23724#0#PHP" expanded="false" />
-                <element signature="e#30422#30737#0#PHP" expanded="false" />
-                <element signature="e#30854#31209#0#PHP" expanded="false" />
-                <element signature="e#31265#31717#0#PHP" expanded="false" />
-                <element signature="e#31735#44542#0#PHP" expanded="false" />
-                <element signature="e#45050#45132#0#PHP" expanded="false" />
-                <element signature="e#46730#46910#0#PHP" expanded="false" />
-                <element signature="e#46916#47045#0#PHP" expanded="false" />
+                <element signature="e#42#70#0#PHP" expanded="true" />
+                <element signature="e#1613#2548#0#PHP" expanded="false" />
+                <element signature="e#2554#2629#0#PHP" expanded="false" />
+                <element signature="e#2634#23423#0#PHP" expanded="false" />
+                <element signature="e#23429#23502#0#PHP" expanded="false" />
+                <element signature="e#23507#23753#0#PHP" expanded="false" />
+                <element signature="e#23759#23837#0#PHP" expanded="false" />
+                <element signature="e#30647#31246#0#PHP" expanded="false" />
+                <element signature="e#31118#31246#0#PHP" expanded="false" />
+                <element signature="e#31349#32207#0#PHP" expanded="false" />
+                <element signature="e#31841#32207#0#PHP" expanded="false" />
+                <element signature="e#32403#33161#0#PHP" expanded="false" />
+                <element signature="e#32862#33161#0#PHP" expanded="false" />
+                <element signature="e#33278#33625#0#PHP" expanded="false" />
+                <element signature="e#33643#34055#0#PHP" expanded="false" />
+                <element signature="e#34199#35350#0#PHP" expanded="false" />
+                <element signature="e#35095#35350#0#PHP" expanded="false" />
+                <element signature="e#35509#36487#0#PHP" expanded="false" />
+                <element signature="e#36349#36487#0#PHP" expanded="false" />
+                <element signature="e#36729#37587#0#PHP" expanded="false" />
+                <element signature="e#37455#37587#0#PHP" expanded="false" />
+                <element signature="e#37698#38434#0#PHP" expanded="false" />
+                <element signature="e#38456#39686#0#PHP" expanded="false" />
+                <element signature="e#39875#40561#0#PHP" expanded="false" />
+                <element signature="e#40402#40561#0#PHP" expanded="false" />
+                <element signature="e#40703#41350#0#PHP" expanded="false" />
+                <element signature="e#41206#41350#0#PHP" expanded="false" />
+                <element signature="e#41504#42198#0#PHP" expanded="false" />
+                <element signature="e#42041#42198#0#PHP" expanded="false" />
+                <element signature="e#42220#43127#0#PHP" expanded="false" />
+                <element signature="e#43364#44015#0#PHP" expanded="false" />
+                <element signature="e#43869#44015#0#PHP" expanded="false" />
+                <element signature="e#44133#44437#0#PHP" expanded="false" />
+                <element signature="e#44581#45212#0#PHP" expanded="false" />
+                <element signature="e#45072#45212#0#PHP" expanded="false" />
+                <element signature="e#46412#46494#0#PHP" expanded="false" />
+                <element signature="e#46499#48086#0#PHP" expanded="false" />
+                <element signature="e#48092#48272#0#PHP" expanded="false" />
+                <element signature="e#48278#48407#0#PHP" expanded="false" />
+                <element signature="e#48413#48759#0#PHP" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="306" column="69" lean-forward="false" selection-start-line="306" selection-start-column="61" selection-end-line="306" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="epizy_demandeur_emploisType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="85" column="38" lean-forward="false" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -99,21 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>diplomeId</find>
-      <find>$secteur_activites</find>
-      <find>$repo_secteur</find>
-      <find>ville</find>
-      <find>cv</find>
-      <find>certi</find>
-      <find>$id_demandeur</find>
-      <find>emploi_recher</find>
-      <find>demandeur</find>
-      <find>id_demandeur</find>
-      <find>$repo_emp</find>
-      <find>new</find>
-      <find>repo_emp</find>
-      <find>$repo_universite</find>
-      <find>position</find>
       <find>photo</find>
       <find>action</find>
       <find>$photo-&gt;getMimeType()</find>
@@ -129,12 +115,36 @@
       <find>posteocc</find>
       <find>choix</find>
       <find>token</find>
+      <find>password</find>
+      <find>file</find>
+      <find>form_for</find>
+      <find>notificationEmploiPoste</find>
+      <find>emploi</find>
+      <find>redire</find>
+      <find>$this-&gt;dmd_emplois</find>
+      <find>$this-&gt;emploi_recherche</find>
+      <find>$this-&gt;logiciel</find>
+      <find>$alLangue</find>
+      <find>$this-&gt;langue</find>
+      <find>$this-&gt;certificat</find>
+      <find>$this-&gt;dmd_cvs</find>
+      <find>$this-&gt;dmd_formation</find>
+      <find>$this-&gt;dmd_experience</find>
     </findStrings>
     <replaceStrings>
       <replace>$this-&gt;dmd_emplois</replace>
       <replace>$this-&gt;poste</replace>
       <replace>label</replace>
       <replace>universites</replace>
+      <replace>$dmdEmploi</replace>
+      <replace>$empRecherc</replace>
+      <replace>$$alLogiciel</replace>
+      <replace>$alLogiciel</replace>
+      <replace>$alLangue</replace>
+      <replace>$allCertifica</replace>
+      <replace>$dmdCv</replace>
+      <replace>$formation</replace>
+      <replace>$experience</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -192,7 +202,6 @@
         <option value="$PROJECT_DIR$/src/AdminBundle/Controller/EntrepriseController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/epizy_users.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/epizy_users.orm.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_emploi_recherches.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_emploi_recherches.orm.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Controller/Demandeurcontroller.php" />
@@ -216,10 +225,11 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_experienceType.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_formationsType.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/epizy_users.orm.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php" />
       </list>
     </option>
   </component>
@@ -294,7 +304,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -304,20 +313,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,6 +425,10 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -449,12 +448,43 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Form" />
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctrine" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itjobmada" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itjobmada" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdminBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -572,33 +602,34 @@
       <workItem from="1522043856590" duration="29450000" />
       <workItem from="1522129316714" duration="13400000" />
       <workItem from="1522908284555" duration="30092000" />
+      <workItem from="1522993948138" duration="17465000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279386000" />
+    <option name="totallyTimeSpent" value="296851000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20955883" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24044117" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29954615" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -632,227 +663,25 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_langues.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/epizy_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="874" column="7" lean-forward="true" selection-start-line="874" selection-start-column="7" selection-end-line="874" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/epizy_users.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="127" column="0" lean-forward="true" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_emploi_recherches.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="148" column="28" lean-forward="false" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_langues.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1759">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_logicielsType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_langues.orm.yml" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_emploi_recherches.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_langues.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_logicielsType.php" />
     <entry file="file://$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__AdminBundleEntityepizy_logiciels.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_logiciels.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="139" column="25" lean-forward="true" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_logiciels.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_certifications.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_secteur_activitesType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          <folding>
-            <element signature="e#36#85#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_secteur_activites.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_villes.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_experience.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="72" column="27" lean-forward="false" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_cvs.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="77" column="24" lean-forward="false" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_formations.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_formations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2150">
-          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="e#115#142#0#PHP" expanded="false" />
-            <element signature="e#221#251#0#PHP" expanded="false" />
-            <element signature="e#277#304#0#PHP" expanded="false" />
-            <element signature="e#332#362#0#PHP" expanded="false" />
-            <element signature="e#387#417#0#PHP" expanded="false" />
-            <element signature="e#446#476#0#PHP" expanded="false" />
-            <element signature="e#508#559#0#PHP" expanded="false" />
-            <element signature="e#564#625#0#PHP" expanded="false" />
-            <element signature="e#631#743#0#PHP" expanded="false" />
-            <element signature="e#748#846#0#PHP" expanded="false" />
-            <element signature="e#852#909#0#PHP" expanded="false" />
-            <element signature="e#914#981#0#PHP" expanded="false" />
-            <element signature="e#987#1099#0#PHP" expanded="false" />
-            <element signature="e#1104#1202#0#PHP" expanded="false" />
-            <element signature="e#1208#1265#0#PHP" expanded="false" />
-            <element signature="e#1270#1337#0#PHP" expanded="false" />
-            <element signature="e#1343#1460#0#PHP" expanded="false" />
-            <element signature="e#1465#1571#0#PHP" expanded="false" />
-            <element signature="e#1577#1633#0#PHP" expanded="false" />
-            <element signature="e#1638#1709#0#PHP" expanded="false" />
-            <element signature="e#1715#1825#0#PHP" expanded="false" />
-            <element signature="e#1830#1924#0#PHP" expanded="false" />
-            <element signature="e#1930#1986#0#PHP" expanded="false" />
-            <element signature="e#1991#2056#0#PHP" expanded="false" />
-            <element signature="e#2062#2180#0#PHP" expanded="false" />
-            <element signature="e#2185#2295#0#PHP" expanded="false" />
-            <element signature="e#2301#2361#0#PHP" expanded="false" />
-            <element signature="e#2366#2439#0#PHP" expanded="false" />
-            <element signature="e#2445#2569#0#PHP" expanded="false" />
-            <element signature="e#2574#2696#0#PHP" expanded="false" />
-            <element signature="e#2702#2765#0#PHP" expanded="false" />
-            <element signature="e#2770#2849#0#PHP" expanded="false" />
-            <element signature="e#3257#3347#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_emploi_recherches.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_emplois.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="376" column="19" lean-forward="false" selection-start-line="376" selection-start-column="11" selection-end-line="376" selection-end-column="19" />
-          <folding>
-            <element signature="e#6092#6159#0#PHP" expanded="false" />
-            <element signature="e#6195#6349#0#PHP" expanded="false" />
-            <element signature="e#6354#6528#0#PHP" expanded="false" />
-            <element signature="e#6534#6634#0#PHP" expanded="false" />
-            <element signature="e#6639#6719#0#PHP" expanded="false" />
-            <element signature="e#7286#7345#0#PHP" expanded="false" />
-            <element signature="e#7526#7688#0#PHP" expanded="false" />
-            <element signature="e#7790#7868#0#PHP" expanded="false" />
-            <element signature="e#7874#7941#0#PHP" expanded="false" />
-            <element signature="e#7980#8146#0#PHP" expanded="false" />
-            <element signature="e#8151#8349#0#PHP" expanded="false" />
-            <element signature="e#8355#8461#0#PHP" expanded="false" />
-            <element signature="e#8466#8558#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/AdminBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_emplois.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8993">
-          <caret line="537" column="16" lean-forward="false" selection-start-line="537" selection-start-column="11" selection-end-line="537" selection-end-column="16" />
-          <folding>
-            <element signature="e#158#185#0#PHP" expanded="false" />
-            <element signature="e#208#238#0#PHP" expanded="false" />
-            <element signature="e#267#297#0#PHP" expanded="false" />
-            <element signature="e#330#360#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_logiciels.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_logiciels.orm.yml" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_certifications.orm.yml" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_secteur_activitesType.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_secteur_activites.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_villes.orm.yml" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_experience.orm.yml" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_formations.orm.yml" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_formations.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_emploi_recherches.orm.yml" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_emplois.orm.yml" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/AdminBundle.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/services.yml" />
     <entry file="file://$PROJECT_DIR$/web/admin/images/3f680c319451d82fb762331aa79e72b4.jpeg" />
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/File/UploadedFile.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -866,173 +695,144 @@
     <entry file="file://$PROJECT_DIR$/web/admin/images/38ce8fe7c737ceeb3af533f079d707a9.png" />
     <entry file="file://$PROJECT_DIR$/web/admin/images/d003794a2f97c3e9f4de17a8ac24b32f.png" />
     <entry file="file://$PROJECT_DIR$/web/admin/images/979cb042b8ac529dc51e23c99655c85e.png" />
-    <entry file="file://$PROJECT_DIR$/web/admin/images/4d91db36aa1dd57acd0931f6f8a3cc20.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/images/5d8ed5f6550a11a8d842c4c6d4d2fe1a.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/images/328af4066ec832b54d6e19e1169ee21b.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/images/1775564f418af9e81895184eb544486c.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/images/2cbfa972369cf7c25f99ed724522894f.jpeg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/show.html.twig">
+    <entry file="file://$PROJECT_DIR$/web/admin/images/4d91db36aa1dd57acd0931f6f8a3cc20.png" />
+    <entry file="file://$PROJECT_DIR$/web/admin/images/5d8ed5f6550a11a8d842c4c6d4d2fe1a.png" />
+    <entry file="file://$PROJECT_DIR$/web/admin/images/328af4066ec832b54d6e19e1169ee21b.png" />
+    <entry file="file://$PROJECT_DIR$/web/admin/images/1775564f418af9e81895184eb544486c.png" />
+    <entry file="file://$PROJECT_DIR$/web/admin/images/2cbfa972369cf7c25f99ed724522894f.jpeg" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/show.html.twig" />
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/ImageUpload.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/EventListener/ImageUploadListener.php" />
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml" />
+    <entry file="file://$PROJECT_DIR$/web/admin/images/d7b3ee8aae90083fe418e178e4d1313a.jpeg" />
+    <entry file="file://$PROJECT_DIR$/web/admin/images/c127b067832549c409b5398e349292a3.jpeg" />
+    <entry file="file://$PROJECT_DIR$/web/admin/images/668824df35820783e725ecba17aaac41.jpeg" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_formationsType.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_experienceType.php" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_experience.php" />
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="105" lean-forward="false" selection-start-line="3" selection-start-column="105" selection-end-line="3" selection-end-column="105" />
+        <state relative-caret-position="164">
+          <caret line="304" column="19" lean-forward="true" selection-start-line="304" selection-start-column="19" selection-end-line="304" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_emplois.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="66" lean-forward="false" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/ImageUpload.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/epizy_users.orm.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        <state relative-caret-position="272">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/EventListener/ImageUploadListener.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/epizy_users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="35" column="9" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/images/d7b3ee8aae90083fe418e178e4d1313a.jpeg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/images/c127b067832549c409b5398e349292a3.jpeg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/images/668824df35820783e725ecba17aaac41.jpeg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_formationsType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_experienceType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_experience.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="349" column="19" lean-forward="false" selection-start-line="349" selection-start-column="11" selection-end-line="349" selection-end-column="19" />
+        <state relative-caret-position="-408">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="31" column="81" lean-forward="false" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
-          <folding>
-            <element signature="e#590#1373#0#PHP" expanded="false" />
-            <element signature="e#2563#2598#0#PHP" expanded="false" />
-            <element signature="e#2722#2754#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="442">
+          <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="85" column="38" lean-forward="false" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="306" column="69" lean-forward="false" selection-start-line="306" selection-start-column="61" selection-end-line="306" selection-end-column="69" />
+        <state relative-caret-position="315">
+          <caret line="77" column="32" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        <state relative-caret-position="187">
+          <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="500" column="79" lean-forward="false" selection-start-line="500" selection-start-column="79" selection-end-line="500" selection-end-column="79" />
-          <folding>
-            <element signature="e#1584#2519#0#PHP" expanded="false" />
-            <element signature="e#2525#2600#0#PHP" expanded="false" />
-            <element signature="e#2605#23394#0#PHP" expanded="false" />
-            <element signature="e#3375#22932#0#PHP" expanded="false" />
-            <element signature="e#23400#23473#0#PHP" expanded="false" />
-            <element signature="e#23478#23724#0#PHP" expanded="false" />
-            <element signature="e#30422#30737#0#PHP" expanded="false" />
-            <element signature="e#30854#31209#0#PHP" expanded="false" />
-            <element signature="e#31265#31717#0#PHP" expanded="false" />
-            <element signature="e#31735#44542#0#PHP" expanded="false" />
-            <element signature="e#45050#45132#0#PHP" expanded="false" />
-            <element signature="e#46730#46910#0#PHP" expanded="false" />
-            <element signature="e#46916#47045#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="63" column="38" lean-forward="false" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+        <state relative-caret-position="434">
+          <caret line="38" column="60" lean-forward="false" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="60" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_cvs.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#151#267#0" expanded="false" />
+            <element signature="e#272#1357#0" expanded="false" />
+            <element signature="e#1391#2321#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="846" column="80" lean-forward="false" selection-start-line="846" selection-start-column="80" selection-end-line="846" selection-end-column="80" />
+          <folding>
+            <element signature="e#42#70#0#PHP" expanded="true" />
+            <element signature="e#1613#2548#0#PHP" expanded="false" />
+            <element signature="e#2554#2629#0#PHP" expanded="false" />
+            <element signature="e#2634#23423#0#PHP" expanded="false" />
+            <element signature="e#23429#23502#0#PHP" expanded="false" />
+            <element signature="e#23507#23753#0#PHP" expanded="false" />
+            <element signature="e#23759#23837#0#PHP" expanded="false" />
+            <element signature="e#30647#31246#0#PHP" expanded="false" />
+            <element signature="e#31118#31246#0#PHP" expanded="false" />
+            <element signature="e#31349#32207#0#PHP" expanded="false" />
+            <element signature="e#31841#32207#0#PHP" expanded="false" />
+            <element signature="e#32403#33161#0#PHP" expanded="false" />
+            <element signature="e#32862#33161#0#PHP" expanded="false" />
+            <element signature="e#33278#33625#0#PHP" expanded="false" />
+            <element signature="e#33643#34055#0#PHP" expanded="false" />
+            <element signature="e#34199#35350#0#PHP" expanded="false" />
+            <element signature="e#35095#35350#0#PHP" expanded="false" />
+            <element signature="e#35509#36487#0#PHP" expanded="false" />
+            <element signature="e#36349#36487#0#PHP" expanded="false" />
+            <element signature="e#36729#37587#0#PHP" expanded="false" />
+            <element signature="e#37455#37587#0#PHP" expanded="false" />
+            <element signature="e#37698#38434#0#PHP" expanded="false" />
+            <element signature="e#38456#39686#0#PHP" expanded="false" />
+            <element signature="e#39875#40561#0#PHP" expanded="false" />
+            <element signature="e#40402#40561#0#PHP" expanded="false" />
+            <element signature="e#40703#41350#0#PHP" expanded="false" />
+            <element signature="e#41206#41350#0#PHP" expanded="false" />
+            <element signature="e#41504#42198#0#PHP" expanded="false" />
+            <element signature="e#42041#42198#0#PHP" expanded="false" />
+            <element signature="e#42220#43127#0#PHP" expanded="false" />
+            <element signature="e#43364#44015#0#PHP" expanded="false" />
+            <element signature="e#43869#44015#0#PHP" expanded="false" />
+            <element signature="e#44133#44437#0#PHP" expanded="false" />
+            <element signature="e#44581#45212#0#PHP" expanded="false" />
+            <element signature="e#45072#45212#0#PHP" expanded="false" />
+            <element signature="e#46412#46494#0#PHP" expanded="false" />
+            <element signature="e#46499#48086#0#PHP" expanded="false" />
+            <element signature="e#48092#48272#0#PHP" expanded="false" />
+            <element signature="e#48278#48407#0#PHP" expanded="false" />
+            <element signature="e#48413#48759#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

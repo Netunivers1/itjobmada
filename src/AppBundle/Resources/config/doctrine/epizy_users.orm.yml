@@ -23,6 +23,7 @@ AppBundle\Entity\epizy_users:
         password:
             type: string
             length: 255
+            nullable: true
         mdpChange:
             type: integer
             column: mdp_change

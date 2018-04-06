@@ -74,9 +74,11 @@ class epizy_demandeur_emploisType extends AbstractType
                     'choice_value'=>'libele',
                     'required'=>false,
                     'placeholder'=>'Toutes les offres d\' emploi',
-                    'empty_data'=>'Toutes les offres d\' emploi'
+                    'empty_data'=>'Toutes les offres d\' emploi',
+                    'data'=>null
                 )
-            )->add('new_choixEmploi',TextType::class, array('required'=>false))
+            )
+            ->add('new_choixEmploi',TextType::class, array('required'=>false))
             ->add('new_choixFormation',TextType::class,array('required'=>false))
             ->add('choixFormation',EntityType::class,
                 array(
@@ -85,8 +87,7 @@ class epizy_demandeur_emploisType extends AbstractType
                     'choice_value'=>'ChoixFormation',
                     'required'=>false,
                     'placeholder'=>'Toutes les Formations',
-                    'empty_data'=>'Toutes les Formations',
-
+                    'empty_data'=>false,
                 )
             )
             ->add('notificationEmploiPoste', ChoiceType::class,
@@ -107,7 +108,7 @@ class epizy_demandeur_emploisType extends AbstractType
                     'choices_as_values' => true,'multiple'=>false,'expanded'=>true
                 )
             )
-            ->add('photo', FileType::class, array('required'=>false))
+            ->add('photo', FileType::class, array('required'=>false, 'mapped'=>false ) )
             ->add('status', ChoiceType::class,
                 array(
                     'choices'=>array(

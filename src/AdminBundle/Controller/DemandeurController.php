@@ -2,6 +2,7 @@
 
 namespace AdminBundle\Controller;
 
+use AdminBundle\AdminBundle;
 use AdminBundle\Entity\epizy_certifications;
 use AdminBundle\Entity\epizy_demandeur_cvs;
 use AdminBundle\Entity\epizy_demandeur_emplois;
@@ -444,46 +445,101 @@ class DemandeurController extends Controller
      */
     public function editCVAction(Request $request)
     {
-        $form_emplois = $this->createForm(epizy_demandeur_emploisType::class, $this->dmd_emplois);
-        $form_cvs = $this->createForm(epizy_demandeur_cvsType::class, $this->dmd_cvs);
-        $form_formation = $this->createForm(epizy_demandeur_formationsType::class, $this->dmd_formation);
+        if ( $request->isMethod('GET')){
+
+            $id_cv          = $request->get('id');
+            if ( is_numeric($id_cv) ){
+                $dCv            = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id_cv);
+                $id_demandeur   = $dCv->getIdDemandeur();
+                $dEmploi        = $this->getRepositoryClass('AdminBundle:epizy_demandeur_emplois')->find($id_demandeur);
+                $d_formation    = $this->getRepositoryClass('AdminBundle:epizy_demandeur_formations')->findBy(['id_cvs' => $id_cv]);
+                $d_experiences  = $this->getRepositoryClass('AdminBundle:epizy_demandeur_experience')->findBy(['id_cv' => $id_cv]);
+
+                $form_emplois   = $this->createForm(epizy_demandeur_emploisType::class, $dEmploi);
+                $form_cvs       = $this->createForm(epizy_demandeur_cvsType::class, $dCv);
+                $form_experiences = null ;
+                $form_formations = null ;
+                if ($d_formation){
+                    foreach( $d_formation as $formation){
+                        $form_formations[] = $this->createForm(epizy_demandeur_formationsType::class, $formation)->createView();
+                    }
+                }
+                if ($d_experiences){
+                    foreach( $d_experiences as $d_experience){
+                        $form_experiences[] = $this->createForm(epizy_demandeur_experienceType::class, $d_experience)->createView();
+                    }
+                }
+
+                $form = $this->createFormBuilder(FormType::class)
+                    ->setAction($this->generateUrl('admin_demandeur_update', array('id' => $id_cv ) ))
+                    ->setMethod('post')
+                    ->getForm();
+
+                return $this->view('edit.html.twig',
+                    array(
+                        'form_emplois' => $form_emplois->createView(),
+                        'form_cvs' => $form_cvs->createView(),
+                        'form_formations' => $form_formations,
+                        'form_experiences' => $form_experiences,
+                        'form' => $form->createView()
+                    )
+                );
+            }else{
+                return new Response(' C V introuvable ') ;
+            }
+        }else{
+            return $this->redirectToRoute('admin_demandeur_show');
+        }
+
+    }
+
+
+    /**
+     * @Route("/demandeur/update/{id}", name="admin_demandeur_update")
+     */
+    public function updateCVAction(Request $request){
+
+        $form_emplois    = $this->createForm(epizy_demandeur_emploisType::class, $this->dmd_emplois);
+        $form_cvs        = $this->createForm(epizy_demandeur_cvsType::class, $this->dmd_cvs);
+        $form_formation  = $this->createForm(epizy_demandeur_formationsType::class, $this->dmd_formation);
         $form_experience = $this->createForm(epizy_demandeur_experienceType::class, $this->dmd_experience);
 
-        $form = $this->createFormBuilder(FormType::class)
-            ->setAction($this->generateUrl('admin_demandeur_edit', array('id' => $request->get('id'))))
-            ->setMethod('post')
+        $id         = $request->get('id');
+        /*** @var $dmdCv epizy_demandeur_cvs  */
+        $dmdCv      = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id);
+        $user       = $dmdCv->getIdDemandeur()->getIdUser() ;
+        $dmdEmploi  = $dmdCv->getIdDemandeur() ;
+        $empRechId  = $dmdCv->getEmploirechercheId() ;
+        $empRecherc = $this->getRepositoryClass('AdminBundle:epizy_emploi_recherches')->find($empRechId->getId());
+        $logic      = $dmdCv->getLogicielId();
+        $alLogiciel = $this->getRepositoryClass('AdminBundle:epizy_logiciels')->find($logic->getId());
+        $langs      = $dmdCv->getLangueId();
+        $alLangue   =  $this->getRepositoryClass('AdminBundle:epizy_langues')->find($langs->getId());
+        $certifica  = $dmdCv->getCertificationId() ;
+        $allCertifica =  $this->getRepositoryClass('AdminBundle:epizy_certifications')->find($certifica->getId());
+        $allFormation = $this->getRepositoryClass('AdminBundle:epizy_demandeur_formations')
+                        ->findBy(['id_cvs' => $dmdCv->getId()] );
+        $allExperience= $this->getRepositoryClass('AdminBundle:epizy_demandeur_experience')
+                        ->findBy(['id_cv' => $dmdCv->getId()] );
+
+        $form       = $this->createFormBuilder(FormType::class)
+//            ->setAction($this->generateUrl('admin_demandeur_update', array('id' => $id_cv ) ))
+//            ->setMethod('post')
             ->getForm();
-
-
-        if ( $request->isMethod('GET')){
-            $id_cv = $request->get('id');
-            $d_cv = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id_cv);
-            $id_demandeur = $d_cv->getIdDemandeur();
-            $dEmploi = $this->getRepositoryClass('AdminBundle:epizy_demandeur_emplois')->find($id_demandeur);
-            $id_cv = $d_cv->getId();
-            $d_formation = $this->getRepositoryClass('AdminBundle:epizy_demandeur_formations')->findBy(['id_cvs' => $id_cv]);
-            $d_experiences = $this->getRepositoryClass('AdminBundle:epizy_demandeur_experience')->findBy(['id_cv' => $id_cv]);
-            return $this->view('edit.html.twig',
-                array(
-                    'form_emplois' => $form_emplois->createView(),
-                    'form_cvs' => $form_cvs->createView(),
-                    'form_formation' => $form_formation->createView(),
-                    'form_experience' => $form_experience->createView(),
-                    'form' => $form->createView(),
-                    'dEmploi' => $dEmploi,
-                    'd_cv'=>$d_cv,
-                    'd_formation'=>$d_formation,
-                    'd_experiences'=>$d_experiences
-                )
-            );
-        }else{
+        if ( $request->isMethod('POST')){
             $form->handleRequest($request);
             if ($form->isValid()) {
+
                 $em = $this->getDoctrine()->getManager();
                 $form_emplois->handleRequest($request);
                 $form_cvs->handleRequest($request);
                 $form_formation->handleRequest($request);
                 $form_experience->handleRequest($request);
+
+                dump($form_formation->getData());
+                dump($form_experience->getData());
+
+                die;
 
                 $repo_ville = $this->getDoctrine()->getManager()->getRepository('AdminBundle:epizy_villes');
                 $repo_dmd = $this->getDoctrine()->getManager()->getRepository('AdminBundle:epizy_demandeur_emplois');
@@ -497,15 +553,12 @@ class DemandeurController extends Controller
                 $repo_universite = $this->getDoctrine()->getManager()->getRepository('AdminBundle:epizy_universites');
                 $repo_form = $this->getDoctrine()->getManager()->getRepository('AdminBundle:epizy_demandeur_formations');
 
-                $this->users->setName($form_emplois->get('nom')->getData());
-                $this->users->setEmail($form_emplois->get('email')->getData());
-                $this->users->setSeoname($form_emplois->get('prenom')->getData());
-                $this->users->setCreated($this->date_created);
-                $this->users->setStatus('0');
-                $form_emplois->get('photo')->getData() == null ? $this->users->setHasImage('0') : $this->users->setHasImage('1');
-                $em->persist($this->users);
+                $user->setName($form_emplois->get('nom')->getData());
+                $user->setSeoname($form_emplois->get('prenom')->getData());
+                $form_emplois->get('photo')->getData() == null ? $user->setHasImage('0') : $user->setHasImage('1');
+                $em->persist($user);
                 $em->flush();
-                $id_user = $this->users;
+                $id_user = $user;
 
                 /* get and insert ville demandeur emploi*/
                 $ville_emploi = $repo_ville->findOneBy(['libele' => $form_emplois->get('ville')->getData()]);
@@ -527,35 +580,34 @@ class DemandeurController extends Controller
                 if ($new_choixEmploi != '' && isset($new_choixEmploi)) {
                     $choixExist = $repo_emp->findOneBy(['libele' => $new_choixEmploi]);
                     if ($choixExist == null || !$choixExist) {
-                        $this->dmd_emplois->setChoixEmploi($new_choixEmploi);
+                        $dmdEmploi->setChoixEmploi($new_choixEmploi);
                     } else {
                         $choixEmploi_existe = $choixExist->getLibele();
-                        $this->dmd_emplois->setChoixEmploi($choixEmploi_existe);
+                        $dmdEmploi->setChoixEmploi($choixEmploi_existe);
                     }
                 } else {
                     $choixEmploi = $form_emplois->get('choixEmploi')->getData();
                     if ($choixEmploi == null) {
-                        $this->dmd_emplois->setChoixEmploi('Toutes les offres d\'emploi');
+                        $dmdEmploi->setChoixEmploi('Toutes les offres d\'emploi');
                     } else {
-                        $this->dmd_emplois->setChoixEmploi($choixEmploi->getLibele());
+                        $dmdEmploi->setChoixEmploi($choixEmploi->getLibele());
                     }
                 }
 
                 $new_choixFormation = $form_emplois->get('new_choixFormation')->getData();
-                $choixFormation = $form_emplois->get('choixFormation')->getData();
-
+                $choixFormation     = $form_emplois->get('choixFormation')->getData();
                 if ($new_choixFormation != '' && isset($new_choixFormation)) {
                     $choixExist = $repo_dmd->findOneBy(['choixFormation' => $new_choixFormation]);
                     if ($choixExist == null || !$choixExist) {
-                        $this->dmd_emplois->setChoixFormation($new_choixFormation);
+                        $dmdEmploi->setChoixFormation($new_choixFormation);
                     } else {
-                        $this->dmd_emplois->setChoixFormation($choixExist->getChoixFormation());
+                        $dmdEmploi->setChoixFormation($choixExist->getChoixFormation());
                     }
                 } else {
                     if ($choixFormation == null) {
-                        $this->dmd_emplois->setChoixFormation('Toutes les formations');
+                        $dmdEmploi->setChoixFormation('Toutes les formations');
                     } else {
-                        $this->dmd_emplois->setChoixFormation($choixFormation->getChoixFormation());
+                        $dmdEmploi->setChoixFormation($choixFormation->getChoixFormation());
                     }
                 }
 
@@ -564,36 +616,34 @@ class DemandeurController extends Controller
                 if ($photo != '' && isset($photo)) {
                     $fileNames = $this->upload($photo);
                     if ($fileNames !== false) {
-                        $this->dmd_emplois->setPhoto($fileNames);
+                        $dmdEmploi->setPhoto($fileNames);
                     } else {
                         return new Response('Votre photo n\'est pas jpeg/jpg');
                     }
                 }
 
-                $id_demandeur = null;
                 if ($id_user != null && $ville_id != null) {
-                    $this->dmd_emplois->setIdUser($id_user);
-                    $this->dmd_emplois->setVilleId($ville_id);
-                    $this->dmd_emplois->setVille($ville_emp);
-                    $em->persist($this->dmd_emplois);
+                    $dmdEmploi->setIdUser($id_user);
+                    $dmdEmploi->setVilleId($ville_id);
+                    $dmdEmploi->setVille($ville_emp);
+                    $em->persist($dmdEmploi);
                     $em->persist($form_emplois->getData());
                     $em->flush();
-                    $id_demandeur = $this->dmd_emplois;
+                    $id_demandeur = $dmdEmploi;
                 }
 
                 if ($id_demandeur != null) {
 
                     $emploi = $form_cvs->get('emploiRecherche')->getData();
-
                     if ($emploi != '' && isset($emploi)) {
                         $emploi_exist = $repo_emp->findOneBy(['libele' => $emploi]);
                         if ($emploi_exist == null || !$emploi_exist) {
-                            $this->emploi_recherche->setLibele($form_cvs->get('emploiRecherche')->getData());
-                            $this->emploi_recherche->setEtat('1');
-                            $this->emploi_recherche->setCreated($this->date_created);
-                            $em->persist($this->emploi_recherche);
+                            $empRecherc->setLibele($form_cvs->get('emploiRecherche')->getData());
+                            $empRecherc->setEtat('1');
+                            $empRecherc->setCreated($this->date_created);
+                            $em->persist($empRecherc);
                             $em->flush();
-                            $emploi_recherche_id = $this->emploi_recherche;
+                            $emploi_recherche_id = $empRecherc;
                             $emploi_recherche = $emploi_recherche_id->getLibele();
                         } else {
                             $emploi_recherche_id = $emploi_exist;
@@ -611,12 +661,12 @@ class DemandeurController extends Controller
                     if ($log != '' && isset($log)) {
                         $logiciel_exist = $repo_log->findOneBy(['libele' => $log]);
                         if ($logiciel_exist == null || !$logiciel_exist) {
-                            $this->logiciel->setLibele($form_cvs->get('logiciel')->getData());
-                            $this->logiciel->setEtat('0');
-                            $this->logiciel->setCreated($this->date_created);
-                            $em->persist($this->logiciel);
+                            $alLogiciel->setLibele($form_cvs->get('logiciel')->getData());
+                            $alLogiciel->setEtat('1');
+                            $alLogiciel->setCreated($this->date_created);
+                            $em->persist($alLogiciel);
                             $em->flush();
-                            $logiciel_id = $this->logiciel;
+                            $logiciel_id = $alLogiciel;
                             $logiciel = $logiciel_id->getLibele();
                         } else {
                             $logiciel_id = $logiciel_exist;
@@ -633,12 +683,12 @@ class DemandeurController extends Controller
 
                     if ($langues != '' && isset($langues)) {
                         if ($langue_exist == null || !$langue_exist) {
-                            $this->langue->setNom($form_cvs->get('langue')->getData());
-                            $this->langue->setEtat('0');
-                            $this->langue->setCreated($this->date_created);
+                           $alLangue->setNom($form_cvs->get('langue')->getData());
+                           $alLangue->setEtat('0');
+                           $alLangue->setCreated($this->date_created);
                             $em->persist($this->langue);
                             $em->flush();
-                            $langue_id = $this->langue;
+                            $langue_id = $alLangue;
                             $langue = $langue_id->getNom();
                         } else {
                             $langue_id = $langue_exist;
@@ -649,40 +699,38 @@ class DemandeurController extends Controller
                         $langue = $langue_id->getNom();
                     }
 
-                    $certificat_id = null;
                     $certificats = $form_cvs->get('centreInteretCertificat')->getData();
                     if (isset($certificats) || !empty($certificats)) {
                         $certificat_exist = $repo_certificat->findOneBy(['libele' => $certificats]);
                         if (!$certificat_exist || $certificat_exist == null) {
-                            $this->certificat->setLibele($certificats);
-                            $this->certificat->setEtat('0');
-                            $this->certificat->setCreated($this->date_created);
+                           $allCertifica->setLibele($certificats);
+                           $allCertifica->setEtat('0');
+                           $allCertifica->setCreated($this->date_created);
                             $em->persist($this->certificat);
                             $em->flush();
-                            $certificat_id = $this->certificat;
+                            $certificat_id = $allCertifica;
                         } else {
                             $certificat_id = $certificat_exist;
                         }
                     }
 
-                    $id_cvs = null;
                     if (isset($emploi_recherche_id) && !empty($emploi_recherche_id)) {
 
-                        $this->dmd_cvs->setEmploirechercheId($emploi_recherche_id);
-                        $this->dmd_cvs->setEmploirecherche($emploi_recherche);
-                        $this->dmd_cvs->setLogicielId($logiciel_id);
-                        $this->dmd_cvs->setLogiciel($logiciel);
-                        $this->dmd_cvs->setCertificationId($certificat_id);
-                        $this->dmd_cvs->setIdDemandeur($id_demandeur);
-                        $this->dmd_cvs->setLangueId($langue_id);
-                        $this->dmd_cvs->setLangue($langue);
-                        $this->dmd_cvs->setDateCreation($this->date_created);
-                        $this->dmd_cvs->setNbrVue('0');
-                        $this->dmd_cvs->setReference('CV_' . $id_demandeur->getId());
-                        $this->dmd_cvs->setStatu('1');
+                        $dmdCv->setEmploirechercheId($emploi_recherche_id);
+                        $dmdCv->setEmploirecherche($emploi_recherche);
+                        $dmdCv->setLogicielId($logiciel_id);
+                        $dmdCv->setLogiciel($logiciel);
+                        $dmdCv->setCertificationId($certificat_id);
+                        $dmdCv->setIdDemandeur($id_demandeur);
+                        $dmdCv->setLangueId($langue_id);
+                        $dmdCv->setLangue($langue);
+                        $dmdCv->setDateCreation($this->date_created);
+                        $dmdCv->setNbrVue('0');
+                        $dmdCv->setReference('CV_' . $id_demandeur->getId());
+                        $dmdCv->setStatu('1');
                         $permis_array = $form_cvs->get('permis')->getData();
                         $permis = implode(',', $permis_array);
-                        $this->dmd_cvs->setPermis($permis);
+                        $dmdCv->setPermis($permis);
                         $em->persist($this->dmd_cvs);
                         $em->persist($form_cvs->getData());
                         $em->flush();
@@ -691,136 +739,126 @@ class DemandeurController extends Controller
 
                     // formation et experience
 
-                    if ($id_cvs != null) {
-                        $ville_formation = $repo_ville->findOneBy(['libele' => $form_formation->get('ville')->getData()]);
-                        if ($ville_formation === null || !$ville_formation) {
-                            $this->ville_for->setLibele($form_formation->get('ville')->getData());
-                            $this->ville_for->setEtat('1');
-                            $this->ville_for->setCreated($this->date_created);
-                            $em->persist($this->ville_for);
+                    $ville_formation = $repo_ville->findOneBy(['libele' => $form_formation->get('ville')->getData()]);
+                    if ($ville_formation === null || !$ville_formation) {
+                        $this->ville_for->setLibele($form_formation->get('ville')->getData());
+                        $this->ville_for->setEtat('1');
+                        $this->ville_for->setCreated($this->date_created);
+                        $em->persist($this->ville_for);
+                        $em->flush();
+                        $id_ville = $this->ville_for->getId();
+                        $ville_for = $this->ville_for->getLibele();
+                    } else {
+                        $id_ville = $ville_formation->getId();
+                        $ville_for = $ville_formation->getLibele();
+                    }
+
+                    $diplome_exist = $repo_diplo->findOneBy(['libele' => $form_formation->get('diplomes')->getData()]);
+                    if ($diplome_exist === null || !$diplome_exist) {
+                        $this->diplome->setLibele($form_formation->get('diplomes')->getData());
+                        $this->diplome->setEtat('1');
+                        $this->diplome->setCreated($this->date_created);
+                        $em->persist($this->diplome);
+                        $em->flush();
+                        $id_diplome = $this->diplome;
+                        $diplomes = $id_diplome->getLibele();
+                    } else {
+                        $id_diplome = $diplome_exist;
+                        $diplomes = $id_diplome->getLibele();
+                    }
+
+                    $universite_existe = $repo_universite->findOneBy(['libele' => $form_formation->get('universites')->getData()]);
+                    if ($universite_existe == null || !$universite_existe) {
+                        $this->universite->setLibele($form_formation->get('universites')->getData());
+                        $this->universite->setEtat('1');
+                        $this->universite->setCreated($this->date_created);
+                        $em->persist($this->universite);
+                        $em->flush();
+                        $id_universite = $this->universite;
+                        $universites = $id_universite->getLibele();
+                    } else {
+                        $id_universite = $universite_existe;
+                        $universites = $id_universite->getLibele();
+                    }
+
+                    if ($allFormation){
+                        foreach ( $allFormation as $formation ){
+                            $formation->setIdDemandeur($id_demandeur);
+                            $formation->setIdCvs($id_cvs);
+                            $formation->setVilleId($id_ville);
+                            $formation->setVille($ville_for);
+                            $formation->setDiplome($id_diplome);
+                            $formation->setDiplomes($diplomes);
+                            $formation->setUniversite($id_universite);
+                            $formation->setuniversites($universites);
+                            $formation->setVille($ville_for);
+                            $formation->setAnnee($form_formation->get('annee')->getData());
+                            $em->persist($formation);
                             $em->flush();
-                            $id_ville = $this->ville_for->getId();
-                            $ville_for = $this->ville_for->getLibele();
-                        } else {
-                            $id_ville = $ville_formation->getId();
-                            $ville_for = $ville_formation->getLibele();
                         }
+                    }
 
-                        $diplome_exist = $repo_diplo->findOneBy(['libele' => $form_formation->get('diplomes')->getData()]);
-                        if ($diplome_exist === null || !$diplome_exist) {
-                            $this->diplome->setLibele($form_formation->get('diplomes')->getData());
-                            $this->diplome->setEtat('1');
-                            $this->diplome->setCreated($this->date_created);
-                            $em->persist($this->diplome);
-                            $em->flush();
-                            $id_diplome = $this->diplome;
-                            $diplomes = $id_diplome->getLibele();
-                        } else {
-                            $id_diplome = $diplome_exist;
-                            $diplomes = $id_diplome->getLibele();
-                        }
 
-                        $universite_existe = $repo_universite->findOneBy(['libele' => $form_formation->get('universites')->getData()]);
-                        if ($universite_existe == null || !$universite_existe) {
-                            $this->universite->setLibele($form_formation->get('universites')->getData());
-                            $this->universite->setEtat('1');
-                            $this->universite->setCreated($this->date_created);
-                            $em->persist($this->universite);
-                            $em->flush();
-                            $id_universite = $this->universite;
-                            $universites = $id_universite->getLibele();
-                        } else {
-                            $id_universite = $universite_existe;
-                            $universites = $id_universite->getLibele();
-                        }
+                    //                        // demandeur experience
+                    //
+                    $ville_experience = $repo_ville->findOneBy(['libele' => $form_experience->get('ville')->getData()]);
+                    if ($ville_experience == null || !$ville_experience) {
+                        $this->ville_exp->setLibele($form_experience->get('ville')->getData());
+                        $this->ville_exp->setEtat('1');
+                        $this->ville_exp->setCreated($this->date_created);
+                        $em->persist($this->ville_exp);
+                        $em->flush();
+                        $id_vil = $this->ville_exp;
+                        $ville = $id_vil->getLibele();
+                    } else {
+                        $id_vil = $ville_experience;
+                        $ville = $ville_experience->getLibele();
+                    }
 
-                        if (isset($id_universite) && isset($id_diplome) && isset($id_ville)) {
-                            $this->dmd_formation->setIdDemandeur($id_demandeur);
-                            $this->dmd_formation->setIdCvs($id_cvs);
-                            $this->dmd_formation->setVilleId($id_ville);
-                            $this->dmd_formation->setVille($ville_for);
-                            $this->dmd_formation->setDiplome($id_diplome);
-                            $this->dmd_formation->setDiplomes($diplomes);
-                            $this->dmd_formation->setUniversite($id_universite);
-                            $this->dmd_formation->setuniversites($universites);
-                            $this->dmd_formation->setVille($ville_for);
-                            $this->dmd_formation->setAnnee($form_formation->get('annee')->getData());
-                            $em->persist($this->dmd_formation);
-                            $em->flush();
-                        }
+                    $secteur_activite = $form_experience->get('secteuractivite_id')->getData();
+                    if ($secteur_activite != null && !empty($secteur_activite)) {
+                        $id_sectAct = $secteur_activite->getId();
+                        $secteur_activites = $repo_secteur->find($id_sectAct);
+                        $secteur_activit = $secteur_activites->getLibele();
+                    }
 
-                        //                        // demandeur experience
-                        //
-                        $ville_experience = $repo_ville->findOneBy(['libele' => $form_experience->get('ville')->getData()]);
-                        if ($ville_experience == null || !$ville_experience) {
-                            $this->ville_exp->setLibele($form_experience->get('ville')->getData());
-                            $this->ville_exp->setEtat('1');
-                            $this->ville_exp->setCreated($this->date_created);
-                            $em->persist($this->ville_exp);
-                            $em->flush();
-                            $id_vil = $this->ville_exp;
-                            $ville = $id_vil->getLibele();
-                        } else {
-                            $id_vil = $ville_experience;
-                            $ville = $ville_experience->getLibele();
-                        }
+                    $poste_exist = $repo_poste->findOneBy(['libele' => $form_experience->get('posteOccupe')->getData()]);
+                    if ($poste_exist === null || !$poste_exist) {
+                        $this->poste->setLibele($form_experience->get('posteOccupe')->getData());
+                        $this->poste->setEtat('1');
+                        $this->poste->setCreated($this->date_created);
+                        $em->persist($this->poste);
+                        $em->flush();
+                        $post_id = $this->poste;
+                        $poste_occupe = $post_id->getLibele();
+                    } else {
+                        $post_id = $poste_exist;
+                        $poste_occupe = $post_id->getLibele();
+                    }
 
-                        $secteur_activite = $form_experience->get('secteuractivite_id')->getData();
-                        if ($secteur_activite != null && !empty($secteur_activite)) {
-                            $id_sectAct = $secteur_activite->getId();
-                            $secteur_activites = $repo_secteur->find($id_sectAct);
-                            $secteur_activit = $secteur_activites->getLibele();
-                        }
-
-                        $poste_exist = $repo_poste->findOneBy(['libele' => $form_experience->get('posteOccupe')->getData()]);
-                        if ($poste_exist === null || !$poste_exist) {
-                            $this->poste->setLibele($form_experience->get('posteOccupe')->getData());
-                            $this->poste->setEtat('1');
-                            $this->poste->setCreated($this->date_created);
-                            $em->persist($this->poste);
-                            $em->flush();
-                            $post_id = $this->poste;
-                            $poste_occupe = $post_id->getLibele();
-                        } else {
-                            $post_id = $poste_exist;
-                            $poste_occupe = $post_id->getLibele();
-                        }
-
-                        if (isset($id_vil) && isset($secteur_activite)) {
-                            $this->dmd_experience->setIdDemandeur($id_demandeur);
-                            $this->dmd_experience->setIdCv($id_cvs);
-                            $this->dmd_experience->setVilleId($id_vil);
-                            $this->dmd_experience->setVille($ville);
-                            $this->dmd_experience->setPosteoccupeId($post_id);
-                            $this->dmd_experience->setPosteOccupe($poste_occupe);
-                            $this->dmd_experience->setSecteuractiviteId($secteur_activites);
-                            $this->dmd_experience->setSecteurActivite($secteur_activit);
-                            $em->persist($this->dmd_experience);
+                    if ( $allExperience ){
+                        foreach ($allExperience as $experience){
+                            $experience->setIdDemandeur($id_demandeur);
+                            $experience->setIdCv($id_cvs);
+                            $experience->setVilleId($id_vil);
+                            $experience->setVille($ville);
+                            $experience->setPosteoccupeId($post_id);
+                            $experience->setPosteOccupe($poste_occupe);
+                            $experience->setSecteuractiviteId($secteur_activites);
+                            $experience->setSecteurActivite($secteur_activit);
+                            $em->persist($experience);
                             $em->persist($form_experience->getData());
                             $em->flush();
                         }
                     }
                 }
-
                 return $this->redirectToRoute('admin_demandeur_show');
+            }else{
+                return $this->redirectToRoute('admin_demandeur_update', array('id'=>$id) );
             }
-
-            dump($form->getErrors());
-            dump($form_emplois->getErrors());
-            dump($form_experience->getErrors());
-            dump($form_formation->getErrors());
-            dump($form_cvs->getErrors());
-            die();
         }
+        return $this->redirectToRoute('admin_demandeur_update', array('id'=>$id) );
     }
-
-
-//    /**
-//     * @Route("/demandeur/update", name="admin_demandeur_update")
-//     */
-//    public function updateCVAction(Request $request){
-//
-//    }
 
     /**
      * @Route("/demandeur/delete/{id}", name="admin_demandeur_delete")
