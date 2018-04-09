@@ -1,325 +1,100 @@
 {% extends '::base.html.twig' %}
 {% block body %}
     {{ form_start(form) }}
-
-    {# begin form errors#}
-    {{ form_errors(form_emplois)}}
-    {{ form_errors(form_cvs)}}
-    {{ form_errors(form_formation)}}
-    {{ form_errors(form_experience)}}
-    {# end form errors #}
-    {# begin form emplois #}
-
     <h3> CV</h3>
-    {% if ( d_cv.position == 1)%}
+    {% if ( form_cvs.position.vars.value == 1)%}
         {% set attr = true %}
     {% else %}
         {% set attr = false %}
     {% endif %}
 
-    {{ form_row( form_cvs.position,
-        {
-            'label':'Achat de place :',
-            'value': d_cv.position,
-            'attr': {'checked': attr}
-        }
-    )}}
-    {% if ( dEmploi.audition == 1)%}
-        {% set attr = true %}
-    {% else %}
-        {% set attr = false %}
-    {% endif %}
-    {{ form_row( form_emplois.audition,{
-        'label':'Ce candidat a-t-il été auditionné :',
-        'value': dEmploi.audition,
-        'attr': {'checked': attr}
-    }
-    )}}
-    {{ form_row( form_emplois.emploiTrouve,{
-        'label':'Ce candidat a trouvé un emploi :',
-        'value':  dEmploi.emploiTrouve
-    }
-    )}}
+    {{ form_row( form_cvs.position, {'label':'Achat de place :', attr : {'checked' : attr } } )}}
+
+    {{ form_row( form_emplois.audition, { 'label':'Ce candidat a-t-il été auditionné :'})}}
+
+    {{ form_row( form_emplois.emploiTrouve,{'label':'Ce candidat a trouvé un emploi :', })}}
+
     {{ form_row( form_emplois.photo, {'label':'Photo :' } )}}
-    {{ form_row( form_emplois.titre,
-        {
-            'label':'Titre :' ,
-            'value': dEmploi.titre
-        }
-    )}}
-    {{ form_row( form_emplois.nom,
-        {
-            'label':'Nom:' ,
-            'value': dEmploi.nom
-        }
-    )}}
-    {{ form_widget( form_emplois.email,
-        {
-            'value': dEmploi.email,
-            'attr': {'class': 'hidden'}
-        }
-    )}}
-    {{ form_widget( form_emplois.password,
-        {
-            'value': dEmploi.password,
-            'attr': {'class': 'hidden'}
-        }
-    )}}
-    {{ form_row( form_emplois.prenom,
-        {
-            'label':'Prenom:',
-            'value': dEmploi.prenom
-        }
-    )}}
 
-    {{ form_row( form_emplois.adresse,
-        {
-            'label':'Adresse :',
-            'value': dEmploi.adresse
-        }
-    )}}
-    {{ form_row( form_emplois.ville,
-        {
-            'label':'Ville :',
-            'value': dEmploi.villeId.libele
-        }
-    )}}
-    {{ form_row( form_emplois.region,
-        {
-            'label':'Région :',
-            'value': dEmploi.region
-        }
-    )}}
-    {{ form_row( form_emplois.telephone,
-        {
-            'label':'Telephone :',
-            'value': dEmploi.telephone
-        }
-    )}}
-    {{ form_row( form_emplois.dateDeNaissance,
-        {
-            'label':'Date De Naissance :',
-            'value': dEmploi.DateDeNaissance
-        }
-    )}}
+    {{ form_row( form_emplois.titre,{'label':'Titre :'})}}
+
+    {{ form_row( form_emplois.nom, {'label':'Nom:' , } )}}
+
+    {{ form_widget( form_emplois.email,{'attr': {'class': 'hidden'} } )}}
+
+    {{ form_row( form_emplois.prenom, {'label':'Prenom:' } )}}
+
+    {{ form_row( form_emplois.adresse, {'label':'Adresse :' }  )}}
+    {{ form_row( form_emplois.ville, { 'label':'Ville :'} )}}
+    {{ form_row( form_emplois.region,{'label':'Région :',})}}
+    {{ form_row( form_emplois.telephone,{'label':'Telephone :'} ) }}
+    {{ form_row( form_emplois.dateDeNaissance,{'label':'Date De Naissance :',})}}
     {{ form_row( form_emplois._token )}}
-    {{ form_row( form_emplois.status,
-        {'label':'Status :',
-            'value': dEmploi.status
-        }
-    )}}
-    {% set permi_bdd = d_cv.permis|split(',') %}
+    {{ form_row( form_emplois.status,{'label':'Status :',})}}
 
-    <label for=""> Permis :
-        <label for="A" > A
-            <input type="checkbox" name [] = "permis" value="A" {{ 'A' in permi_bdd ? 'checked=checked' : '' }}>
-        </label>
-        <label for="A" > A'
-            <input type="checkbox" name [] = "permis" value="A'" {{ 'A\'' in permi_bdd ? 'checked=checked' : '' }}>
-        </label>
-        <label for="A" > B
-            <input type="checkbox" name [] = "permis" value="B" {{ 'B' in permi_bdd ? 'checked=checked' : '' }}>
-        </label>
-        <label for="A" > C
-            <input type="checkbox" name [] = "permis" value="C"  {{ 'C' in permi_bdd ? 'checked=checked' : '' }}>
-        </label>
-        <label for="A" > D
-            <input type="checkbox" name [] = "permis" value="D" {{ 'D' in permi_bdd ? 'checked=checked' : '' }}>
-        </label>
-        <label for="A" > Aucun
-            <input type="checkbox" name [] = "permis" value="Aucun" {{ 'Aucun' in permi_bdd ? 'checked=checked' : '' }}>
-        </label>
-    </label>
+    {{ form_row( form_cvs.emploiRechercheId,{'label':'Emploi Recherché :',})}}
 
-    {{ form_row( form_cvs.emploiRechercheId,
-        {
-            'label':'Emploi Recherché :',
-            'value': d_cv.emploiRechercheId
-        }
+    {{ form_row( form_cvs.emploiRecherche,{'label':'Ajouter un emploi recherché :'})}}
+
+    {{ form_row( form_emplois.choixEmploi,{'label':'Recevoir une notification pour quel emploi ?',})}}
+
+    {{ form_row( form_emplois.new_choixEmploi, {'label':'Ajouter votre emploi si inexistant dans la liste : ' } )}}
+
+    {{ form_row( form_emplois.notificationEmploiPoste,
+        {'label':'Souhaitez-vous recevoir une notification quand une offre d’emploi est postée sur Itjobmada :'}
     )}}
 
-    {{ form_row( form_cvs.emploiRecherche,
-        {
-            'label':'Ajouter un emploi recherché :'
-        }
+    {{ form_row( form_emplois.notificationFormationPoste,
+        {'label':'Souhaitez-vous recevoir une notification quand une formation est postée sur Itjobmada:' }
     )}}
+    {{ form_row( form_emplois.choixFormation,{'label':'Recevoir une notification pour quelle formation ? :',})}}
 
-    <label for="notifEmploi"> Souhaitez-vous recevoir une notification quand une offre d’emploi est postée sur Itjobmada :
-        <input id="notifEmploi" type="radio" name="notificationEmploiPoste" value="Oui"
-        {{ "oui" ==  dEmploi.notificationEmploiPoste ? 'checked=checked' : ''}}>
-        <label > Oui </label>
+    {{ form_row( form_emplois.new_choixFormation, {'label':'Ajouter votre formation si inexistante dans la liste :' } )}}
 
-        <input id="notifEmploi" type="radio" name="notificationEmploiPoste" value="Oui"
-                {{ "oui" ==  dEmploi.notificationEmploiPoste ? 'checked=checked' : ''}}>
-        <label > Non </label>
-    </label>
-
-    {{ form_row( form_emplois.choixEmploi,
-    {
-        'label':'Recevoir une notification pour quel emploi ?',
-        'value': dEmploi.choixEmploi
-    }
-    )}}
-
-    <label for="notifEmploi"> Souhaitez-vous recevoir une notification quand une formation est postée sur Itjobmada:
-        <input id="notifEmploi" type="radio" name="notificationFormationPoste" value="Oui"
-                {{ "oui" ==  dEmploi.notificationFormationPoste ? 'checked=checked' : ''}}>
-        <label > Oui </label>
-        <input id="notifEmploi" type="radio" name="notificationFormationPoste" value="Oui"
-                {{ "oui" ==  dEmploi.notificationFormationPoste ? 'checked=checked' : ''}}>
-        <label > Non </label>
-    </label>
-
-    {{ form_row( form_emplois.choixFormation,
-    {
-        'label':'Recevoir une notification pour quelle formation ? :',
-        'value': dEmploi.choixFormation
-    }
-
-    )}}
-
-    <label for="notifEmploi">Voulez-vous recevoir nos nouvelles du mois :
-        <input id="notifEmploi" type="radio" name="newsletter" value="Oui"
-                {{ "oui" ==  dEmploi.newsletter ? 'checked=checked' : ''}}>
-        <label > Oui </label>
-        <input id="notifEmploi" type="radio" name="newsletter" value="Oui"
-                {{ "oui" ==  dEmploi.newsletter ? 'checked=checked' : ''}}>
-        <label > Non </label>
-    </label>
-
-    {{ form_row( form_cvs.logicielId,{
-        'label': 'Logiciel :',
-        'value': d_cv.logicielId.libele
-    }
-    ) }}
-
-    {{ form_row( form_cvs.logiciel,{
-        'label': 'Ajouter Logiciel :'
-    }
-    ) }}
-
-    {{ form_row( form_cvs.langueId,{
-        'label': 'Ajouter langue :'
-    }
-    ) }}
-
-    {{ form_row( form_cvs.langue,{
-        'label': 'Langue :',
-        'value': d_cv.langue
-    }
-    )}}
+    {{ form_row( form_emplois.newsletter, {'label':'Voulez-vous recevoir nos nouvelles du mois :' } )}}
     {{ form_row( form_cvs._token) }}
 
-    <h3> formation </h3>
-
-    {% if ( d_formation != null ) %}
-        {% for formation in  d_formation %}
-
-            {{ form_row( form_formation.annee,{
-                'label': 'Annee :',
-                'value': formation.annee
-            }
-            ) }}
-            {{ form_row( form_formation.ville,
-            {
-                'label': 'Ville :',
-                'value': formation.ville
-            }
-            )}}
-            {{ form_row( form_formation.pays,
-            {
-                'label': 'Pays :',
-                'value': formation.pays
-            }
-            ) }}
-            {{ form_row( form_formation.diplomes,
-            {
-                'label': 'Diplome :',
-                'value': formation.diplomes
-            }
-            ) }}
-            {{ form_row( form_formation.universites,
-            {
-                'label': 'Universite :',
-                'value': formation.universites
-            }
-            ) }}
+    {# debut formation#}
+    <h3> Formation </h3>
+    {% if ( form_formations != null ) %}
+        {% for form_formation in  form_formations %}
+            {{ form_row( form_formation.annee,{ 'label': 'Annee :' }) }}
+            {{ form_row( form_formation.ville,{ 'label': 'Ville :',})}}
+            {{ form_row( form_formation.pays,{'label': 'Pays :'}) }}
+            {{ form_row( form_formation.diplomes, {'label': 'Diplome :' }) }}
+            {{ form_row( form_formation.universites, {'label': 'Universite :'}) }}
             {{ form_row( form_formation._token )}}
-
         {% endfor %}
     {% endif %}
+    {# fin formation #}
+<hr>
+    <h6>Logiciels maitrisés</h6>
+    {{ form_row( form_cvs.logicielId,{'label': 'Logiciel :',}) }}
 
+    {{ form_row( form_cvs.logiciel,{'label': 'Ajouter Logiciel :'}) }}
+<hr>
+    {{ form_row( form_cvs.langueId,{'label': 'Ajouter langue :'}) }}
+    {{ form_row( form_cvs.langue,{'label': 'Langue :',})}}
+    {{ form_row( form_cvs._token) }}
+<hr>
     <h3> Experience </h3>
 
-    {% if (d_experiences) %}
-        {% for d_experience in d_experiences %}
-            {{ form_row( form_experience.moisDebut,{
-                'label': 'Mois de Début :',
-                'value': d_experience.moisDebut
-            }) }}
-            {{ form_row( form_experience.moisFin,
-                {
-                    'label': 'Mois de Fin:',
-                    'value': d_experience.moisFin
-                }
-            ) }}
-            {{ form_row( form_experience.annee,
-            {
-                'label': 'Annee :',
-                'value': d_experience.annee
-            }
-            ) }}
-            {{ form_row( form_experience.ville,
-            {
-                'label': 'Ville :',
-                'value': d_experience.ville
-            }
-            ) }}
-            {{ form_row( form_experience.pays,
-            {
-                'label': 'Pays :',
-                'value': d_experience.pays
-            }
-            ) }}
-            {{ form_row( form_experience.nomEntreprise,
-            {
-                'label': 'Nom de l\'entreprise :',
-                'value': d_experience.nomEntreprise
-            }
-            ) }}
-            {{ form_row( form_experience.secteuractivite_id,
-            {
-                'label': 'Secteur d\'activité:',
-                'value': d_experience.secteurActiviteId.libele
-            }
-            ) }}
-            {{ form_row( form_experience.posteOccupe,
-            {
-                'label': 'Poste occupé :',
-                'value': d_experience.posteoccupeId.libele
-            }
-            ) }}
-            {{ form_row( form_experience.missionTache,
-            {
-                'label': 'Mission et tache :',
-                'value': d_experience.missionTache
-            }
-            ) }}
+    {% if (form_experiences) %}
+        {% for form_experience in form_experiences %}
+            {{ form_row( form_experience.moisDebut,{ 'label': 'Mois de Début :'}) }}
+            {{ form_row( form_experience.moisFin, {'label': 'Mois de Fin:'}) }}
+            {{ form_row( form_experience.annee,{'label': 'Annee :'}) }}
+            {{ form_row( form_experience.ville,{'label': 'Ville :'}) }}
+            {{ form_row( form_experience.pays,{'label': 'Pays :'}) }}
+            {{ form_row( form_experience.nomEntreprise,{'label': 'Nom de l\'entreprise :',}) }}
+            {{ form_row( form_experience.secteuractivite_id,{'label': 'Secteur d\'activité:',}) }}
+            {{ form_row( form_experience.posteOccupe,{'label': 'Poste occupé :',}) }}
+            {{ form_row( form_experience.missionTache,{'label': 'Mission et tache :',}) }}
         {% endfor %}
     {% endif %}
-
-    {{ form_row( form_cvs.centreInteretCertificat,
-        {
-            'label':'Divers :',
-            'value': d_cv.centreInteretCertificat
-        }
-    )}}
-    {{ form_row( form_cvs.centreInteretProjet,
-        {
-            'label':'Projet :',
-            'value': d_cv.centreInteretProjet
-        }
-    )}}
+<hr>
+    {{ form_row( form_cvs.centreInteretCertificat,{'label':'Divers :',})}}
+    {{ form_row( form_cvs.centreInteretProjet,{'label':'Projet :',})}}
 
     <input type="submit" class="btn btn-primary">
     {{ form_end(form) }}
