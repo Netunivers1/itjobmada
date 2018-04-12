@@ -42,6 +42,7 @@ class epizy_demandeur_formations
      */
     private $universites;
 
+
     /**
      * Get id
      *
@@ -196,38 +197,6 @@ class epizy_demandeur_formations
         return $this->universites;
     }
 
-
-    /**
-     * @var \AdminBundle\Entity\epizy_demandeur_formations
-     */
-    private $id_cvs;
-
-
-
-    /**
-     * Set idCvs
-     *
-     * @param \AdminBundle\Entity\epizy_demandeur_cvs $idCvs
-     *
-     * @return epizy_demandeur_formations
-     */
-    public function setIdCvs(\AdminBundle\Entity\epizy_demandeur_cvs $idCvs = null)
-    {
-        $this->id_cvs = $idCvs;
-
-        return $this;
-    }
-
-    /**
-     * Get idCvs
-     *
-     * @return \AdminBundle\Entity\epizy_demandeur_cvs
-     */
-    public function getIdCvs()
-    {
-        return $this->id_cvs;
-    }
-
     /**
      * @var \AdminBundle\Entity\epizy_diplomes
      */
@@ -314,5 +283,36 @@ class epizy_demandeur_formations
     public function getIdDemandeur()
     {
         return $this->id_demandeur;
+    }
+
+    
+    /**
+     * @var \AdminBundle\Entity\epizy_demandeur_cvs
+     */
+    private $id_cvs;
+
+
+    /**
+     * Set idCvs
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_cvs $idCvs
+     *
+     * @return epizy_demandeur_formations
+     */
+    public function setIdCvs(\AdminBundle\Entity\epizy_demandeur_cvs $idCvs = null)
+    {
+        $this->id_cvs = $idCvs;
+
+        return $this;
+    }
+
+    /**
+     * Get idCvs
+     *
+     * @return \AdminBundle\Entity\epizy_demandeur_cvs
+     */
+    public function getIdCvs()
+    {
+        return $this->id_cvs;
     }
 }

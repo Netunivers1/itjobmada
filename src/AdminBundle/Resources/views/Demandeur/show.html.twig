@@ -28,38 +28,38 @@
                         <div class="toolbar btn btn-default"><i class="glyphicon glyphicon-cog"></i>
                             <div id="user-toolbar-options-all" class="hide user-toolbar-options">
                                 <a class="deactivate btn btn-warning"
-                                   href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'deactivate'))?>"
+                                   href=""
                                    rel="tooltip"
-                                   title="<?=__('Deactivate')?>"
+                                   title="Deactivate"
                                    data-id="tr1"
-                                   data-text="<?=__('Are you sure you want to deactivate?')?>"
+                                   data-text="Are you sure you want to deactivate?"
                                    data-toggle="confirmation"
-                                   data-btnOkLabel="<?=__('Yes')?>"
-                                   data-btnCancelLabel="<?=__('No')?>"
+                                   data-btnOkLabel="Yes"
+                                   data-btnCancelLabel="No"
                                 >
                                     <i class="glyphicon glyphicon-remove"></i>
                                 </a>
                                 <a class="activate btn btn-success"
-                                   href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'activate'))?>"
+                                   href=""
                                    rel="tooltip"
-                                   title="<?=__('Activate')?>"
+                                   title="Activate"
                                    data-id="tr1"
-                                   data-text="<?=__('Are you sure you want to activate?')?>"
+                                   data-text="Are you sure you want to activate?"
                                    data-toggle="confirmation"
-                                   data-btnOkLabel="<?=__('Yes')?>"
-                                   data-btnCancelLabel="<?=__('No')?>"
+                                   data-btnOkLabel="Yes"
+                                   data-btnCancelLabel="No"
                                 >
                                     <i class="glyphicon glyphicon-ok-sign"></i>
                                 </a>
                                 <a class="delete btn btn-danger"
-                                   href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'delete'))?>"
+                                   href=""
                                    rel="tooltip"
-                                   title="<?=__('Delete')?>"
+                                   title="Delete"
                                    data-id="tr1"
-                                   data-text="<?=__('Are you sure you want to delete?')?>"
+                                   data-text="Are you sure you want to delete?"
                                    data-toggle="confirmation"
-                                   data-btnOkLabel="<?=__('Yes')?>"
-                                   data-btnCancelLabel="<?=__('No')?>"
+                                   data-btnOkLabel="Yes"
+                                   data-btnCancelLabel="No"
                                 >
                                     <i class="glyphicon glyphicon-remove"></i>
                                 </a>
@@ -86,7 +86,7 @@
                         <td width="45" style="vertical-align: middle;"> {{ cv.id }} </td>
 
                         <td width="40" style="vertical-align: middle;">
-                            <a href=""> {{  cv.reference }} </a>
+                            <a href="{{ path('admin_demandeur_detail', {id: cv.id}) }}"> {{  cv.reference }} </a>
                         </td>
 
                         <td width="150"> {{ cv.EmploirechercheId.libele }} </td>

@@ -493,7 +493,6 @@ class DemandeurController extends Controller
 
     }
 
-
     /**
      * @Route("/demandeur/update/{id}", name="admin_demandeur_update")
      */
@@ -899,6 +898,31 @@ class DemandeurController extends Controller
             return $this->redirectToRoute("admin_demandeur_show");
         }
         return $this->redirectToRoute("admin_demandeur_show");
+    }
+
+    /**
+     * @Route("/demandeur/detail/{id}", name="admin_demandeur_detail")
+     */
+    public function detailAction(Request $request){
+        if ($request->isMethod('GET')){
+            $id_cv = intval( $request->get('id') ) ;
+            if (is_int($id_cv) ) {
+                $dmd_cv = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs');
+                $detail = $dmd_cv->findOneBy(['id' => $id_cv]);
+                return $this->view('detail.html.twig', array('detail' => $detail)) ;
+            }
+        }
+
+    }
+
+    /**
+     * @Route("/demandeur/moderate" , name="admin_demandeur_moderate")
+     */
+    public function moderateAction(){
+        $cv_desactive = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs');
+        $cv_desactives = $cv_desactive->findBy(['statu' => 0]);
+
+        return $this->view('moderate.html.twig', array( 'cv_desactives' => $cv_desactives ) );
     }
 
     private function getRepositoryClass($entity_bundle)

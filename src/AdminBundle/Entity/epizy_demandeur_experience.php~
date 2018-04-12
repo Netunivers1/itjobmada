@@ -427,4 +427,33 @@ class epizy_demandeur_experience
     {
         return $this->ville_id;
     }
+    /**
+     * @var \AdminBundle\Entity\epizy_demandeur_cvs
+     */
+    private $experience;
+
+
+    /**
+     * Set experience
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_cvs $experience
+     *
+     * @return epizy_demandeur_experience
+     */
+    public function setExperience(\AdminBundle\Entity\epizy_demandeur_cvs $experience = null)
+    {
+        $this->experience = $experience;
+
+        return $this;
+    }
+
+    /**
+     * Get experience
+     *
+     * @return \AdminBundle\Entity\epizy_demandeur_cvs
+     */
+    public function getExperience()
+    {
+        return $this->experience;
+    }
 }

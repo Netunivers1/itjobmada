@@ -307,7 +307,14 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ path('admin_demandeur_show') }}">Liste de toutes les CV</a>
+                                <a href="{{ path('admin_demandeur_show') }}">
+                                    <i class="glyphicon glyphicon-align-right"></i>Liste de toutes les CV
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_demandeur_moderate') }}">
+                                    <i class="glyphicon glyphicon-ban-circle"></i>Liste des CV désactivés
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -603,9 +610,7 @@
     <script src="{{ asset('assets/js/morris/raphael-2.1.0.min.js') }}"></script>
     <script src="{{ asset('assets/js/morris/morris.js') }}"></script>
     <!-- Custom Js -->
-
-
-
+    <script src="{{ asset('assets/js/admin/demandeur/demandeur.js') }}"></script>
 </body>
 
 </html>

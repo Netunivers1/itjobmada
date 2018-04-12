@@ -54,19 +54,19 @@
     {{ form_row( form_emplois.newsletter, {'label':'Voulez-vous recevoir nos nouvelles du mois :' } )}}
     {{ form_row( form_cvs._token) }}
 
-    {# debut formation#}
     <h3> Formation </h3>
-    {% if ( form_formations != null ) %}
-        {% for form_formation in  form_formations %}
-            {{ form_row( form_formation.annee,{ 'label': 'Annee :' }) }}
-            {{ form_row( form_formation.ville,{ 'label': 'Ville :',})}}
-            {{ form_row( form_formation.pays,{'label': 'Pays :'}) }}
-            {{ form_row( form_formation.diplomes, {'label': 'Diplome :' }) }}
-            {{ form_row( form_formation.universites, {'label': 'Universite :'}) }}
-            {{ form_row( form_formation._token )}}
-        {% endfor %}
-    {% endif %}
-    {# fin formation #}
+    {#{% if ( form_formations != null ) %}#}
+        {#{% for form_formation in  form_formations %}#}
+            {#{{ form_row( form_formation.annee,{ 'label': 'Annee :' }) }}#}
+            {#{{ form_row( form_formation.ville,{ 'label': 'Ville :',})}}#}
+            {#{{ form_row( form_formation.pays,{'label': 'Pays :'}) }}#}
+            {#{{ form_row( form_formation.diplomes, {'label': 'Diplome :' }) }}#}
+            {#{{ form_row( form_formation.universites, {'label': 'Universite :'}) }}#}
+            {#{{ form_row( form_formation._token )}}#}
+        {#{% endfor %}#}
+    {#{% endif %}#}
+
+    {{ form_row(form_cvs.formation) }}
 <hr>
     <h6>Logiciels maitrisés</h6>
     {{ form_row( form_cvs.logicielId,{'label': 'Logiciel :',}) }}

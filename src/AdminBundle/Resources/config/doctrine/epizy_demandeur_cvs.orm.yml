@@ -84,6 +84,6 @@ AdminBundle\Entity\epizy_demandeur_cvs:
         experience:
             targetEntity: epizy_demandeur_experience
             mappedBy: id_cv
-        demandeur_cv:
+        formation:
             targetEntity: epizy_demandeur_formations
             mappedBy: id_cvs
