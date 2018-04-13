@@ -74,14 +74,14 @@ class epizy_demandeur_cvs
      */
     private $position;
 
-    private $experience;
+    protected $experience;
 
-    private $formation;
+    protected $formation;
 
     public function __construct()
     {
+        $this->formation =  new ArrayCollection();
         $this->experience = new ArrayCollection();
-        $this->formation = new ArrayCollection();
     }
 
 
@@ -529,5 +529,9 @@ class epizy_demandeur_cvs
     public function getCertificationId()
     {
         return $this->certification_id;
+    }
+
+    public function getFormation(){
+
     }
 }

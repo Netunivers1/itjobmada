@@ -1,0 +1,99 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="page-hedemandeurer">
+        <h3> Liste des Cv désactivés </h3>
+    </div>
+    <br>
+    <br>
+    <div class="clearfix"></div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="select-all" onclick="check_all();">
+                            </label>
+                        </div>
+                    </th>
+                    <th>Activer</th>
+                    <th>Réference </th>
+                    <th>L\'emploi recherché </th>
+                    <th>Permis </th>
+                    <th>Logiciels maîtrisés </th>
+                    <th>Langues </th>
+                    <!-- in case there are no demandeurs we dont show buttons -->
+                <tbody>
+
+                {% if ( cv_desactives ) %}
+                    {% for cv_desactive in cv_desactives %}
+                    <tr>
+                        <td>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="" class="checkbox">
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <a
+                                href="#"
+                                class="btn btn-success index-moderation"
+                                title="Activate?"
+                                data-id= "tr"
+                                data-toggle="confirmation"
+                                data-btnOkLabel="Yes"
+                                data-btnCancelLabel="No">
+                                <i class="glyphicon glyphicon-ok-sign"></i>
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="{{ path('admin_demandeur_detail',{id: cv_desactive.id}) }}">{{ cv_desactive.reference }} </a>
+                        </td>
+
+                        <td>
+                            {{ cv_desactive.emploiRechercheId.libele }}
+                        </td>
+                        <td>
+                            {{ cv_desactive.permis }}
+                        </td>
+                        <td>
+                            {% set logiciels = cv_desactive.logiciel|split(",") %}
+                            {% for log in logiciels %}
+                                - {{ log }}<br>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {{ cv_desactive.langueId.nom }}
+                        </td>
+
+                        <td width="120" style="width:120px">
+                            <a class="btn btn-primary"
+                               href=""
+                               rel="tooltip" title="">
+                                <i class="glyphicon   glyphicon-edit"></i>
+                            </a>
+                            <a class="delete btn btn-danger"
+                               href=""
+                               rel="tooltip"
+                               title="Delete"
+                               data-id="tr1"
+                               data-text="Are you sure you want to delete?"
+                               data-toggle="confirmation"
+                               data-btnOkLabel="Yes"
+                               data-btnCancelLabel="No"
+                            >
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
