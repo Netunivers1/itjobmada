@@ -25,5 +25,5 @@ AdminBundle\Entity\epizy_langues:
             type: string
             length: 255
         created:
-            type: datetimetz
+            type: datetime
     lifecycleCallbacks: {  }

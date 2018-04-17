@@ -7,7 +7,10 @@ $(document).ready(function() {
     $collectionHolder.append($addTagLink);
     $collectionHolder.data('index', $collectionHolder.find(':input').length);
     $formEixst = $collectionHolder.data('prototype');
-    console.log( $($formEixst).length ) ;
+
+    if( $($formEixst).length <= 1){
+        addTagForm($collectionHolder);
+    }
     $addTagLink.on('click', function(e) {
         e.preventDefault();
         addTagForm($collectionHolder);

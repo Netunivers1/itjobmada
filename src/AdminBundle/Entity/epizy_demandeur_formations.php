@@ -21,12 +21,7 @@ class epizy_demandeur_formations
      * @var string
      */
     private $ville;
-
-    /**
-     * @var int
-     */
-    private $villeId;
-
+    
     /**
      * @var string
      */
@@ -99,30 +94,6 @@ class epizy_demandeur_formations
     public function getVille()
     {
         return $this->ville;
-    }
-
-    /**
-     * Set villeId
-     *
-     * @param integer $villeId
-     *
-     * @return epizy_demandeur_formations
-     */
-    public function setVilleId($villeId)
-    {
-        $this->villeId = $villeId;
-
-        return $this;
-    }
-
-    /**
-     * Get villeId
-     *
-     * @return int
-     */
-    public function getVilleId()
-    {
-        return $this->villeId;
     }
 
     /**
@@ -284,7 +255,6 @@ class epizy_demandeur_formations
     {
         return $this->id_demandeur;
     }
-
     
     /**
      * @var \AdminBundle\Entity\epizy_demandeur_cvs
@@ -314,5 +284,63 @@ class epizy_demandeur_formations
     public function getIdCvs()
     {
         return $this->id_cvs;
+    }
+    /**
+     * @var \AdminBundle\Entity\epizy_demandeur_cvs
+     */
+    private $formation;
+
+
+    /**
+     * Set formation
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_cvs $formation
+     *
+     * @return epizy_demandeur_formations
+     */
+    public function setFormation(\AdminBundle\Entity\epizy_demandeur_cvs $formation = null)
+    {
+        $this->formation = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Get formation
+     *
+     * @return \AdminBundle\Entity\epizy_demandeur_cvs
+     */
+    public function getFormation()
+    {
+        return $this->formation;
+    }
+    /**
+     * @var \AdminBundle\Entity\epizy_villes
+     */
+    private $ville_id;
+
+
+    /**
+     * Set villeId
+     *
+     * @param \AdminBundle\Entity\epizy_villes $villeId
+     *
+     * @return epizy_demandeur_formations
+     */
+    public function setVilleId(\AdminBundle\Entity\epizy_villes $villeId = null)
+    {
+        $this->ville_id = $villeId;
+
+        return $this;
+    }
+
+    /**
+     * Get villeId
+     *
+     * @return \AdminBundle\Entity\epizy_villes
+     */
+    public function getVilleId()
+    {
+        return $this->ville_id;
     }
 }

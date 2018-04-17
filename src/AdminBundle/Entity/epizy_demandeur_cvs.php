@@ -2,8 +2,6 @@
 
 namespace AdminBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-
 /**
  * epizy_demandeur_cvs
  */
@@ -73,17 +71,6 @@ class epizy_demandeur_cvs
      * @var string
      */
     private $position;
-
-    protected $experience;
-
-    protected $formation;
-
-    public function __construct()
-    {
-        $this->formation =  new ArrayCollection();
-        $this->experience = new ArrayCollection();
-    }
-
 
     /**
      * Get id
@@ -531,7 +518,83 @@ class epizy_demandeur_cvs
         return $this->certification_id;
     }
 
-    public function getFormation(){
+    private $formation;
+    private $experience;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->formation = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->experience = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add experience
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_experience $experience
+     *
+     * @return epizy_demandeur_cvs
+     */
+    public function addExperience(\AdminBundle\Entity\epizy_demandeur_experience $experience)
+    {
+        $this->experience[] = $experience;
+
+        return $this;
+    }
+
+    /**
+     * Remove experience
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_experience $experience
+     */
+    public function removeExperience(\AdminBundle\Entity\epizy_demandeur_experience $experience)
+    {
+        $this->experience->removeElement($experience);
+    }
+
+    /**
+     * Get experience
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getExperience()
+    {
+        return $this->experience;
+    }
+
+    /**
+     * Add formation
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_formations $formation
+     *
+     * @return epizy_demandeur_cvs
+     */
+    public function addFormation(\AdminBundle\Entity\epizy_demandeur_formations $formation)
+    {
+        $this->formation[] = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Remove formation
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_formations $formation
+     */
+    public function removeFormation(\AdminBundle\Entity\epizy_demandeur_formations $formation)
+    {
+        $this->formation->removeElement($formation);
+    }
+
+    /**
+     * Get formation
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFormation()
+    {
+        return $this->formation;
     }
 }

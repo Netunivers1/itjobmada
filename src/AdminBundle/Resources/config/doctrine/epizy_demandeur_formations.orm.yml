@@ -15,9 +15,6 @@ AdminBundle\Entity\epizy_demandeur_formations:
         ville:
             type: string
             length: 255
-        villeId:
-            type: integer
-            column: ville_id
         pays:
             type: string
             length: 255
@@ -56,4 +53,9 @@ AdminBundle\Entity\epizy_demandeur_formations:
             targetEntity: epizy_universites
             joincolumn:
                 name: universite_id
+                referencedColumnName: id
+        ville_id:
+            targetEntity: epizy_villes
+            joinColumn:
+                name: ville_id
                 referencedColumnName: id

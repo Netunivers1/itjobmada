@@ -16,6 +16,6 @@ AdminBundle\Entity\epizy_secteur_activites:
             type: string
             length: 255
         created:
-            type: datetimetz
+            type: datetime
             length: 255
     lifecycleCallbacks: {  }

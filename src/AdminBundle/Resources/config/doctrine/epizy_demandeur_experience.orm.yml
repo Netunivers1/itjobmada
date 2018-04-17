@@ -55,7 +55,6 @@ AdminBundle\Entity\epizy_demandeur_experience:
             joinColumn:
                 name: id_cv
                 referencedColumnName: id
-                onDelete: SET NULL
         posteoccupe_id:
             targetEntity: epizy_poste_occupes
             joinColumn:

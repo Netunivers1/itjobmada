@@ -909,7 +909,17 @@ class DemandeurController extends Controller
             if (is_int($id_cv) ) {
                 $dmd_cv = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs');
                 $detail = $dmd_cv->findOneBy(['id' => $id_cv]);
-                return $this->view('detail.html.twig', array('detail' => $detail)) ;
+                $dmd_form = $this->getRepositoryClass('AdminBundle:epizy_demandeur_formations');
+                $formation = $dmd_form->findBy(['id_cvs'=>$id_cv]);
+                $dmd_exp = $this->getRepositoryClass('AdminBundle:epizy_demandeur_experience');
+                $experience = $dmd_exp->findBy(['id_cv'=>$id_cv] );
+                return $this->view('detail.html.twig',
+                    array(
+                        'detail' => $detail,
+                        'formations'=>$formation,
+                        'experiences'=>$experience
+                    )
+                ) ;
             }
         }
 
