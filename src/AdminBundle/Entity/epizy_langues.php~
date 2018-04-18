@@ -166,4 +166,5 @@ class epizy_langues
     {
         return $this->created;
     }
+
 }

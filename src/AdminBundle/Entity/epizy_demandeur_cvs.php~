@@ -2,8 +2,6 @@
 
 namespace AdminBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-
 /**
  * epizy_demandeur_cvs
  */
@@ -73,17 +71,6 @@ class epizy_demandeur_cvs
      * @var string
      */
     private $position;
-
-    protected $experience;
-
-    protected $formation;
-
-    public function __construct()
-    {
-        $this->formation =  new ArrayCollection();
-        $this->experience = new ArrayCollection();
-    }
-
 
     /**
      * Get id
@@ -530,4 +517,18 @@ class epizy_demandeur_cvs
     {
         return $this->certification_id;
     }
+
+    private $formation;
+    private $experience;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->formation = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->experience = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
 }

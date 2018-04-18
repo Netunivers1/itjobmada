@@ -313,34 +313,6 @@ class epizy_demandeur_experience
 
 
     /**
-     * @var \AdminBundle\Entity\epizy_demandeur_cvs
-     */
-    private $id_cv;
-
-
-    /**
-     * Set idCv
-     *
-     * @param \AdminBundle\Entity\epizy_demandeur_cvs $idCv
-     *
-     * @return epizy_demandeur_experience
-     */
-    public function setIdCv(\AdminBundle\Entity\epizy_demandeur_cvs $idCv = null)
-    {
-        $this->id_cv = $idCv;
-        return $this;
-    }
-
-    /**
-     * Get idCv
-     *
-     * @return \AdminBundle\Entity\epizy_demandeur_cvs
-     */
-    public function getIdCv()
-    {
-        return $this->id_cv;
-    }
-    /**
      * @var \AdminBundle\Entity\epizy_poste_occupes
      */
     private $posteoccupe_id;
@@ -427,33 +399,34 @@ class epizy_demandeur_experience
     {
         return $this->ville_id;
     }
+
     /**
      * @var \AdminBundle\Entity\epizy_demandeur_cvs
      */
-    private $experience;
+    private $id_cv;
 
 
     /**
-     * Set experience
+     * Set idCv
      *
-     * @param \AdminBundle\Entity\epizy_demandeur_cvs $experience
+     * @param \AdminBundle\Entity\epizy_demandeur_cvs $idCv
      *
      * @return epizy_demandeur_experience
      */
-    public function setExperience(\AdminBundle\Entity\epizy_demandeur_cvs $experience = null)
+    public function setIdCv(\AdminBundle\Entity\epizy_demandeur_cvs $idCv = null)
     {
-        $this->experience = $experience;
+        $this->id_cv = $idCv;
 
         return $this;
     }
 
     /**
-     * Get experience
+     * Get idCv
      *
      * @return \AdminBundle\Entity\epizy_demandeur_cvs
      */
-    public function getExperience()
+    public function getIdCv()
     {
-        return $this->experience;
+        return $this->id_cv;
     }
 }

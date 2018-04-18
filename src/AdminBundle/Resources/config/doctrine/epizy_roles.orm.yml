@@ -22,6 +22,6 @@ AdminBundle\Entity\epizy_roles:
             length: '245'
             nullable: true
         dateCreated:
-            type: datetimetz
+            type: datetime
             column: date_created
     lifecycleCallbacks: {  }

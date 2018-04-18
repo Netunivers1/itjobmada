@@ -95,6 +95,6 @@ AdminBundle\Entity\epizy_entreprises:
             type: string
             length: 255
         dateAjout:
-            type: datetimetz
+            type: datetime
             column: date_ajout
     lifecycleCallbacks: {  }

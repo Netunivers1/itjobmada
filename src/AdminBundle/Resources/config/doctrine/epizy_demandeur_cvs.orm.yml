@@ -52,6 +52,13 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             length: 255
             nullable: true
     lifecycleCallbacks: {  }
+    oneToMany:
+        experience:
+            targetEntity: epizy_demandeur_experience
+            mappedBy: id_cv
+        formation:
+            targetEntity: epizy_demandeur_formations
+            mappedBy: id_cvs
     manyToOne:
         id_demandeur:
             targetEntity: epizy_demandeur_emplois
@@ -80,10 +87,3 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             joincolumn:
                 name: certification_id
                 referencedColumnName: id
-    OneToMany:
-        experience:
-            targetEntity: epizy_demandeur_experience
-            mappedBy: id_cv
-        formation:
-            targetEntity: epizy_demandeur_formations
-            mappedBy: id_cvs

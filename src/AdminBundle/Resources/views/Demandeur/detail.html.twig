@@ -2,7 +2,7 @@
 {% block body %}
     <?php defined('SYSPATH') or die('No direct script access.');?>
     <div class="page-header row" style="border: none;margin-bottom: 7px;">
-        <h1 class="col-sm-9 titleH1"><?=__('Detail CV - '.$cvs->reference)?></h1>
+        <h1 class="col-sm-9 titleH1">Detail CV - {{ detail.reference }}</h1>
         <div class="col-sm-8" style="padding: 0px;"><hr class="titleLine" /></div>
     </div>
     <style type="text/css">
@@ -70,82 +70,39 @@
                         <div class="col-xs-12 col-sm-4">
                             <dl class="">
                                 <dt><h4 style="color: white;">{{ detail.idDemandeur.prenom|capitalize ~" " ~ detail.idDemandeur.nom|upper}}</h4></dt>
-                                <dd>{{ detail.idDemandeur.date_de_naissance }}</dd>
-                                <dd><?php echo $demandes->adresse;?></dd>
-                                <dd><?php echo $demandes->ville." - ".$demandes->region ?></dd>
-                                <dd style="font-size: 11px;"><?= __('Tél: ') ?>
-                                    <?php
-									$telephone = explode(',', $demandes->telephone);
-                                    for ($i=0; $i < count($telephone); $i++) {
-                                    echo $telephone[$i];
-                                    if ( $i < (count($telephone) - 1) ) {
-                                    echo " / ";
-                                    }
-
-                                    }
-                                    ?>
+                                <dd>{{ detail.idDemandeur.dateDeNaissance|date('d-m-Y') }}</dd>
+                                <dd>{{ detail.idDemandeur.adresse |capitalize }}</dd>
+                                <dd>{{ detail.idDemandeur.villeId.libele ~ '-' ~ detail.idDemandeur.region }}</dd>
+                                <dd style="font-size: 11px;"> Tél:
+                                    {% set tels = detail.idDemandeur.telephone|split(",") %}
+                                    {% if tels %}
+                                        {% for tel in tels %}
+                                            {{ tel }}
+                                        {% endfor %}
+                                    {% endif %}
                                 </dd>
-                                <dd><?php echo 'E-mail: '.$demandes->email  ?></dd>
+                                <dd>E-mail : {{ detail.idDemandeur.email }}</dd>
                             </dl>
                         </div>
 
                         <!-- emplois recherches -->
                         <div class="col-xs-12 col-sm-4" style="padding-top: 15px;">
                             <h4 class="text-center" style="color: white;text-transform: uppercase;">
-                                <?php
-
-							/*$emploirecherche = "";
-								if($cvs->emploirecherche_id){
-                                $emploirecherches = new Model_Emploi_Recherche($cvs->emploirecherche_id);
-                                if($emploirecherches->loaded())
-                                $emploirecherche = $emploirecherches->libele;
-                                }
-                                echo ucwords($emploirecherche);  */
-                                $er_id = explode(',', $cvs->emploirecherche_id);
-                                if (is_array($er_id)) {
-                                $er_temp = array();
-                                foreach ($er_id as $value) {
-                                $er_temp[] = (new Model_Emploi_Recherche($value))->get("libele");
-                                // echo '<li>' . (new Model_Emploi_Recherche($value))->get("libele") . '</li>';
-                                }
-                                }
-                                $er_output = Other_Filter_Emploisrecherche::filter_limit_emplois_rechercher($er_temp);
-                                if (count($er_output) > 0) {
-                                $er_count = 1;
-                                foreach ($er_output as $value) {
-                                echo $value;
-                                if ($er_count < count($er_output)) {
-                                echo '<br><br>';
-                                }
-                                $er_count ++;
-                                }
-                                }
-                                ?>
+                               {% set emploiRechs = detail.emploiRecherche|split(",") %}
+                               {% if (emploiRechs) %}
+                                   {% for emploiRech in emploiRechs %}
+                                       {{ emploiRech }}<br><br>
+                                   {% endfor %}
+                               {% endif %}
                             </h4>
-
-                            <!-- <hr>
-
-                            <h4 class="text-center" style="color: white;text-transform: lowercase;font-weight: normal;">
-                                <?php
-                                    $voeux = Model_Voeux_Cvs::getVoeuxByCv($cvs->id);
-                                    $v_count = 1;
-                                    foreach ($voeux as $voeu) {
-                                        echo $voeu->libele;
-                                        if ($v_count < count($voeux)) {
-                                             echo '<br>';
-                                        }
-                                        $v_count ++;
-                                    }
-                                 ?>
-                            </h4> -->
                         </div>
 
                         <!-- image -->
                         <div class="col-xs-12 col-sm-4" style="padding-top: 15px;">
                             <div style="text-align: right; padding-right: 25px;">
-                                <?php if ($demandes->photo != 'pas image') { ?>
-                                <img class="imgCv" src="<?php echo URL::base().'/images/cv/'.$demandes->photo  ?>" alt="...">
-                                <?php }?>
+                                {% if (detail.idDemandeur.idUser.hasImage == 1) %}
+                                    <img class="imgCv" src="{{ asset('admin/images/' ~ detail.idDemandeur.photo) }}" alt="Photo">
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -153,102 +110,57 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12"><h4>FORMATIONS</h4></div>
+                {{ dump(detail) }}
                 <div class="col-xs-12 col-sm-12">
                     <dl class="barreVerticaleBody">
-                        <?php
-				 foreach($formations_cvs as $formations_cv){
-					if ($formations_cv->annee) {
-                        $ville = "";
-                        if($formations_cv->ville_id){
-                        $villes_adress = new Model_Ville($formations_cv->ville_id);
-                        if($villes_adress->loaded())
-                        $ville = $villes_adress->libele;
-                        }
-                        $universite = "";
-                        if($formations_cv->universite_id){
-                        $universites_ = new Model_Universite($formations_cv->universite_id);
-                        if ($universites_->loaded())
-                        $universite = $universites_->libele;
-                        }
-                        $diplome = "";
-                        if($formations_cv->diplome_id){
-                        $diploms = new Model_Diplome($formations_cv->diplome_id);
-                        if($diploms->loaded())
-                        $diplome = $diploms->libele;
-                        }
-                        ?>
-                        <dt><span style="font-weight: bold;color:black;"><?php echo $formations_cv->annee  ?> <?php echo $diplome;?></span>
-                        </dt>
-                        <dd><span class="formaVille"><?php echo $ville.' - '.$formations_cv->pays  ?></span>&nbsp;&nbsp;&nbsp;<?php echo $universite  ?></dd>
-                        <dd><br/></dd>
-                        <?php
-					}
-				}
-			?>
+                    {% if(formations) %}
+                        {% for formation in formations %}
+                            <dt>
+                                <span style="font-weight: bold;color:black;">
+                                    {{ formation.annee ~ ' - ' ~ formation.diplome.libele }}
+                                </span>
+                            </dt>
+                            <dd>
+                                <span class="formaVille">
+                                    {{ formation.villeId.libele ~' - '~ formation.pays }}
+                                </span>
+                                {{ formation.universite.libele|upper }}
+                            </dd>
+                            <dd><br/></dd>
+                        {% endfor %}
+                    {% endif %}
                         <dd><span class="formaLangue">Langue:&nbsp;&nbsp;</span>
-                            <?php $langue = explode(',', ($cvs->langue));
-                            $tmp[] = null;
-                            foreach ($langue as $key => $value) {
-                            if ($value && $value!="") {
-                            $tmp[] = ucwords($value);
-                            }
-                            }
-                            sort($tmp);
-                            $temp = implode(',', array_filter($tmp));
-                            echo str_replace(',', ', ', $temp);
-                            ?>
+                           {% set langues = detail.langue|split(",") %}
+                            {% if(langues) %}
+                                {% for langue in langues %}
+                                    {{ langue|capitalize|escape }}
+                                {% endfor %}
+                            {% endif %}
                         </dd>
                         <dd><br/></dd>
-
-                        <!-- Logiciels -->
-                        <?php
-						$all_logiciels = array();
-						$log = explode(',', $cvs->logiciel_id);
-                        foreach ($log as $value) {
-                        if ( $value != '' ) {
-                        $libele = (new Model_Logiciel($value))->get("libele");
-                        $libele = explode(',', $libele);
-                        if ( count($libele) > 1 ) {
-                        foreach ($libele as $item) {
-                        $all_logiciels[] = strtoupper(trim($item));
-                        }
-                        } else {
-                        $all_logiciels[] = strtoupper(trim($libele[0]));
-                        }
-                        }
-                        }
-                        $all_logiciels = array_unique($all_logiciels);
-                        sort($all_logiciels);
-
-                        $data = [];
-                        foreach ($all_logiciels as $key => $value) {
-                        if ( $value != "") $data[] = $value;
-                        }
-
-                        $all_logiciels = Other_Filter_logiciel::filter_limit_logiciel($data);
-                        ?>
-                        <dd class="logiciels"><span class="formaLangue">Logiciels maîtrisés: </span>
-                            <div>
-                                <table style="width: 100%;">
-                                    <tr>
-                                        <?php
-										$point = '<span style="font-size: 18px;padding-top:0px;margin-top:2px;font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol"><span style="mso-list:Ignore">·</span></span>';
-                                        $result = '';
-                                        $i = 0;
-                                        foreach ($all_logiciels as $value) {
-                                        $mod = $i % 3;
-                                        $result .= ($value != '') ? '<td style="vertical-align:center;width:32%;">' . $point . ' ' . ucfirst($value) . '</td>' : '';
-                                        if ($mod == 2) {
-                                        $result .= '</tr><tr>';
-                                        }
-                                        $i++;
-                                        }
-                                        echo $result;
-                                        ?>
-                                    </tr>
-                                </table>
-                            </div>
-                        </dd>
+                        {% set logiciels = detail.logiciel|split(",") %}
+                        {% if (logiciels) %}
+                            <dd class="logiciels"><span class="formaLangue">Logiciels maîtrisés: </span>
+                                <div>
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            {% set i = 0 %}
+                                            {% for logiciel in logiciels %}
+                                                <td>
+                                                    <span style="font-size: 18px;padding-top:0px;margin-top:2px;font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol">
+                                                        <span style="mso-list:Ignore">.</span>
+                                                    </span>
+                                                    {{logiciel|capitalize }}
+                                                </td>
+                                                {% if (loop.index % 3) == 0  %}
+                                                    </tr><tr>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </tr>
+                                    </table>
+                                </div>
+                            </dd>
+                        {% endif %}
                         <dd><br/></dd>
                     </dl>
                 </div>
@@ -257,161 +169,85 @@
                 <div class="col-xs-12 col-sm-12"><h4>EXPERIENCES PROFESSIONNELLES</h4></div>
                 <div class="col-xs-12 col-sm-12">
                     <table class="tableCV">
-                        <?php
-				for ($i = count($experiences_cvs)-1; $i>=0; $i--) {
-                        if (is_object($experiences_cvs[$i]) && $experiences_cvs[$i]->mois_debut) {
-                        ?>
-
-                        <tr class="expAnnee">
-                            <td colspan="2" style="width: 175px;" >
-                                <span style="font-weight: bold;color: black"><?php echo $experiences_cvs[$i]->mois_debut." - ".$experiences_cvs[$i]->mois_fin ?></span>
-                                <span style="font-weight: bold;color: black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
-							if($experiences_cvs[$i]->secteuractivite_id){
-								$secteur_activites = new Model_Secteur_Activite($experiences_cvs[$i]->secteuractivite_id);
-								$secteur_activite = $secteur_activites->libele;
-							}else{
-								$secteur_activite = $experiences_cvs[$i]->secteur_activite;
-							}
-							$secteur_activite = "";
-							if($experiences_cvs[$i]->secteuractivite_id){
-								$secteur_activites = new Model_Secteur_Activite($experiences_cvs[$i]->secteuractivite_id);
-								if ($secteur_activites->loaded())
-									$secteur_activite = $secteur_activites->libele;
-							}
-						echo $experiences_cvs[$i]->nom_entreprise.', '.$secteur_activite;?></span></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-							<span class="formaVille" ><?php
-							$ville_exp = "";
-							if($experiences_cvs[$i]->ville_id){
-								$universites_exp = new Model_Ville($experiences_cvs[$i]->ville_id);
-								if ($universites_exp->loaded())
-									$ville_exp = $universites_exp->libele;
-							}
-							echo $ville_exp." ".$experiences_cvs[$i]->pays."  ";
-							?></span>&nbsp;&nbsp;
-                                <strong style="text-decoration: underline;color: black">
-                                    <?php
-									$poste_occupe = "";
-									if($experiences_cvs[$i]->posteoccupe_id){
-                                    $poste_occupes = new Model_Poste_Occupe($experiences_cvs[$i]->posteoccupe_id);
-                                    if ($poste_occupes->loaded())
-                                    $poste_occupe = $poste_occupes->libele;
-                                    }
-                                    echo $poste_occupe; ?>
-
-                                </strong>
-                            </td>
-                        </tr>
-                        <tr><td><br/></td></tr>
-                        <?php if ($experiences_cvs[$i]->mission_tache  && trim($experiences_cvs[$i]->mission_tache) !="") {  ?>
-                        <tr>
-                            <td></td>
-                            <td>Missions et tâches réalisées:
-                                <?php
-								$exp_cvs = str_replace('- ', '<br>- ', $experiences_cvs[$i]->mission_tache);
-                                ?>
-                                <?php echo $exp_cvs; ?>
-                            </td>
-                        </tr>
-                        <tr><td><br/></td></tr>
-                        <?php } ?>
-                        <?php
-					}
-				}
-			?>
+                        {% if(experiences) %}
+                            {% for experience in experiences %}
+                                <tr class="expAnnee">
+                                    <td colspan="2" style="width: 175px;" >
+                                        <span style="font-weight: bold;color: black">{{ experience.moisDebut ~ ' - ' ~ experience.moisFin }}</span>
+                                        <span style="font-weight: bold;color: black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            {% set secteur_activite = experience.secteurActiviteId.libele %}
+                                            {% if (secteur_activite) %}
+                                                {{ experience.nomEntreprise ~ ' , ' ~ secteur_activite }}
+                                            {% endif %}
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <td colspan="2">
+                                    <span class="formaVille" >
+                                        {{ experience.villeId.libele ~ " " ~ experience.pays }}
+                                    </span>&nbsp;&nbsp;
+                                    <strong style="text-decoration: underline;color: black">
+                                        {{ experience.posteOccupeId.libele }}
+                                    </strong>
+                                </td>
+                                </tr>
+                                {#<tr>#}
+                                    {#<td></td>#}
+                                    {#<td>Missions et tâches réalisées:#}
+                                        {#{% set missions = experience.missionTache|split(",") %}#}
+                                        {#{% if (missions) %}#}
+                                            {#{% for mission in missions %}#}
+                                                {#{{'-' ~ mission }}#}
+                                                {#{% if ( loop.last == false ) %}#}
+                                                    {#<br>#}
+                                                {#{% endif %}#}
+                                            {#{% endfor %}#}
+                                        {#{% endif %}#}
+                                    {#</td>#}
+                                {#</tr>#}
+                                <tr><td><br/></td></tr>
+                            {% endfor %}
+                        {% endif %}
                     </table>
                 </div>
             </div>
-            <?php if($cvs->certification_id || $cvs->centre_interet_projet){
-            $certif = "";
-            if($cvs->certification_id){
-            $certification = new Model_Certification($cvs->certification_id);
-            if ($certification->loaded()) {
-            $certif = $certification->libele;
-            }
-            }
-            ?>
             <div class="row">
                 <div class="col-xs-12 col-sm-12"><h4>CENTRES D’INTERETS</h4></div>
                 <div class="col-xs-12 col-sm-12">
                     <dl class="barreVerticaleBody">
-                        <dd><?php
-					$centre = "";
-					if ($certif && $cvs->centre_interet_projet) {
-                            $centre = $certif.', '.$cvs->centre_interet_projet;
-                            }elseif($certif){
-                            $centre = $certif;
-                            }else{
-                            $centre = $cvs->centre_interet_projet;
-                            }
-                            echo  $centre;
-                            ?></dd>
+                        <dd>
+                            {{ detail.certificationId.libele }}
+                        </dd>
+                        <dd><br/></dd>
+                        <dd>
+                            {{ detail.centreInteretProjet }}
+                        </dd>
                         <dd><br/></dd>
                     </dl>
                 </div>
             </div>
             <?php } ?>
             <div class="row">
-                <div class="col-sm-12"><label style="font-weight: bold;">Déposer le: </label><?php echo ' '.date('d/m/Y',strtotime($cvs->date_creation)); ?></div>
+                <div class="col-sm-12"><label style="font-weight: bold;">Déposer le: </label>{{ detail.dateCreation|date('d/m/Y') }}</div>
             </div>
             <hr/>
             <div class="row">
                 <div class="col-sm-8">
                     <div class="pull-left">
-                        <?php if(core::get('url') && (core::get('url') == 'moderate')) {?>
                         <a class="btn btn-default"
-                           href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'moderate'))?>"
-                           rel="tooltip"><?=__('Retour');?>
+                           href="{{ path('admin_demandeur_show') }}">Retour
                         </a>
-                        <?php }elseif(core::get('ref') && (core::get('ref') == 'liste')){ ?>
-                        <a class="btn btn-default"
-                           href="<?=Route::url('oc-panel', array('controller'=>'offers','action'=>'liste','id'=>core::get('id_offer')))?>"
-                           rel="tooltip"><?=__('Retour');?>
-                        </a>
-                        <?php }elseif(core::get('url') && (core::get('url') == 'administrateur')){ ?>
-                        <a class="btn btn-default"
-                           href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'administrateur','id'=>$cvs->id))?>"
-                           rel="tooltip"><?=__('Retour');?>
-                        </a>
-                        <?php }elseif(core::get('url') && (core::get('url') == 'interesse')){ ?>
-                        <a class="btn btn-default"
-                           href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'interesse'))?>"
-                           rel="tooltip"><?=__('Retour');?>
-                        </a>
-                        <?php }else{
-										if (isset($_GET['detailPostulan'])) {
-											$url = Route::url('oc-panel', array('controller'=>'offers','action'=>'detailPostulan', 'id' => $_GET['id_offre']));
-                        } else {
-                        $url = Route::url('oc-panel', array('controller'=>'demandeur','action'=>'index'));
-                        }
-                        //$url = (isset($_GET['postulants'])) ? Route::url('oc-panel', array('controller'=>'demandeur','action'=>'index')) : Route::url('oc-panel', array('controller'=>'offers','action'=>'detailPostulan', 'id'=>$_GET['id_offre']));
-                        ?>
-                        <a class="btn btn-default"
-                           href="javascript:history.go(-1)"
-                           rel="tooltip"><?=__('Retour');?>
-                        </a>
-                        <?php } ?>
-                        <?php //if($demandes->status == 0){ ?>
+
                         <a class="btn btn-primary"
-                           href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'edit_cv','id'=>$demandes->id))?>"
-                           rel="tooltip" title="<?=__('Update')?>"><?=__('Modifier')?>
+                           href="{{ path("admin_demandeur_edit", {'id': detail.id} ) }}">Modifier
                         </a>
-                        <?php //} ?>
-                        <?php if(Auth::instance()->logged_in() && Auth::instance()->get_user()->id_role == Model_Role::ROLE_ADMIN) { ?>
                         <a class="btn btn-success "
-                           href="<?=Route::url('oc-panel', array('controller'=>'demandeur','action'=>'telecharger','id'=>$demandes->id))?>" target="_blank" rel="tooltip"><?=__('Enregistrer sous');?>
+                           href="">Enregistrer sous
                         </a>
-                        <?php } ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
 {% endblock %}
