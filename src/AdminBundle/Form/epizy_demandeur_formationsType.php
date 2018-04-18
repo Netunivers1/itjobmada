@@ -30,8 +30,7 @@ class epizy_demandeur_formationsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\epizy_demandeur_formations',
-            'mapped'=>false
+            'data_class' => 'AdminBundle\Entity\epizy_demandeur_formations'
         ));
     }
 

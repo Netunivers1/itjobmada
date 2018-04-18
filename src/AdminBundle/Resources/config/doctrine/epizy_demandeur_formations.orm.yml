@@ -38,12 +38,13 @@ AdminBundle\Entity\epizy_demandeur_formations:
                 onDelete: SET NULL
         id_cvs:
             targetEntity: epizy_demandeur_cvs
-            inversedBy: formation
+            inversedBy: formations
             joinColumn:
                 name: id_cvs
                 referencedColumnName: id
                 nullable: true
                 onDelete: SET NULL
+            fetch: EAGER
         diplome:
             targetEntity: epizy_diplomes
             joincolumn:

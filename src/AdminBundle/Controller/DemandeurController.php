@@ -23,6 +23,7 @@ use AdminBundle\Form\epizy_demandeur_formationsType;
 use AdminBundle\Form\epizy_logicielsType;
 use AdminBundle\ImageUpload;
 use AppBundle\Entity\epizy_users;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -446,17 +447,15 @@ class DemandeurController extends Controller
     public function editCVAction(Request $request)
     {
         if ( $request->isMethod('GET')){
-
             $id_cv          = $request->get('id');
             if ( is_numeric($id_cv) ){
                 $dCv            = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id_cv);
                 $id_demandeur   = $dCv->getIdDemandeur();
-                $dEmploi        = $this->getRepositoryClass('AdminBundle:epizy_demandeur_emplois')->find($id_demandeur);
                 $d_formation    = $this->getRepositoryClass('AdminBundle:epizy_demandeur_formations')->findBy(['id_cvs' => $id_cv]);
-                $d_experiences  = $this->getRepositoryClass('AdminBundle:epizy_demandeur_experience')->findBy(['id_cv' => $id_cv]);
-
-                $form_emplois   = $this->createForm(epizy_demandeur_emploisType::class, $dEmploi);
                 $form_cvs       = $this->createForm(epizy_demandeur_cvsType::class, $dCv);
+                $dEmploi        = $this->getRepositoryClass('AdminBundle:epizy_demandeur_emplois')->find($id_demandeur);
+                $d_experiences  = $this->getRepositoryClass('AdminBundle:epizy_demandeur_experience')->findBy(['id_cv' => $id_cv]);
+                $form_emplois   = $this->createForm(epizy_demandeur_emploisType::class, $dEmploi);
                 $form_experiences = null ;
                 $form_formations = null ;
                 if ($d_formation){
@@ -909,19 +908,11 @@ class DemandeurController extends Controller
             if (is_int($id_cv) ) {
                 $dmd_cv = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs');
                 $detail = $dmd_cv->findOneBy(['id' => $id_cv]);
-                $dmd_form = $this->getRepositoryClass('AdminBundle:epizy_demandeur_formations');
-                $formation = $dmd_form->findBy(['id_cvs'=>$id_cv]);
-                $dmd_exp = $this->getRepositoryClass('AdminBundle:epizy_demandeur_experience');
-                $experience = $dmd_exp->findBy(['id_cv'=>$id_cv] );
-                return $this->view('detail.html.twig',
-                    array(
-                        'detail' => $detail,
-                        'formations'=>$formation,
-                        'experiences'=>$experience
-                    )
-                ) ;
+                return $this->view('detail.html.twig',array('detail' => $detail )) ;
             }
         }
+
+        return $this->redirectToRoute("admin_demandeur_show");
 
     }
 

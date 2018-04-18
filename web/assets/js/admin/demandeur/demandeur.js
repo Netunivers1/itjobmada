@@ -3,7 +3,7 @@ var $formEixst ;
 var $addTagLink = $('<a href="#" class="btn btn-primary">Ajouter Formation</a>');
 
 $(document).ready(function() {
-    $collectionHolder = $('div.form_cvs');
+    $collectionHolder = $('div.form_formation');
     $collectionHolder.append($addTagLink);
     $collectionHolder.data('index', $collectionHolder.find(':input').length);
     $formEixst = $collectionHolder.data('prototype');

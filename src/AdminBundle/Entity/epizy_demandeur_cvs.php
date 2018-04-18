@@ -1,6 +1,7 @@
 <?php
 
 namespace AdminBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * epizy_demandeur_cvs
@@ -518,17 +519,18 @@ class epizy_demandeur_cvs
         return $this->certification_id;
     }
 
-    private $formation;
-    private $experience;
+    private $formations;
+    private $experiences;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->formation = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->experience = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->formations = new ArrayCollection();
+        $this->experiences = new ArrayCollection();
     }
+
 
     /**
      * Add experience
@@ -539,7 +541,7 @@ class epizy_demandeur_cvs
      */
     public function addExperience(\AdminBundle\Entity\epizy_demandeur_experience $experience)
     {
-        $this->experience[] = $experience;
+        $this->experiences[] = $experience;
 
         return $this;
     }
@@ -551,17 +553,17 @@ class epizy_demandeur_cvs
      */
     public function removeExperience(\AdminBundle\Entity\epizy_demandeur_experience $experience)
     {
-        $this->experience->removeElement($experience);
+        $this->experiences->removeElement($experience);
     }
 
     /**
-     * Get experience
+     * Get experiences
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getExperience()
+    public function getExperiences()
     {
-        return $this->experience;
+        return $this->experiences;
     }
 
     /**
@@ -573,7 +575,7 @@ class epizy_demandeur_cvs
      */
     public function addFormation(\AdminBundle\Entity\epizy_demandeur_formations $formation)
     {
-        $this->formation[] = $formation;
+        $this->formations[] = $formation;
 
         return $this;
     }
@@ -585,16 +587,16 @@ class epizy_demandeur_cvs
      */
     public function removeFormation(\AdminBundle\Entity\epizy_demandeur_formations $formation)
     {
-        $this->formation->removeElement($formation);
+        $this->formations->removeElement($formation);
     }
 
     /**
-     * Get formation
+     * Get formations
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFormation()
+    public function getFormations()
     {
-        return $this->formation;
+        return $this->formations;
     }
 }

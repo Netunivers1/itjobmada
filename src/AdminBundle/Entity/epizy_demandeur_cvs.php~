@@ -1,6 +1,7 @@
 <?php
 
 namespace AdminBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * epizy_demandeur_cvs
@@ -518,17 +519,16 @@ class epizy_demandeur_cvs
         return $this->certification_id;
     }
 
-    private $formation;
-    private $experience;
+    private $formations;
+    private $experiences;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->formation = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->experience = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->formations = new ArrayCollection();
+        $this->experiences = new ArrayCollection();
     }
-
 
 }

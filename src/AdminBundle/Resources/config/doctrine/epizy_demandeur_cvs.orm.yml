@@ -53,12 +53,14 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             nullable: true
     lifecycleCallbacks: {  }
     oneToMany:
-        experience:
+        experiences:
             targetEntity: epizy_demandeur_experience
             mappedBy: id_cv
-        formation:
+        formations:
             targetEntity: epizy_demandeur_formations
             mappedBy: id_cvs
+            cascade: [all]
+            fetch: EAGER
     manyToOne:
         id_demandeur:
             targetEntity: epizy_demandeur_emplois
