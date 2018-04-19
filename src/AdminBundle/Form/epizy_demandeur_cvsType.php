@@ -73,13 +73,29 @@ class epizy_demandeur_cvsType extends AbstractType
 //            ->add('nbrVue')
 //            ->add('position')        ;
 
-        $builder->add('formation', CollectionType::class, array(
-            'entry_type' => epizy_demandeur_formationsType::class,
-            'mapped'     => false,
-            'allow_add'  => true,
-            'prototype'  => true,
-            'attr'       => ['class'=>'form_cvs'],
-        ));
+        $builder
+            ->add('formations', CollectionType::class,
+                array(
+                    'entry_type' => epizy_demandeur_formationsType::class,
+                    'mapped'     => true,
+                    'allow_add'  => true,
+                    'allow_delete'=> true,
+                    'prototype'  => true,
+                    'attr'       => ['class'=>'form_formation'],
+                    'by_reference'=>false,
+                    'label'      =>true
+                )
+            )->add('experiences', CollectionType::class,
+                array(
+                    'entry_type' => epizy_demandeur_experienceType::class,
+                    'mapped'     => true,
+                    'allow_add'  => true,
+                    'allow_delete'=> true,
+                    'prototype'  => true,
+                    'attr'       => ['class'=>'form_experience'],
+                    'by_reference'=>false
+                )
+            );
     }
     
     /**
@@ -88,8 +104,7 @@ class epizy_demandeur_cvsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\epizy_demandeur_cvs',
-            'mapped'=>false
+            'data_class' => 'AdminBundle\Entity\epizy_demandeur_cvs'
         ));
     }
 

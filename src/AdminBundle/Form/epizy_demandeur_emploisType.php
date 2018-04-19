@@ -6,6 +6,7 @@ use AdminBundle\Controller\DemandeurController;
 use AdminBundle\Entity\epizy_demandeur_emplois;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -66,7 +67,7 @@ class epizy_demandeur_emploisType extends AbstractType
             )
             ->add('region')
             ->add('telephone')
-            ->add('dateDeNaissance')
+            ->add('dateDeNaissance', BirthdayType::class)
             ->add('choixEmploi', EntityType::class,
                 array(
                     'class'=>'AdminBundle:epizy_emploi_recherches',

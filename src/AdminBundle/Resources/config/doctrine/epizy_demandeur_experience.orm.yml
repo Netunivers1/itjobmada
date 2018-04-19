@@ -51,7 +51,7 @@ AdminBundle\Entity\epizy_demandeur_experience:
                 onDelete: SET NULL
         id_cv:
             targetEntity: epizy_demandeur_cvs
-            inversedBy: experience
+            inversedBy: experiences
             joinColumn:
                 name: id_cv
                 referencedColumnName: id
