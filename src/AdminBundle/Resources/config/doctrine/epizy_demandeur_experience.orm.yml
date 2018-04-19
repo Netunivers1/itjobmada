@@ -55,6 +55,8 @@ AdminBundle\Entity\epizy_demandeur_experience:
             joinColumn:
                 name: id_cv
                 referencedColumnName: id
+            cascade: [all]
+            fetch: EAGER
         posteoccupe_id:
             targetEntity: epizy_poste_occupes
             joinColumn:

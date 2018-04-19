@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block body %}
     {{ form_start(form) }}
+
     <h3> CV</h3>
     {% if ( form_cvs.position.vars.value == 1)%}
         {% set attr = true %}
@@ -29,12 +30,27 @@
     {{ form_row( form_emplois.region,{'label':'Région :',})}}
     {{ form_row( form_emplois.telephone,{'label':'Telephone :'} ) }}
     {{ form_row( form_emplois.dateDeNaissance,{'label':'Date De Naissance :',})}}
+
     {{ form_row( form_emplois._token )}}
     {{ form_row( form_emplois.status,{'label':'Status :',})}}
 
-    {{ form_row( form_cvs.emploiRechercheId,{'label':'Emploi Recherché :',})}}
+    {#{{ form_widget( form_cvs.statu, {'attr': {'class':'hidden'} })}}#}
+    {#{{ form_widget( form_cvs.reference, {'attr': {'class':'hidden'} })}}#}
 
-    {{ form_row( form_cvs.emploiRecherche,{'label':'Ajouter un emploi recherché :'})}}
+    {#<label> Permis :</label>#}
+    {#{% for permis_form in form_cvs.permis %}#}
+        {#{% if permis_form.vars.value in permis %}#}
+            {#{% set checked = true %}#}
+        {#{% else %}#}
+            {#{% set checked = false %}#}
+        {#{% endif %}#}
+        {#{{ form_widget(permis_form, {'attr': {'checked':checked}}) }}#}
+        {#<label> {{ permis_form.vars.value }}</label>#}
+    {#{% endfor %}#}
+
+    {#{{ form_row( form_cvs.emploiRechercheId,{'label':'Emploi Recherché :',})}}#}
+
+    {#{{ form_row( form_cvs.emploiRecherche,{'label':'Ajouter un emploi recherché :', 'value': ""})}}#}
 
     {{ form_row( form_emplois.choixEmploi,{'label':'Recevoir une notification pour quel emploi ?',})}}
 
@@ -54,24 +70,24 @@
     {{ form_row( form_emplois.newsletter, {'label':'Voulez-vous recevoir nos nouvelles du mois :' } )}}
     {{ form_row( form_cvs._token) }}
 
-    <h3> Formation </h3>
-    {{ form_row(form_cvs.formations) }}
-<hr>
-    <h6>Logiciels maitrisés</h6>
-    {{ form_row( form_cvs.logicielId,{'label': 'Logiciel :',}) }}
+    {#<h3> Formation </h3>#}
+    {#{{ form_row(form_cvs.formations) }}#}
+{#<hr>#}
+    {#<h6>Logiciels maitrisés</h6>#}
+    {#{{ form_row( form_cvs.logicielId,{'label': 'Logiciel :',}) }}#}
 
-    {{ form_row( form_cvs.logiciel,{'label': 'Ajouter Logiciel :'}) }}
-<hr>
-    {{ form_row( form_cvs.langueId,{'label': 'Ajouter langue :'}) }}
-    {{ form_row( form_cvs.langue,{'label': 'Langue :',})}}
-    {{ form_row( form_cvs._token) }}
-<hr>
-    <h3> Experience </h3>
+    {#{{ form_row( form_cvs.logiciel,{'label': 'Ajouter Logiciel :'}) }}#}
+{#<hr>#}
+    {#{{ form_row( form_cvs.langueId,{'label': 'Ajouter langue :'}) }}#}
+    {#{{ form_row( form_cvs.langue,{'label': 'Langue :',})}}#}
+    {#{{ form_row( form_cvs._token) }}#}
+{#<hr>#}
+    {#<h3> Experience </h3>#}
 
-    {{ form_row(form_cvs.experiences) }}
-<hr>
-    {{ form_row( form_cvs.centreInteretCertificat,{'label':'Divers :',})}}
-    {{ form_row( form_cvs.centreInteretProjet,{'label':'Projet :',})}}
+    {#{{ form_row(form_cvs.experiences) }}#}
+{#<hr>#}
+    {#{{ form_row( form_cvs.centreInteretCertificat,{'label':'Divers :',})}}#}
+    {#{{ form_row( form_cvs.centreInteretProjet,{'label':'Projet :',})}}#}
 
     <input type="submit" class="btn btn-primary">
     {{ form_end(form) }}

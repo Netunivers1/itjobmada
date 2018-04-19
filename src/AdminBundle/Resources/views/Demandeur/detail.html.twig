@@ -110,7 +110,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12"><h4>FORMATIONS</h4></div>
-                {% set formations = detail.formation.values %}
+                {% set formations = detail.formations.values %}
                 <div class="col-xs-12 col-sm-12">
                     <dl class="barreVerticaleBody">
                     {% if(formations) %}
@@ -168,7 +168,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12"><h4>EXPERIENCES PROFESSIONNELLES</h4></div>
                 <div class="col-xs-12 col-sm-12">
-                    {% set experiences = detail.experience.values %}
+                    {% set experiences = detail.experiences.values %}
                     <table class="tableCV">
                         {% if(experiences) %}
                             {% for experience in experiences %}

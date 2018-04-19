@@ -49,17 +49,51 @@
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="349">
-              <caret line="70" column="40" lean-forward="false" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+              <caret line="86" column="44" lean-forward="false" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demandeur.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/assets/js/admin/demandeur/demandeur.js">
+      <file leaf-file-name="DemandeurController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+            <state relative-caret-position="816">
+              <caret line="601" column="49" lean-forward="false" selection-start-line="601" selection-start-column="49" selection-end-line="601" selection-end-column="49" />
+              <folding>
+                <element signature="e#1662#2597#0#PHP" expanded="false" />
+                <element signature="e#2603#2678#0#PHP" expanded="false" />
+                <element signature="e#2683#23472#0#PHP" expanded="false" />
+                <element signature="e#23478#23551#0#PHP" expanded="false" />
+                <element signature="e#23556#23802#0#PHP" expanded="false" />
+                <element signature="e#23808#23886#0#PHP" expanded="false" />
+                <element signature="e#23891#25431#0#PHP" expanded="false" />
+                <element signature="e#25437#25519#0#PHP" expanded="false" />
+                <element signature="e#34067#35045#0#PHP" expanded="false" />
+                <element signature="e#34907#35045#0#PHP" expanded="false" />
+                <element signature="e#35287#36145#0#PHP" expanded="false" />
+                <element signature="e#36013#36145#0#PHP" expanded="false" />
+                <element signature="e#36256#36992#0#PHP" expanded="false" />
+                <element signature="e#45737#45819#0#PHP" expanded="false" />
+                <element signature="e#45824#47411#0#PHP" expanded="false" />
+                <element signature="e#45885#47342#0#PHP" expanded="false" />
+                <element signature="e#46031#47264#0#PHP" expanded="false" />
+                <element signature="e#47417#47499#0#PHP" expanded="false" />
+                <element signature="e#47504#48011#0#PHP" expanded="false" />
+                <element signature="e#48017#48099#0#PHP" expanded="false" />
+                <element signature="e#48104#48389#0#PHP" expanded="false" />
+                <element signature="e#48581#48710#0#PHP" expanded="false" />
+                <element signature="e#48716#49062#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="epizy_demandeur_emplois.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_emplois.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="394" column="6" lean-forward="false" selection-start-line="394" selection-start-column="6" selection-end-line="394" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -69,21 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$this-&gt;certificat</find>
-      <find>$this-&gt;dmd_cvs</find>
-      <find>$this-&gt;dmd_formation</find>
-      <find>$this-&gt;dmd_experience</find>
-      <find>__</find>
-      <find>id_c</find>
-      <find>$formation</find>
-      <find>formations</find>
-      <find>id_us</find>
-      <find>formation</find>
-      <find>arr</find>
-      <find>form</find>
-      <find>array</find>
-      <find>id_cv</find>
-      <find>demandeur</find>
       <find>emploi</find>
       <find>emploiRe</find>
       <find>id_de</find>
@@ -99,6 +118,21 @@
       <find>getF</find>
       <find>addTagForm</find>
       <find>addTagLink</find>
+      <find>formation</find>
+      <find>experience</find>
+      <find>form_ex</find>
+      <find>idD</find>
+      <find>form_cvs</find>
+      <find>date</find>
+      <find>$this-&gt;getDoctrine()-&gt;getManager()-&gt;getRepository</find>
+      <find>for</find>
+      <find>upload</find>
+      <find>$allFormation</find>
+      <find>choi</find>
+      <find>choixEmploi</find>
+      <find>dmd_emplois-&gt;</find>
+      <find>choix</find>
+      <find>permis</find>
     </findStrings>
     <replaceStrings>
       <replace>$this-&gt;dmd_emplois</replace>
@@ -114,6 +148,7 @@
       <replace>$dmdCv</replace>
       <replace>$formation</replace>
       <replace>$experience</replace>
+      <replace>$this-&gt;getRepositoryClass</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -193,17 +228,17 @@
         <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_langues.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_langues.orm.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_experience.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/detail.html.twig" />
+        <option value="$PROJECT_DIR$/web/assets/js/admin/demandeur/demandeur.js" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_formationsType.php" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_formations.orm.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_cvs.orm.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_experience.orm.yml" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_formations.orm.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php" />
-        <option value="$PROJECT_DIR$/web/assets/js/admin/demandeur/demandeur.js" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php" />
       </list>
     </option>
   </component>
@@ -279,6 +314,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -301,103 +337,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demandeur" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -414,10 +354,13 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdminBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -541,16 +484,17 @@
       <workItem from="1523515970341" duration="16963000" />
       <workItem from="1523888153500" duration="2446000" />
       <workItem from="1523943349776" duration="27637000" />
+      <workItem from="1524118924797" duration="22572000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="384584000" />
+    <option name="totallyTimeSpent" value="407156000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24044117" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22205882" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29954615" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -561,23 +505,13 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24044117" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29954615" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,11 +535,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php</url>
-          <line>863</line>
+          <line>846</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php</url>
+          <line>763</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="21" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -698,14 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_emplois.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="608" column="40" lean-forward="false" selection-start-line="608" selection-start-column="36" selection-end-line="608" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,14 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/detail.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="170" column="58" lean-forward="false" selection-start-line="170" selection-start-column="58" selection-end-line="170" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_logicielsType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -829,90 +752,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/detail.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="170" column="59" lean-forward="false" selection-start-line="170" selection-start-column="59" selection-end-line="170" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/js/admin/demandeur/demandeur.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_formationsType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" column="75" lean-forward="false" selection-start-line="32" selection-start-column="75" selection-end-line="32" selection-end-column="75" />
+        <state relative-caret-position="221">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="380" column="14" lean-forward="false" selection-start-line="380" selection-start-column="11" selection-end-line="380" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <folding>
+            <element signature="e#36#83#0#PHP" expanded="false" />
+            <element signature="e#760#1676#0#PHP" expanded="false" />
+            <element signature="e#760#2237#0#PHP" expanded="false" />
+            <element signature="e#1894#2223#0#PHP" expanded="false" />
+            <element signature="e#760#2634#0#PHP" expanded="false" />
+            <element signature="e#2866#2901#0#PHP" expanded="false" />
+            <element signature="e#3019#3529#0#PHP" expanded="false" />
+            <element signature="e#3099#3515#0#PHP" expanded="false" />
+            <element signature="e#3589#3965#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_emplois.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="394" column="6" lean-forward="false" selection-start-line="394" selection-start-column="6" selection-end-line="394" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-671">
-          <caret line="65" column="17" lean-forward="true" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_formations.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="40" column="34" lean-forward="false" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-          <folding>
-            <element signature="e#165#281#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-195">
-          <caret line="458" column="16" lean-forward="false" selection-start-line="458" selection-start-column="16" selection-end-line="458" selection-end-column="16" />
-          <folding>
-            <element signature="e#1662#2597#0#PHP" expanded="false" />
-            <element signature="e#2603#2678#0#PHP" expanded="false" />
-            <element signature="e#2683#23472#0#PHP" expanded="false" />
-            <element signature="e#23478#23551#0#PHP" expanded="false" />
-            <element signature="e#23556#23802#0#PHP" expanded="false" />
-            <element signature="e#23808#23886#0#PHP" expanded="false" />
-            <element signature="e#26316#26398#0#PHP" expanded="false" />
-            <element signature="e#30693#31292#0#PHP" expanded="false" />
-            <element signature="e#31164#31292#0#PHP" expanded="false" />
-            <element signature="e#31395#32253#0#PHP" expanded="false" />
-            <element signature="e#32449#33207#0#PHP" expanded="false" />
-            <element signature="e#32908#33207#0#PHP" expanded="false" />
-            <element signature="e#33324#33671#0#PHP" expanded="false" />
-            <element signature="e#33689#34101#0#PHP" expanded="false" />
-            <element signature="e#34245#35396#0#PHP" expanded="false" />
-            <element signature="e#35141#35396#0#PHP" expanded="false" />
-            <element signature="e#35555#36533#0#PHP" expanded="false" />
-            <element signature="e#36395#36533#0#PHP" expanded="false" />
-            <element signature="e#36775#37633#0#PHP" expanded="false" />
-            <element signature="e#37501#37633#0#PHP" expanded="false" />
-            <element signature="e#37744#38480#0#PHP" expanded="false" />
-            <element signature="e#38502#39732#0#PHP" expanded="false" />
-            <element signature="e#39921#40607#0#PHP" expanded="false" />
-            <element signature="e#40448#40607#0#PHP" expanded="false" />
-            <element signature="e#40749#41396#0#PHP" expanded="false" />
-            <element signature="e#41252#41396#0#PHP" expanded="false" />
-            <element signature="e#41550#42244#0#PHP" expanded="false" />
-            <element signature="e#42087#42244#0#PHP" expanded="false" />
-            <element signature="e#42266#43173#0#PHP" expanded="false" />
-            <element signature="e#43410#44061#0#PHP" expanded="false" />
-            <element signature="e#43915#44061#0#PHP" expanded="false" />
-            <element signature="e#44179#44483#0#PHP" expanded="false" />
-            <element signature="e#44627#45258#0#PHP" expanded="false" />
-            <element signature="e#45118#45258#0#PHP" expanded="false" />
-            <element signature="e#46458#46540#0#PHP" expanded="false" />
-            <element signature="e#46545#48132#0#PHP" expanded="false" />
-            <element signature="e#46606#48063#0#PHP" expanded="false" />
-            <element signature="e#46752#47985#0#PHP" expanded="false" />
-            <element signature="e#48138#48220#0#PHP" expanded="false" />
-            <element signature="e#48225#48732#0#PHP" expanded="false" />
-            <element signature="e#48738#48820#0#PHP" expanded="false" />
-            <element signature="e#48825#49110#0#PHP" expanded="false" />
-            <element signature="e#49116#49296#0#PHP" expanded="false" />
-            <element signature="e#49302#49431#0#PHP" expanded="false" />
-            <element signature="e#49437#49783#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_experience.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="53" column="35" lean-forward="false" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+        <state relative-caret-position="315">
+          <caret line="76" column="66" lean-forward="false" selection-start-line="76" selection-start-column="66" selection-end-line="76" selection-end-column="66" />
           <folding />
         </state>
       </provider>
@@ -920,7 +821,7 @@
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_cvs.orm.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="59" column="52" lean-forward="true" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
+          <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
           <folding>
             <element signature="e#151#267#0" expanded="false" />
             <element signature="e#272#1357#0" expanded="false" />
@@ -928,40 +829,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php">
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_formations.orm.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-722">
-          <caret line="532" column="0" lean-forward="false" selection-start-line="532" selection-start-column="0" selection-end-line="532" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="374">
+          <caret line="47" column="26" lean-forward="false" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+          <folding>
+            <element signature="e#165#281#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php">
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_experience.orm.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="94" column="62" lean-forward="false" selection-start-line="94" selection-start-column="62" selection-end-line="94" selection-end-column="62" />
-          <folding>
-            <element signature="e#653#1265#0#PHP" expanded="false" />
-            <element signature="e#653#1491#0#PHP" expanded="false" />
-            <element signature="e#653#2449#0#PHP" expanded="false" />
-            <element signature="e#2681#2716#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="58" column="12" lean-forward="false" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
-          <caret line="70" column="40" lean-forward="false" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+          <caret line="86" column="44" lean-forward="false" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/js/admin/demandeur/demandeur.js">
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-          <folding />
+        <state relative-caret-position="816">
+          <caret line="601" column="49" lean-forward="false" selection-start-line="601" selection-start-column="49" selection-end-line="601" selection-end-column="49" />
+          <folding>
+            <element signature="e#1662#2597#0#PHP" expanded="false" />
+            <element signature="e#2603#2678#0#PHP" expanded="false" />
+            <element signature="e#2683#23472#0#PHP" expanded="false" />
+            <element signature="e#23478#23551#0#PHP" expanded="false" />
+            <element signature="e#23556#23802#0#PHP" expanded="false" />
+            <element signature="e#23808#23886#0#PHP" expanded="false" />
+            <element signature="e#23891#25431#0#PHP" expanded="false" />
+            <element signature="e#25437#25519#0#PHP" expanded="false" />
+            <element signature="e#34067#35045#0#PHP" expanded="false" />
+            <element signature="e#34907#35045#0#PHP" expanded="false" />
+            <element signature="e#35287#36145#0#PHP" expanded="false" />
+            <element signature="e#36013#36145#0#PHP" expanded="false" />
+            <element signature="e#36256#36992#0#PHP" expanded="false" />
+            <element signature="e#45737#45819#0#PHP" expanded="false" />
+            <element signature="e#45824#47411#0#PHP" expanded="false" />
+            <element signature="e#45885#47342#0#PHP" expanded="false" />
+            <element signature="e#46031#47264#0#PHP" expanded="false" />
+            <element signature="e#47417#47499#0#PHP" expanded="false" />
+            <element signature="e#47504#48011#0#PHP" expanded="false" />
+            <element signature="e#48017#48099#0#PHP" expanded="false" />
+            <element signature="e#48104#48389#0#PHP" expanded="false" />
+            <element signature="e#48581#48710#0#PHP" expanded="false" />
+            <element signature="e#48716#49062#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
