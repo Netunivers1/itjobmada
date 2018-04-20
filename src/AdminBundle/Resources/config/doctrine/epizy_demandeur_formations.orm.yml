@@ -45,6 +45,7 @@ AdminBundle\Entity\epizy_demandeur_formations:
                 nullable: true
                 onDelete: SET NULL
             fetch: EAGER
+            cascade: [all]
         diplome:
             targetEntity: epizy_diplomes
             joincolumn:

@@ -75,11 +75,10 @@ class epizy_demandeur_emploisType extends AbstractType
                     'choice_value'=>'libele',
                     'required'=>false,
                     'placeholder'=>'Toutes les offres d\' emploi',
-                    'empty_data'=>'Toutes les offres d\' emploi',
                     'data'=>null
                 )
             )
-            ->add('new_choixEmploi',TextType::class, array('required'=>false))
+            ->add('new_choixEmploi',TextType::class, array('required'=>false, 'mapped'=>false))
             ->add('new_choixFormation',TextType::class,array('required'=>false))
             ->add('choixFormation',EntityType::class,
                 array(

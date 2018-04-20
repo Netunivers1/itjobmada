@@ -531,4 +531,72 @@ class epizy_demandeur_cvs
         $this->experiences = new ArrayCollection();
     }
 
+
+    /**
+     * Add experience
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_experience $experience
+     *
+     * @return epizy_demandeur_cvs
+     */
+    public function addExperience(\AdminBundle\Entity\epizy_demandeur_experience $experience)
+    {
+        $this->experiences[] = $experience;
+
+        return $this;
+    }
+
+    /**
+     * Remove experience
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_experience $experience
+     */
+    public function removeExperience(\AdminBundle\Entity\epizy_demandeur_experience $experience)
+    {
+        $this->experiences->removeElement($experience);
+    }
+
+    /**
+     * Get experiences
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getExperiences()
+    {
+        return $this->experiences;
+    }
+
+    /**
+     * Add formation
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_formations $formation
+     *
+     * @return epizy_demandeur_cvs
+     */
+    public function addFormation(\AdminBundle\Entity\epizy_demandeur_formations $formation)
+    {
+        $this->formations[] = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Remove formation
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_formations $formation
+     */
+    public function removeFormation(\AdminBundle\Entity\epizy_demandeur_formations $formation)
+    {
+        $this->formations->removeElement($formation);
+    }
+
+    /**
+     * Get formations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFormations()
+    {
+        return $this->formations;
+    }
 }

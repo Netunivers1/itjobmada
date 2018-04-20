@@ -56,6 +56,8 @@ AdminBundle\Entity\epizy_demandeur_cvs:
         experiences:
             targetEntity: epizy_demandeur_experience
             mappedBy: id_cv
+            cascade: [all]
+            fetch: EAGER
         formations:
             targetEntity: epizy_demandeur_formations
             mappedBy: id_cvs
@@ -67,6 +69,7 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             joinColumn:
                 name: id_demandeur
                 referencedColumnName: id
+            fetch: EAGER
         logiciel_id:
             targetEntity: epizy_logiciels
             inversedBy: demandeur_cvs
