@@ -17,20 +17,21 @@ class epizy_demandeur_experienceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('moisDebut')
-            ->add('moisFin')
-            ->add('annee')
-            ->add('ville')
-            ->add('pays')
-            ->add('nomEntreprise')
+            ->add('moisDebut', TextType::class, array('attr'=>['class'=>'form-control']))
+            ->add('moisFin', TextType::class, array('attr'=>['class'=>'form-control']))
+            ->add('annee', TextType::class, array('attr'=>['class'=>'form-control']))
+            ->add('ville', TextType::class, array('attr'=>['class'=>'form-control']))
+            ->add('pays', TextType::class, array('attr'=>['class'=>'form-control']))
+            ->add('nomEntreprise', TextType::class, array('attr'=>['class'=>'form-control']))
             ->add('secteuractivite_id', EntityType::class,
                 array(
                     'class'=>'AdminBundle:epizy_secteur_activites',
                     'choice_label'=>'libele',
-                    'choice_value'=>'libele'
+                    'choice_value'=>'libele',
+                    'attr'=>['class'=>'form-control']
                 ))
-            ->add('posteOccupe')
-            ->add('missionTache',TextareaType::class,array('required'=>false))
+            ->add('posteOccupe', TextType::class, array('attr'=>['class'=>'form-control']))
+            ->add('missionTache',TextareaType::class,array('required'=>false, 'attr'=>['class'=>'form-control']))
         ;
     }
     

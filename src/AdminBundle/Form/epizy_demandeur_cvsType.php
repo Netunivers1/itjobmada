@@ -21,7 +21,9 @@ class epizy_demandeur_cvsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('position', CheckboxType::class, array('required'=>false))
+            ->add('position', CheckboxType::class,
+                array('required'=>false, 'empty_data'=>true)
+            )
             ->add('statu', HiddenType::class)
             ->add('reference', HiddenType::class)
             ->add('permis',ChoiceType::class,
@@ -41,11 +43,12 @@ class epizy_demandeur_cvsType extends AbstractType
             ->add('emploiRechercheId', EntityType::class,
                 array(
                     'class'=>'AdminBundle:epizy_emploi_recherches',
-                    'choice_label'=>'libele'
+                    'choice_label'=>'libele',
+                    'attr'=>['class'=>'form-control']
                 )
             )
-            ->add('emploiRecherche',TextType::class,array('required'=>false) )
-            ->add('logiciel', TextType::class,array('required'=>false))
+            ->add('emploiRecherche',TextType::class,array('required'=>false,'attr'=>['class'=>'form-control']) )
+            ->add('logiciel', TextType::class,array('required'=>false,'attr'=>['class'=>'form-control']))
             ->add('logicielId',EntityType::class,
                 array(
                     'class'=>'AdminBundle:epizy_logiciels',
@@ -54,24 +57,26 @@ class epizy_demandeur_cvsType extends AbstractType
                     'empty_data'=>null,
                     'multiple'=>false,
                     'expanded'=>false,
-                    'placeholder'=> false
+                    'placeholder'=> false,
+                    'attr'=>['class'=>'form-control']
                 )
             )
-            ->add('langue' , TextType::class,array('required'=>false))
+            ->add('langue' , TextType::class,array('required'=>false,'attr'=>['class'=>'form-control']))
             ->add('langueId',EntityType::class,
                 array(
                     'class'=>'AdminBundle:epizy_langues',
                     'choice_label'=>'nom',
 //                    'multiple'=>true,
                     'required'=>false,
-                    'placeholder'=> false
+                    'placeholder'=> false,
+                    'attr'=>['class'=>'form-control']
 
                 )
             )
-            ->add('statu')
-            ->add('reference')
-            ->add('centreInteretCertificat', TextType::class, array('required'=>false))
-            ->add('centreInteretProjet', TextType::class, array('required'=>false));
+//            ->add('statu')
+//            ->add('reference')
+            ->add('centreInteretCertificat', TextType::class, array('required'=>false, 'attr'=>['class'=>'form-control']))
+            ->add('centreInteretProjet', TextType::class, array('required'=>false, 'attr'=>['class'=>'form-control']));
 //            ->add('dateCreation')
 //            ->add('datePublished')
 //            ->add('nbrVue')

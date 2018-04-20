@@ -48,9 +48,7 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             type: integer
             column: nbr_vue
         position:
-            type: string
-            length: 255
-            nullable: true
+            type: boolean
     lifecycleCallbacks: {  }
     oneToMany:
         experiences:

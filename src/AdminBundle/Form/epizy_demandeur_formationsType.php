@@ -17,11 +17,11 @@ class epizy_demandeur_formationsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('annee', TextType::class )
-            ->add('ville', TextType::class)
-            ->add('pays', TextType::class)
-            ->add('diplomes', TextType::class)
-            ->add('universites', TextType::class)
+            ->add('annee', TextType::class, array('attr'=>['class'=>'form-control']) )
+            ->add('ville', TextType::class, array('attr'=>['class'=>'form-control']))
+            ->add('pays', TextType::class, array('attr'=>['class'=>'form-control']))
+            ->add('diplomes', TextType::class, array('attr'=>['class'=>'form-control']))
+            ->add('universites', TextType::class, array('attr'=>['class'=>'form-control']))
         ;
     }
     

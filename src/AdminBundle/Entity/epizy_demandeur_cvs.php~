@@ -68,10 +68,7 @@ class epizy_demandeur_cvs
      */
     private $nbrVue;
 
-    /**
-     * @var string
-     */
-    private $position;
+    
 
     /**
      * Get id
@@ -345,30 +342,6 @@ class epizy_demandeur_cvs
     public function getNbrVue()
     {
         return $this->nbrVue;
-    }
-
-    /**
-     * Set position
-     *
-     * @param string $position
-     *
-     * @return epizy_demandeur_cvs
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    /**
-     * Get position
-     *
-     * @return string
-     */
-    public function getPosition()
-    {
-        return $this->position;
     }
 
     /**
