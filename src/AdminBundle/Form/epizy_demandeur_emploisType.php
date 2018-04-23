@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -61,7 +62,7 @@ class epizy_demandeur_emploisType extends AbstractType
             ->add('prenom', TextType::class, array('required'=>true, 'attr'=>['class'=>'form-control']))
             ->add('email', EmailType::class, array('required'=>true, 'attr'=>['class'=>'form-control']))
             ->add('adresse', TextType::class, array('required'=>true, 'attr'=>['class'=>'form-control']))
-            ->add('ville', TextType::class,array('required'=>false, 'attr'=>['class'=>'form-control']) )
+            ->add('ville', TextType::class,array('required'=>false, 'attr'=>['class'=>'form-control ville']) )
             ->add('villeId', EntityType::class,
                 array(
                     'class'=> 'AdminBundle:epizy_villes',
@@ -69,8 +70,19 @@ class epizy_demandeur_emploisType extends AbstractType
                     'attr'=>['class'=>'form-control']
                 )
             )
-            ->add('region', TextType::class,array('required'=>false, 'attr'=>['class'=>'form-control']))
-            ->add('telephone', TextType::class,array('required'=>false, 'attr'=>['class'=>'form-control']))
+            ->add('region', TextType::class,array('required'=>false, 'attr'=>['class'=>'form-control region']))
+            ->add('telephone', CollectionType::class,
+                array(
+                    'entry_type'    =>TextType::class,
+                    'allow_add'     =>true,
+                    'allow_delete'  =>true,
+                    'required'      =>true,
+                    'prototype'     =>true,
+                    'attr'          =>['class'=>'telephone'],
+                    'by_reference'  =>false,
+                    'label'         =>true
+                )
+            )
             ->add('dateDeNaissance', BirthdayType::class,array('required'=>false, 'attr'=>['class'=>'form-control']) )
             ->add('choixEmploi', EntityType::class,
                 array(
@@ -102,7 +114,7 @@ class epizy_demandeur_emploisType extends AbstractType
                         ' Non' => 'non'
                     ),
                     'choices_as_values' => true,'multiple'=>false,'expanded'=>true,
-                    'attr'=>['class'=>'form-control']
+                    'attr'=>['class'=>'']
                 )
             )
             ->add('notificationFormationPoste', ChoiceType::class,
@@ -123,7 +135,7 @@ class epizy_demandeur_emploisType extends AbstractType
                         'je souhaite entretenir mon réseau' => 2,
                         'je cherche un stage' => 3
                     ),
-                    'attr'=>['class'=>'form-control']
+                    'attr'=>['class'=>'form-control ']
                 )
             )
             ->add('newsletter', ChoiceType::class,

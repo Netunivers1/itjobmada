@@ -37,14 +37,14 @@ class epizy_demandeur_cvsType extends AbstractType
                         'Aucun' => 'Aucun'
                     ),
                     'choices_as_values' => true,'multiple'=>true,'expanded'=>true,
-                    'mapped' =>false
+                    'mapped' =>false,
                 )
             )
             ->add('emploiRechercheId', EntityType::class,
                 array(
                     'class'=>'AdminBundle:epizy_emploi_recherches',
                     'choice_label'=>'libele',
-                    'attr'=>['class'=>'form-control']
+                    'attr'=>['class'=>'form-control emploiRechercher', 'multiple'=>true]
                 )
             )
             ->add('emploiRecherche',TextType::class,array('required'=>false,'attr'=>['class'=>'form-control']) )

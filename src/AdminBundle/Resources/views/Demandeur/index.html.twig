@@ -1,17 +1,16 @@
 {% extends '::base.html.twig' %}
 {% block body %}
    <form method="post" enctype="multipart/form-data" action=" {{ path('admin_demandeur_index') }}">
-        {{ form_errors(form_emplois)}}
-        {{ form_errors(form_cvs)}}
-        {{ form_errors(form_formation)}}
-    <h3> CV </h3>
-        {{ form_row( form_cvs.position, {'label':'Achat de place :' } )}}
+       <h3> CV </h3>
+       <div class="row">
+           {{ form_row( form_cvs.position, {'label':'Achat de place :', 'attr': {'class':'checkbox'} } )}}
+       </div>
         {{ form_row( form_emplois.audition, {'label': 'Ce candidat a-t-il été auditionné :' } )}}
         {{ form_row( form_emplois.emploiTrouve,
-            {
-                'label':'Ce candidat a trouvé un emploi :' ,
-                'attr': {'class':'form-control '}
-            }
+        {
+            'label':'Ce candidat a trouvé un emploi :' ,
+            'attr': {'class':'form-control '}
+        }
         )}}
         {{ form_row( form_emplois.photo, {'label':'Photo :' ,'attr': {'class':'form-control '} } )}}
         {{ form_row( form_emplois.titre, {'label':'Titre :' } )}}
@@ -22,52 +21,49 @@
         {#{{ form_row( form_emplois.villeId, {'label':'Ville :' } )}}#}
         {{ form_row( form_emplois.ville, {'label':'Ville :' } )}}
         {{ form_row( form_emplois.region, {'label':'Région :' } )}}
-        {{ form_row( form_emplois.telephone, {'label':'Telephone :' } )}}
+        <label>Téléphone :</label>
+        {{ form_widget( form_emplois.telephone )}}
+         <a href="#" class="btn btn-primary addTel">Ajouter Téléphone </a>
         {{ form_row( form_emplois.dateDeNaissance, {'label':'Date De Naissance :' } )}}
         {{ form_row( form_emplois._token )}}
         {{ form_row( form_emplois.status, {'label':'Status :' } )}}
-        {{ form_row( form_cvs.permis, {'label':'Permis :' } )}}
+        <label> Permis :</label>
+        {% for permis_form in form_cvs.permis %}
+           {{ form_widget(permis_form) }}
+           <label> {{ permis_form.vars.value }}</label>
+        {% endfor %}
         {{ form_row( form_cvs.emploiRechercheId, {'label':'Emploi Recherché :' } )}}
         {{ form_row( form_cvs.emploiRecherche, {'label':'Ajouter emploi Recherché :' } )}}
-        {{ form_row( form_emplois.notificationEmploiPoste, {'label':'Souhaitez-vous recevoir une notification quand une offre d’emploi est postée sur Itjobmada :' } )}}
-        {{ form_row( form_emplois.choixEmploi, {'label':'Recevoir une notification pour quel emploi ?' } )}}
+        <div class="row">
+            <label>Souhaitez-vous recevoir une notification quand une offre d’emploi est postée sur Itjobmada : </label>
+            {{ form_widget( form_emplois.notificationEmploiPoste)}}
+        </div>
+
+       {{ form_row( form_emplois.choixEmploi, {'label':'Recevoir une notification pour quel emploi ?' } )}}
         {{ form_row( form_emplois.new_choixEmploi, {'label':'Ajouter votre emploi si inexistant dans la liste' } )}}
         {{ form_row( form_emplois.notificationFormationPoste, {'label':'Souhaitez-vous recevoir une notification quand une formation est postée sur Itjobmada:' } )}}
         {{ form_row( form_emplois.choixFormation, {'label':'Recevoir une notification pour quelle formation ? :' } )}}
         {{ form_row( form_emplois.new_choixFormation, {'label':'Ajouter votre formation si inexistante dans la liste :' } )}}
         {{ form_row( form_emplois.newsletter, {'label':'Voulez-vous recevoir nos nouvelles du mois :' } )}}
         {{ form_row( form_cvs._token) }}
-    <hr>
-    <h3> Formation / Diplome  </h3><br>
-       {#{{ form_row( form_cvs.formation) }}#}
-        {{ form_row( form_formation.annee) }}
-        {{ form_row( form_formation.ville) }}
-        {{ form_row( form_formation.pays) }}
-        {{ form_row( form_formation.diplomes) }}
-        {{ form_row( form_formation.universites) }}
-    <hr>
-    <h6>Logiciels maitrisés</h6>
+        <hr>
+        <h3> Formation / Diplome  </h3><br>
+       {{ form_row(form_cvs.formations) }}
+        <hr>
+        <h6>Logiciels maitrisés</h6>
         {{ form_row( form_cvs.logicielId, { 'label': 'Logiciel :'}) }}
         {{ form_row( form_cvs.logiciel, { 'label': 'Ajouter Logiciel :'}) }}
-    <hr>
+        <hr>
         {{ form_row( form_cvs.langueId, { 'label': 'Langue :'}) }}
         {{ form_row( form_cvs.langue, { 'label': 'Ajouter langue :'}) }}
-    <hr>
-    <h3> Expériences professionnelles </h3>
-        {{ form_row( form_experience.moisDebut, { 'label': 'Mois de début:'}) }}
-        {{ form_row( form_experience.moisFin, { 'label': 'à :'}) }}
-        {{ form_row( form_experience.annee, { 'label': 'Année:'}) }}
-        {{ form_row( form_experience.ville, { 'label': 'Ville :'}) }}
-        {{ form_row( form_experience.pays, { 'label': 'Pays :'}) }}
-        {{ form_row( form_experience.nomEntreprise, { 'label': 'Nom de l\'entreprise :'}) }}
-        {{ form_row( form_experience.secteuractivite_id, { 'label': 'Secteur Activité :'}) }}
-        {{ form_row( form_experience.posteOccupe, { 'label': 'Poste Occupé :'}) }}
-        {{ form_row( form_experience.missionTache, { 'label': 'Mission et tache :'}) }}
-    <hr>
-    <h3> Centre d'intérêt </h3><br>
+        <hr>
+        <h3> Expériences professionnelles </h3>
+       {{ form_row(form_cvs.experiences) }}
+        <hr>
+        <h3> Centre d'intérêt </h3><br>
         {{ form_row( form_cvs.centreInteretCertificat, {'label':'Divers :' } )}}
         {{ form_row( form_cvs.centreInteretProjet, {'label':'Projet :' } )}}
-       {{ form_row( form._token) }}
+        {{ form_row( form._token) }}
         <input type="submit" class="btn btn-primary">
-   </form>
+        </form>
 {% endblock %}
