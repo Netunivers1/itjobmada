@@ -68,10 +68,7 @@ class epizy_demandeur_cvs
      */
     private $nbrVue;
 
-    /**
-     * @var string
-     */
-    private $position;
+    
 
     /**
      * Get id
@@ -348,30 +345,6 @@ class epizy_demandeur_cvs
     }
 
     /**
-     * Set position
-     *
-     * @param string $position
-     *
-     * @return epizy_demandeur_cvs
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    /**
-     * Get position
-     *
-     * @return string
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
-    /**
      * @var \AdminBundle\Entity\epizy_demandeur_emplois
      */
     protected $id_demandeur;
@@ -598,5 +571,34 @@ class epizy_demandeur_cvs
     public function getFormations()
     {
         return $this->formations;
+    }
+    /**
+     * @var boolean
+     */
+    private $position;
+
+
+    /**
+     * Set position
+     *
+     * @param boolean $position
+     *
+     * @return epizy_demandeur_cvs
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return boolean
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }
