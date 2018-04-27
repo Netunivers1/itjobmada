@@ -58,7 +58,7 @@ class epizy_demandeur_cvsType extends AbstractType
                     'multiple'=>false,
                     'expanded'=>false,
                     'placeholder'=> false,
-                    'attr'=>['class'=>'form-control']
+                    'attr'=>['class'=>'form-control manySelect', 'multiple'=>true]
                 )
             )
             ->add('langue' , TextType::class,array('required'=>false,'attr'=>['class'=>'form-control']))
@@ -69,7 +69,7 @@ class epizy_demandeur_cvsType extends AbstractType
 //                    'multiple'=>true,
                     'required'=>false,
                     'placeholder'=> false,
-                    'attr'=>['class'=>'form-control']
+                    'attr'=>['class'=>'form-control manySelect',  'multiple'=>true]
 
                 )
             )

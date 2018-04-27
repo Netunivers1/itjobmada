@@ -70,7 +70,20 @@ class epizy_demandeur_emploisType extends AbstractType
                     'attr'=>['class'=>'form-control']
                 )
             )
-            ->add('region', TextType::class,array('required'=>false, 'attr'=>['class'=>'form-control region']))
+            ->add('region', ChoiceType::class,
+                array(
+                    'choices'=>array(
+                    'Analamanga','Alaotra-Mangoro',"Amoron'i Mania",'Analanjirofo','Androy','Anôsy','Atsimo-Andrefana',
+                    'Atsimo-Atsinanana','Atsinanana','Boeny','Bongolava','Betsiboka','Diana','Haute Matsiatra','Ihorombe',
+                    'Itasy','Melaky','Menabe','Sava','Sofia','Vakinankaratra','Vatovavy-Fitovinany'
+                ),
+                'choice_label'=>function($value){
+                       if ($value){
+                           return $value;
+                       }
+                },
+                'attr'=>['class'=>'form-control listSearch'])
+            )
             ->add('telephone', CollectionType::class,
                 array(
                     'entry_type'    =>TextType::class,
@@ -91,7 +104,7 @@ class epizy_demandeur_emploisType extends AbstractType
                     'choice_value'=>'libele',
                     'required'=>false,
                     'placeholder'=>'Toutes les offres d\' emploi',
-                    'attr'=>['class'=>'form-control']
+                    'attr'=>['class'=>'form-control listSearch']
                 )
             )
             ->add('new_choixEmploi',TextType::class, array('required'=>false, 'mapped'=>false, 'attr'=>['class'=>'form-control']))
@@ -102,9 +115,9 @@ class epizy_demandeur_emploisType extends AbstractType
                     'choice_label'=>'ChoixFormation',
                     'choice_value'=>'ChoixFormation',
                     'required'=>false,
-                    'placeholder'=>'Toutes les Formations',
+                    'placeholder'=>'',
                     'empty_data'=>false,
-                    'attr'=>['class'=>'form-control']
+                    'attr'=>['class'=>'form-control listSearch']
                 )
             )
             ->add('notificationEmploiPoste', ChoiceType::class,
@@ -113,8 +126,7 @@ class epizy_demandeur_emploisType extends AbstractType
                         ' Oui' => 'oui',
                         ' Non' => 'non'
                     ),
-                    'choices_as_values' => true,'multiple'=>false,'expanded'=>true,
-                    'attr'=>['class'=>'']
+                    'choices_as_values' => true,'multiple'=>false,'expanded'=>true
                 )
             )
             ->add('notificationFormationPoste', ChoiceType::class,
@@ -123,8 +135,7 @@ class epizy_demandeur_emploisType extends AbstractType
                         'Oui' => 'oui',
                         'Non' => 'non'
                     ),
-                    'choices_as_values' => true,'multiple'=>false,'expanded'=>true,
-                    'attr'=>['class'=>'form-control']
+                    'choices_as_values' => true,'multiple'=>false,'expanded'=>true
                 )
             )
             ->add('photo', FileType::class, array('required'=>false, 'mapped'=>false,'attr'=>['class'=>'form-control'] ) )
@@ -145,7 +156,7 @@ class epizy_demandeur_emploisType extends AbstractType
                         'Non' => 'non'
                     ),
                     'choices_as_values' => true,'multiple'=>false,'expanded'=>true,
-                    'attr'=>['class'=>'form-control']
+                    'attr'=>['class'=>'']
                 )
             )
         ;

@@ -28,7 +28,7 @@ class epizy_demandeur_experienceType extends AbstractType
                     'class'=>'AdminBundle:epizy_secteur_activites',
                     'choice_label'=>'libele',
                     'choice_value'=>'libele',
-                    'attr'=>['class'=>'form-control']
+                    'attr'=>['class'=>'form-control listSearch']
                 ))
             ->add('posteOccupe', TextType::class, array('attr'=>['class'=>'form-control']))
             ->add('missionTache',TextareaType::class,array('required'=>false, 'attr'=>['class'=>'form-control']))
