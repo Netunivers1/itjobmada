@@ -1,39 +1,4 @@
 $(document).ready(function() {
-    // $('label.required').remove();
-    //
-    // /**gestion formulaire formation**/
-    // var $formationExist;
-    // var $form_formation = $('div.form_formation');
-    // var addFormation    = addLink('Formation');
-    // var removeFormation = removeForm('Formation');
-    // $form_formation.append(addFormation);
-    // $form_formation.data('index', $form_formation.find(':input').length);
-    // $formationExist = $($form_formation).data('prototype');
-    // if( $($formationExist).length <= 1){
-    //     addTagForm($form_formation, addFormation, removeFormation);
-    // }
-    // addFormation.on('click', function(e) {
-    //     e.preventDefault();
-    //     addTagForm($form_formation, addFormation, removeFormation);
-    // });
-    // /*** fin formulaire formation**/
-    //
-    // /**gestion formulaire experience**/
-    // var $form_experienceExist;
-    // var $formExperience = $('div.form_experience');
-    // var addExperience    = addLink('Experience');
-    // var removeExperience = removeForm('Experience');
-    // $formExperience.append(addExperience);
-    // $formExperience.data('index', $formExperience.find(':input').length);
-    // $form_experienceExist = $formExperience.data('prototype');
-    // if( $($form_experienceExist).length <= 1){
-    //     addTagForm($formExperience, addExperience, removeExperience);
-    // }
-    // addExperience.on('click', function(e) {
-    //     e.preventDefault();
-    //     addTagForm($formExperience, addExperience, removeExperience);
-    // });
-    // /*** fin formulaire experience**/
 
     /**gestion formulaire telephone**/
     var $telephone  = $('div.telephone');
@@ -50,10 +15,48 @@ $(document).ready(function() {
             addDeleteLink($(this));
         });
     }
-    /*** fin formulaire experience**/
+    /*** fin formulaire telephone**/
 
-   /*** mise en place du chosen ***/
+    /**gestion formulaire formation**/
+    var $form_formation = $('div.form_formation');
+    var $iteration      = $form_formation.find(':input').length;
+    var addFormation    = $('.addFormation');
+    addFormation.on('click', function(e) {
+        e.preventDefault();
+        addForm($form_formation);
+    });
+
+    if ($iteration == 0) {
+        addForm($form_formation);
+    }else{
+        $form_formation.children('div').each(function() {
+            addDeleteLink($(this));
+        });
+    }
+    /*** fin formulaire formation**/
+
+    /**gestion formulaire experience**/
+
+    var $formExperience = $('div.form_experience');
+    var $iterat         = $formExperience.find(':input').length;
+    var addExperience   = $('.addExperience');
+    addExperience.on('click', function(e) {
+        e.preventDefault();
+        addForm($formExperience);
+    });
+
+    if ($iterat == 0) {
+        addForm($formExperience);
+    }else{
+        $formExperience.children('div').each(function() {
+            addDeleteLink($(this));
+        });
+    }
+    /*** fin formulaire experience**/
+    /*** mise en place du chosen ***/
     $('.emploiRechercher').chosen();
+    $('.listSearch').chosen();
+    $('.manySelect').chosen();
 });
 
 function addForm($container){
@@ -77,28 +80,3 @@ function addDeleteLink($prototype) {
         return false;
     });
 }
-
-
-
-
-//
-//
-//
-// function addTagForm($collectionHolder, $addForm, removeForm) {
-//     var prototype = $collectionHolder.data('prototype');
-//     var index = $collectionHolder.data('index');
-//     var newForm = prototype.replace(/__name__/g, index).replace(index+"label__", "");
-//     var $newFormBlock = $('<div></div>').append(newForm);
-//     $collectionHolder.data('index', index + 1);
-//     $addForm.before($newFormBlock);
-//     addTagFormDelete($newFormBlock, index, removeForm);
-// }
-//
-// function addTagFormDelete($tagForm, index, removeLink) {
-//     $tagForm.append(removeLink);
-//     removeLink.on('click', function(e) {
-//         e.preventDefault();
-//         $tagForm.remove();
-//         index = (index - 1) ;
-//     });
-// }
