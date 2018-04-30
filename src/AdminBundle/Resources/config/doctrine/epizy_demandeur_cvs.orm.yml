@@ -54,13 +54,13 @@ AdminBundle\Entity\epizy_demandeur_cvs:
         experiences:
             targetEntity: epizy_demandeur_experience
             mappedBy: id_cv
-            cascade: [all]
             fetch: EAGER
+            cascade: [all]
         formations:
             targetEntity: epizy_demandeur_formations
             mappedBy: id_cvs
-            cascade: [all]
             fetch: EAGER
+            cascade: [all]
     manyToOne:
         id_demandeur:
             targetEntity: epizy_demandeur_emplois
@@ -74,19 +74,27 @@ AdminBundle\Entity\epizy_demandeur_cvs:
             joinColumn:
                 name: logiciel_id
                 referencedColumnName: id
+            cascade: [all]
+            fetch: EAGER
         langue_id:
             targetEntity: epizy_langues
             joinColumn:
                 name: langue_id
                 referencedColumnName: id
+            cascade: [all]
+            fetch: EAGER
         emploirecherche_id:
             targetEntity: epizy_emploi_recherches
             inversedBy: cvs_id
             joinColumn:
                 name: emploirecherche_id
                 referencedColumnName: id
+            cascade: [all]
+            fetch: EAGER
         certification_id:
             targetEntity: epizy_certifications
             joincolumn:
                 name: certification_id
                 referencedColumnName: id
+            cascade: [all]
+            fetch: EAGER
