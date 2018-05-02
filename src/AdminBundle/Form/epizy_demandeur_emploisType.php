@@ -115,8 +115,8 @@ class epizy_demandeur_emploisType extends AbstractType
                     'choice_label'=>'ChoixFormation',
                     'choice_value'=>'ChoixFormation',
                     'required'=>false,
-                    'placeholder'=>'',
-                    'empty_data'=>false,
+                    'placeholder'=>'Toutes les Formations',
+                    'empty_data'=>'',
                     'attr'=>['class'=>'form-control listSearch']
                 )
             )

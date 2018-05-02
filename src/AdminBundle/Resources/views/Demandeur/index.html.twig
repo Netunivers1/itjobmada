@@ -47,7 +47,12 @@
             </div>
             {{ form_widget( form_emplois.notificationFormationPoste)}}
         </div>
-        {{ form_widget( form_emplois.choixFormation, {'label': 'Recevoir une notification pour quelle formation ? '})}}
+       <div class="row">
+           <div>
+               <label>Recevoir une notification pour quelle formation ? </label>
+           </div>
+            {{ form_widget( form_emplois.choixFormation)}}
+       </div>
         {{ form_row( form_emplois.new_choixFormation, {'label':'Ajouter votre formation si inexistante dans la liste :' } )}}
 
         <div class="row" style="display: inline-flex">
@@ -64,9 +69,7 @@
             {{ form_row(form_cvs.formations) }}
             <a href="#" class="btn btn-primary addFormation">Ajouter Formation </a>
         <hr>
-
-
-       <h6>Logiciels maitrisés</h6>
+       <h3> Logiciels maitrisés  </h3><br>
        {{ form_row( form_cvs.logicielId, { 'label': 'Logiciel :'}) }}
        {{ form_row( form_cvs.logiciel, { 'label': 'Ajouter Logiciel :'}) }}
        <hr>

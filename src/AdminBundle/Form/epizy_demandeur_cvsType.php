@@ -24,8 +24,8 @@ class epizy_demandeur_cvsType extends AbstractType
             ->add('position', CheckboxType::class,
                 array('required'=>false, 'empty_data'=>true)
             )
-            ->add('statu', HiddenType::class)
-            ->add('reference', HiddenType::class)
+//            ->add('statu', HiddenType::class)
+//            ->add('reference', HiddenType::class)
             ->add('permis',ChoiceType::class,
                 array(
                     'choices'=>array(
@@ -37,7 +37,7 @@ class epizy_demandeur_cvsType extends AbstractType
                         'Aucun' => 'Aucun'
                     ),
                     'choices_as_values' => true,'multiple'=>true,'expanded'=>true,
-                    'mapped' =>false,
+                    'mapped'=>false
                 )
             )
             ->add('emploiRechercheId', EntityType::class,
@@ -48,7 +48,12 @@ class epizy_demandeur_cvsType extends AbstractType
                 )
             )
             ->add('emploiRecherche',TextType::class,array('required'=>false,'attr'=>['class'=>'form-control']) )
-            ->add('logiciel', TextType::class,array('required'=>false,'attr'=>['class'=>'form-control']))
+            ->add('logiciel', TextType::class,
+                array(
+                    'required'=>false,
+                    'attr'=>['class'=>'form-control logiciel', 'multiple'=>'multiple']
+                )
+            )
             ->add('logicielId',EntityType::class,
                 array(
                     'class'=>'AdminBundle:epizy_logiciels',
@@ -58,7 +63,7 @@ class epizy_demandeur_cvsType extends AbstractType
                     'multiple'=>false,
                     'expanded'=>false,
                     'placeholder'=> false,
-                    'attr'=>['class'=>'form-control manySelect', 'multiple'=>true]
+                    'attr'=>['class'=>'form-control logicielId', 'multiple'=>true]
                 )
             )
             ->add('langue' , TextType::class,array('required'=>false,'attr'=>['class'=>'form-control']))
@@ -73,8 +78,6 @@ class epizy_demandeur_cvsType extends AbstractType
 
                 )
             )
-//            ->add('statu')
-//            ->add('reference')
             ->add('centreInteretCertificat', TextType::class, array('required'=>false, 'attr'=>['class'=>'form-control']))
             ->add('centreInteretProjet', TextType::class, array('required'=>false, 'attr'=>['class'=>'form-control']));
 //            ->add('dateCreation')

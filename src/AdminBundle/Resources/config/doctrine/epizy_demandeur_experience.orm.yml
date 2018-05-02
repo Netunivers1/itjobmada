@@ -33,6 +33,7 @@ AdminBundle\Entity\epizy_demandeur_experience:
             type: string
             length: 255
             column: secteur_activite
+            nullable: true
         posteOccupe:
             type: string
             length: 255
