@@ -94,8 +94,8 @@ class epizy_demandeur_cvsType extends AbstractType
                     'allow_delete'=> true,
                     'prototype'  => true,
                     'attr'       => ['class'=>'form_formation'],
-                    'by_reference'=>false,
-                    'label'      =>true
+                    'by_reference'=> false,
+                    'label'      =>true,
                 )
             )->add('experiences', CollectionType::class,
                 array(
@@ -105,7 +105,7 @@ class epizy_demandeur_cvsType extends AbstractType
                     'allow_delete'=> true,
                     'prototype'  => true,
                     'attr'       => ['class'=>'form_experience'],
-                    'by_reference'=>false
+                    'by_reference'=> false,
                 )
             );
     }
