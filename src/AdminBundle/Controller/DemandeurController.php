@@ -279,6 +279,7 @@ class DemandeurController extends Controller
 
 
 
+
                     $id_cvs = null;
                     if (isset($emploi_recherche_id) && !empty($emploi_recherche_id)) {
                         if ( $form_cvs->get('position')->getData() === null ){
@@ -303,24 +304,13 @@ class DemandeurController extends Controller
                         $permis_array = $form_cvs->get('permis')->getData();
                         $permis = implode(',', $permis_array);
                         $this->dmd_cvs->setPermis($permis);
-                        $em->persist($this->dmd_cvs);
-                        $em->persist($form_cvs->getData());
-                        $em->flush();
-                        $id_cvs = $this->dmd_cvs;
-                    }
 
-                    // formation et experience
-
-                    if ($id_cvs != null) {
-
-
-                        /** @var  epizy_demandeur_formations $formations */
-                        $formations  = $form_cvs->get('formations')->getData() ;
-                        foreach ($formations as $formation){
-                            $ville_formation = $repo_ville->findOneBy(['libele' => $formation->getVille()]);
+                        foreach ( $this->dmd_cvs->getFormations() as $value) {
+                            
+                            $ville_formation = $repo_ville->findOneBy(['libele' => $value->getVille()]);
 
                             if ($ville_formation === null || !$ville_formation) {
-                                $this->ville_for->setLibele($formation->getVille());
+                                $this->ville_for->setLibele($value->getVille());
                                 $this->ville_for->setEtat('1');
                                 $this->ville_for->setCreated($this->date_created);
                                 $em->persist($this->ville_for);
@@ -330,11 +320,12 @@ class DemandeurController extends Controller
                             } else {
                                 $id_ville = $ville_formation;
                                 $ville_for = $ville_formation->getLibele();
-                            }
+                            }    
 
-                            $diplome_exist = $repo_diplo->findOneBy(['libele' => $formation->getDiplomes()]);
+
+                            $diplome_exist = $repo_diplo->findOneBy(['libele' => $value->getDiplomes()]);
                             if ($diplome_exist === null || !$diplome_exist) {
-                                $this->diplome->setLibele($formation->getDiplomes());
+                                $this->diplome->setLibele($value->getDiplomes());
                                 $this->diplome->setEtat('1');
                                 $this->diplome->setCreated($this->date_created);
                                 $em->persist($this->diplome);
@@ -346,9 +337,9 @@ class DemandeurController extends Controller
                                 $diplomes = $id_diplome->getLibele();
                             }
 
-                            $universite_existe = $repo_universite->findOneBy(['libele' => $formation->getuniversites()]);
+                            $universite_existe = $repo_universite->findOneBy(['libele' => $value->getuniversites()]);
                             if ($universite_existe == null || !$universite_existe) {
-                                $this->universite->setLibele($formation->getuniversites());
+                                $this->universite->setLibele($value->getuniversites());
                                 $this->universite->setEtat('1');
                                 $this->universite->setCreated($this->date_created);
                                 $em->persist($this->universite);
@@ -360,27 +351,32 @@ class DemandeurController extends Controller
                                 $universites = $id_universite->getLibele();
                             }
 
-
-                            
+                            $value->setIdDemandeur($id_demandeur );                            
+                            $value->setVilleId($id_ville);
+                            $value->setVille($ville_for);
+                            $value->setDiplome($id_diplome);
+                            $value->setDiplomes($diplomes);
+                            $value->setUniversite($id_universite);
+                            $value->setUniversites($universites);
+                            $value->setAnnee($value->getAnnee());
+                            $value->setPays($value->getPays());
+                            $em->persist($this->dmd_cvs);
+                        } 
                            
+                        $em->flush();                       
+                       
+                        die;
+                        
+                       
+                      
+                    }
 
-                            $this->dmd_formation->setIdDemandeur($id_demandeur);
-                            $this->dmd_formation->setIdCvs($id_cvs);
-                            $this->dmd_formation->setVilleId($id_ville);
-                            $this->dmd_formation->setVille($ville_for);
-                            $this->dmd_formation->setDiplome($id_diplome);
-                            $this->dmd_formation->setDiplomes($diplomes);
-                            $this->dmd_formation->setUniversite($id_universite);
-                            $this->dmd_formation->setuniversites($universites);
-                            $this->dmd_formation->setVille($ville_for);
-                            $this->dmd_formation->setAnnee($formation->getAnnee());
-                            $this->dmd_formation->setPays($formation->getPays());
-                            $em->persist($this->dmd_formation);
-                            $em->flush();
+                    // formation et experience
 
-                            dump($this->dmd_formation);
-                            
-                        }
+                    if ($id_cvs != null) {
+
+                        /** @var  epizy_demandeur_formations $formations */
+                        
 
                         die;
 

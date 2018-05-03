@@ -549,6 +549,7 @@ class epizy_demandeur_cvs
     public function addFormation(\AdminBundle\Entity\epizy_demandeur_formations $formation)
     {
         $this->formations[] = $formation;
+        $formation->setIdCvs($this) ;
 
         return $this;
     }
