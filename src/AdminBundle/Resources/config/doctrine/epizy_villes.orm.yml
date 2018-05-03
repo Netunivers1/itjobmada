@@ -18,3 +18,8 @@ AdminBundle\Entity\epizy_villes:
         created:
             type: datetime
     lifecycleCallbacks: {  }
+    oneToMany:
+        formations:
+            targetEntity: epizy_demandeur_formations
+            mappedBy: ville_id
+            cascade: [persist]

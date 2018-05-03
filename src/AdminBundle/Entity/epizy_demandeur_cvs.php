@@ -515,7 +515,7 @@ class epizy_demandeur_cvs
     public function addExperience(\AdminBundle\Entity\epizy_demandeur_experience $experience)
     {
         $this->experiences[] = $experience;
-
+        $experience->setIdCv($this) ;
         return $this;
     }
 

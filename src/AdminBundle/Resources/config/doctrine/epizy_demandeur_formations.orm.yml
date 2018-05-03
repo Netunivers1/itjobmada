@@ -44,8 +44,8 @@ AdminBundle\Entity\epizy_demandeur_formations:
                 referencedColumnName: id
                 nullable: true
                 onDelete: SET NULL
-            # fetch: EAGER
-            # cascade: [all]
+            fetch: EAGER
+#            cascade: [all]
         diplome:
             targetEntity: epizy_diplomes
             joincolumn:
@@ -58,6 +58,8 @@ AdminBundle\Entity\epizy_demandeur_formations:
                 referencedColumnName: id
         ville_id:
             targetEntity: epizy_villes
+            inversedBy: formations
             joinColumn:
                 name: ville_id
                 referencedColumnName: id
+            cascade: [persist]
