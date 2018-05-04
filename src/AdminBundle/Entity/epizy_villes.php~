@@ -1,6 +1,7 @@
 <?php
 
 namespace AdminBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * epizy_villes
@@ -108,5 +109,11 @@ class epizy_villes
     public function getCreated()
     {
         return $this->created;
+    }
+
+    private $formations ;
+    public function __construct()
+    {
+        $this->formations = new ArrayCollection();
     }
 }

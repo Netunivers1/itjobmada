@@ -515,7 +515,7 @@ class epizy_demandeur_cvs
     public function addExperience(\AdminBundle\Entity\epizy_demandeur_experience $experience)
     {
         $this->experiences[] = $experience;
-
+        $experience->setIdCv($this) ;
         return $this;
     }
 
@@ -549,6 +549,7 @@ class epizy_demandeur_cvs
     public function addFormation(\AdminBundle\Entity\epizy_demandeur_formations $formation)
     {
         $this->formations[] = $formation;
+        $formation->setIdCvs($this) ;
 
         return $this;
     }
@@ -571,5 +572,34 @@ class epizy_demandeur_cvs
     public function getFormations()
     {
         return $this->formations;
+    }
+    /**
+     * @var boolean
+     */
+    private $position;
+
+
+    /**
+     * Set position
+     *
+     * @param boolean $position
+     *
+     * @return epizy_demandeur_cvs
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return boolean
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }

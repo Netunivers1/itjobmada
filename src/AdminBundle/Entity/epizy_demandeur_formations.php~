@@ -239,9 +239,10 @@ class epizy_demandeur_formations
      *
      * @return epizy_demandeur_formations
      */
-    public function setIdDemandeur(\AdminBundle\Entity\epizy_demandeur_emplois $idDemandeur = null)
+    public function setIdDemandeur(\AdminBundle\Entity\epizy_demandeur_emplois $idDemandeur)
     {
         $this->id_demandeur = $idDemandeur;
+        
 
         return $this;
     }
@@ -327,7 +328,7 @@ class epizy_demandeur_formations
      *
      * @return epizy_demandeur_formations
      */
-    public function setVilleId(\AdminBundle\Entity\epizy_villes $villeId = null)
+    public function setVilleId(\AdminBundle\Entity\epizy_villes $villeId)
     {
         $this->ville_id = $villeId;
 

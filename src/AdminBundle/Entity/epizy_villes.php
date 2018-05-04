@@ -1,6 +1,7 @@
 <?php
 
 namespace AdminBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * epizy_villes
@@ -108,5 +109,45 @@ class epizy_villes
     public function getCreated()
     {
         return $this->created;
+    }
+
+    private $formations ;
+    public function __construct()
+    {
+        $this->formations = new ArrayCollection();
+    }
+
+    /**
+     * Add formation
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_formations $formation
+     *
+     * @return epizy_villes
+     */
+    public function addFormation(\AdminBundle\Entity\epizy_demandeur_formations $formation)
+    {
+        $this->formations[] = $formation;
+        $formation->setVilleId($this);
+        return $this;
+    }
+
+    /**
+     * Remove formation
+     *
+     * @param \AdminBundle\Entity\epizy_demandeur_formations $formation
+     */
+    public function removeFormation(\AdminBundle\Entity\epizy_demandeur_formations $formation)
+    {
+        $this->formations->removeElement($formation);
+    }
+
+    /**
+     * Get formations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFormations()
+    {
+        return $this->formations;
     }
 }
