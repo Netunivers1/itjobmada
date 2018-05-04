@@ -40,6 +40,7 @@ AdminBundle\Entity\epizy_demandeur_emplois:
         telephone:
             type: string
             length: 255
+            collection: telephone
         dateDeNaissance:
             type: date
             column: date_de_naissance

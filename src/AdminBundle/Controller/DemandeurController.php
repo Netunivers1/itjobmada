@@ -84,10 +84,10 @@ class DemandeurController extends Controller
             $repo_poste = $this->getDoctrine()->getManager()->getRepository('AdminBundle:epizy_poste_occupes');
             $repo_universite = $this->getDoctrine()->getManager()->getRepository('AdminBundle:epizy_universites');
 
-//            $email_user = $repo_users->findOneBy(['email' => $form_emplois->get('email')->getData()]);
-//            $email_dmd = $repo_dmd->findOneBy(['email' => $form_emplois->get('email')->getData()]);
-            $email_user = null;
-            $email_dmd = null;
+            $email_user = $repo_users->findOneBy(['email' => $form_emplois->get('email')->getData()]);
+            $email_dmd = $repo_dmd->findOneBy(['email' => $form_emplois->get('email')->getData()]);
+//            $email_user = null;
+//            $email_dmd = null;
             if ($email_user == null || !$email_user && $email_dmd == null || !$email_dmd) {
 
                 /* insert user not existe*/
@@ -299,13 +299,12 @@ class DemandeurController extends Controller
                                 $em->flush();
                                 $value->setVilleId($this->ville_for);
                                 $value->setVille($this->ville_for->getLibele());
+                                $this->ville_for = new epizy_villes();
 
                             } else {
                                 $value->setVilleId($ville_formation);
                                 $value->setVille( $ville_formation->getLibele());
                             }
-
-                            $em->clear($this->ville_for);
 
                             $diplome_exist = $repo_diplo->findOneBy(['libele' => $value->getDiplomes()]);
                             if ($diplome_exist === null || !$diplome_exist) {
@@ -315,6 +314,7 @@ class DemandeurController extends Controller
                                 $em->persist($this->diplome);
                                 $value->setDiplome($this->diplome);
                                 $value->setDiplomes($this->diplome->getLibele());
+                                $this->diplome = new epizy_diplomes();
                             } else {
                                 $value->setDiplome($diplome_exist);
                                 $value->setDiplomes($diplome_exist->getLibele());
@@ -329,6 +329,7 @@ class DemandeurController extends Controller
                                 $em->flush();
                                 $value->setUniversite($this->universite);
                                 $value->setUniversites($this->universite->getLibele());
+                                $this->universite = new epizy_universites() ;
                             } else {
                                 $value->setUniversite($universite_existe);
                                 $value->setUniversites($universite_existe->getLibele());
@@ -351,6 +352,7 @@ class DemandeurController extends Controller
                                 $em->flush();
                                 $experience->setVilleId($this->ville_exp);
                                 $experience->setVille($this->ville_exp->getLibele());
+                                $this->ville_exp = new epizy_villes() ;
                             } else {
                                 $experience->setVilleId($ville_experience);
                                 $experience->setVille($ville_experience->getLibele());
@@ -370,8 +372,10 @@ class DemandeurController extends Controller
                                 $this->poste->setCreated($this->date_created);
                                 $em->persist($this->poste);
                                 $em->flush();
+
                                 $experience->setPosteoccupeId($this->poste);
                                 $experience->setPosteOccupe($this->poste->getLibele());
+                                $this->poste = new epizy_poste_occupes() ;
                             } else {
                                 $experience->setPosteoccupeId($poste_exist);
                                 $experience->setPosteOccupe($poste_exist->getLibele());
@@ -387,10 +391,8 @@ class DemandeurController extends Controller
                             $experience->setNomEntreprise($experience->getNomEntreprise());
                             $experience->setMissionTache($experience->getMissionTache());
                         }
-
                         $em->persist($this->dmd_cvs);
                         $em->flush() ;
-                        die;
                     }
                 }
 
@@ -430,10 +432,9 @@ class DemandeurController extends Controller
             if ( is_numeric($id_cv) ){
                 $dCv            = $this->getRepositoryClass('AdminBundle:epizy_demandeur_cvs')->find($id_cv);
                 $id_demandeur   = $dCv->getIdDemandeur();
-                $permis         = explode(",", $dCv->getPermis());
                 $form_cvs       = $this->createForm(epizy_demandeur_cvsType::class, $dCv);
-                $dEmploi        = $this->getRepositoryClass('AdminBundle:epizy_demandeur_emplois')->find($id_demandeur);
-                $form_emplois   = $this->createForm(epizy_demandeur_emploisType::class, $dEmploi);
+                $form_emplois   = $this->createForm(epizy_demandeur_emploisType::class, $id_demandeur);
+                $permis         = explode(",",$dCv->getPermis() ) ;
 
                 $form = $this->createFormBuilder(FormType::class)
                     ->setAction($this->generateUrl('admin_demandeur_update', array('id' => $id_cv ) ))
@@ -445,6 +446,7 @@ class DemandeurController extends Controller
                         'form_emplois'  => $form_emplois->createView(),
                         'form_cvs'      => $form_cvs->createView(),
                         'form'          => $form->createView(),
+                        'id'            => $id_cv,
                         'permis'        => $permis
                     )
                 );
@@ -480,7 +482,10 @@ class DemandeurController extends Controller
         $allFormation = $this->getRepositoryClass('AdminBundle:epizy_demandeur_formations')->findBy(['id_cvs' => $dmdCv->getId()] );
         $allExperience= $this->getRepositoryClass('AdminBundle:epizy_demandeur_experience')->findBy(['id_cv' => $dmdCv->getId()] );
 
-        $form       = $this->createFormBuilder(FormType::class)->getForm();
+        $form       = $this->createFormBuilder(FormType::class)
+            ->setAction($this->generateUrl('admin_demandeur_update', array('id' => $id) ))
+            ->setMethod('post')
+            ->getForm();
         if ( $request->isMethod('POST')){
             $form->handleRequest($request);
             if ( $form->isSubmitted() && $form->isValid()) {
@@ -587,7 +592,8 @@ class DemandeurController extends Controller
                 $dmdEmploi->setPrenom($form_emplois->get('prenom')->getData());
                 $dmdEmploi->setStatus($form_emplois->get('status')->getData());
                 $dmdEmploi->setTitre($form_emplois->get('titre')->getData());
-                $dmdEmploi->setTelephone($form_emplois->get('telephone')->getData());
+                $telephones = implode(",",$form_emplois->get('telephone')->getData() );
+                $dmdEmploi->setTelephone($telephones);
                 $dmdEmploi->setRegion($form_emplois->get('region')->getData());
                 $dmdEmploi->setDateDeNaissance($form_emplois->get('dateDeNaissance')->getData());
                 $dmdEmploi->setNotificationEmploiPoste($form_emplois->get('notificationEmploiPoste')->getData());
@@ -690,6 +696,7 @@ class DemandeurController extends Controller
                                 $em->flush();
                                 $id_ville = $this->ville_for;
                                 $ville_for = $this->ville_for->getLibele();
+                                $this->ville_for = new epizy_villes();
                             } else {
                                 $id_ville = $ville_formation;
                                 $ville_for = $ville_formation->getLibele();
@@ -704,6 +711,7 @@ class DemandeurController extends Controller
                                 $em->flush();
                                 $id_diplome = $this->diplome;
                                 $diplomes = $id_diplome->getLibele();
+                                $this->diplome = new epizy_diplomes();
                             } else {
                                 $id_diplome = $diplome_exist;
                                 $diplomes = $id_diplome->getLibele();
@@ -718,6 +726,7 @@ class DemandeurController extends Controller
                                 $em->flush();
                                 $id_universite = $this->universite;
                                 $universites = $id_universite->getLibele();
+                                $this->universite = new epizy_universites();
                             } else {
                                 $id_universite = $universite_existe;
                                 $universites = $id_universite->getLibele();
