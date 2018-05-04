@@ -4,6 +4,7 @@ namespace AdminBundle\Form;
 
 use AdminBundle\Controller\DemandeurController;
 use AdminBundle\Entity\epizy_demandeur_emplois;
+use FOS\UserBundle\Event\FormEvent;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
@@ -14,19 +15,18 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
 class epizy_demandeur_emploisType extends AbstractType
 {
-    private $ville ;
-
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $emploi_trouve = new epizy_demandeur_emplois();
+
         $builder
             ->add('audition', ChoiceType::class,
                 array(
@@ -93,7 +93,9 @@ class epizy_demandeur_emploisType extends AbstractType
                     'prototype'     =>true,
                     'attr'          =>['class'=>'telephone'],
                     'by_reference'  =>false,
-                    'label'         =>true
+                    'label'         =>false,
+//                    'mapped'        =>false
+                    'data'          => explode(",",$options['data']->getTelephone())
                 )
             )
             ->add('dateDeNaissance', BirthdayType::class,array('required'=>false, 'attr'=>['class'=>'form-control']) )

@@ -330,9 +330,7 @@ class epizy_demandeur_formations
      */
     public function setVilleId(\AdminBundle\Entity\epizy_villes $villeId)
     {
-
         $this->ville_id = $villeId;
-        dump($this->ville_id);
         return $this;
     }
 

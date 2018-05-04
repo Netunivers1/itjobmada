@@ -2,26 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30d4146b-15de-4104-8b29-39141a84d837" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/itjobmada.iml" afterPath="$PROJECT_DIR$/.idea/itjobmada.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/symfony_requirements" afterPath="$PROJECT_DIR$/bin/symfony_requirements" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_certifications.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_certifications.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_emplois.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_emplois.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_experience.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_experience.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_formations.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_formations.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_diplomes.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_diplomes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_emploi_recherches.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_emploi_recherches.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_entreprises.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_entreprises.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_langues.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_langues.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_logiciels.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_logiciels.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_poste_occupes.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_poste_occupes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_roles.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_roles.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_secteur_activites.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_secteur_activites.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_universites.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_universites.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_villes.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_villes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_formations.orm.yml" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_formations.orm.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_villes.orm.yml" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_villes.orm.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_emplois.orm.yml" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_emplois.orm.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/detail.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/detail.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
     </list>
@@ -38,42 +27,64 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-17">
+              <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DemandeurController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="307" column="38" lean-forward="false" selection-start-line="307" selection-start-column="38" selection-end-line="307" selection-end-column="38" />
+            <state relative-caret-position="410">
+              <caret line="449" column="43" lean-forward="false" selection-start-line="449" selection-start-column="43" selection-end-line="449" selection-end-column="43" />
               <folding>
                 <element signature="e#1662#2597#0#PHP" expanded="false" />
                 <element signature="e#2603#2678#0#PHP" expanded="false" />
+                <element signature="e#2683#22689#0#PHP" expanded="false" />
                 <element signature="e#6914#7294#0#PHP" expanded="false" />
                 <element signature="e#7487#8275#0#PHP" expanded="false" />
                 <element signature="e#7669#7943#0#PHP" expanded="false" />
                 <element signature="e#7818#7943#0#PHP" expanded="false" />
                 <element signature="e#7962#8275#0#PHP" expanded="false" />
                 <element signature="e#8392#8748#0#PHP" expanded="false" />
-                <element signature="e#21925#22071#0#PHP" expanded="false" />
+                <element signature="e#22204#22350#0#PHP" expanded="false" />
+                <element signature="e#22695#22768#0#PHP" expanded="false" />
+                <element signature="e#22773#23019#0#PHP" expanded="false" />
+                <element signature="e#23025#23103#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="epizy_demandeur_formations.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_formations.php">
+      <file leaf-file-name="epizy_demandeur_cvsType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="epizy_villes.orm.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_villes.orm.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="321">
+              <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+              <folding>
+                <element signature="e#760#894#0#PHP" expanded="false" />
+                <element signature="e#760#1818#0#PHP" expanded="false" />
+                <element signature="e#760#2159#0#PHP" expanded="false" />
+                <element signature="e#760#2653#0#PHP" expanded="false" />
+                <element signature="e#760#3169#0#PHP" expanded="false" />
+                <element signature="e#3413#3448#0#PHP" expanded="false" />
+                <element signature="e#3566#4530#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,10 +93,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>echo</find>
-      <find>logi</find>
-      <find>cent</find>
-      <find>console</find>
       <find>getF</find>
       <find>addTagForm</find>
       <find>addTagLink</find>
@@ -98,7 +105,6 @@
       <find>$this-&gt;getDoctrine()-&gt;getManager()-&gt;getRepository</find>
       <find>for</find>
       <find>upload</find>
-      <find>$allFormation</find>
       <find>choi</find>
       <find>choixEmploi</find>
       <find>dmd_emplois-&gt;</find>
@@ -112,6 +118,11 @@
       <find>position</find>
       <find>addE</find>
       <find>$this-&gt;dmd_experience</find>
+      <find>clear</find>
+      <find>demandeur</find>
+      <find>colle</find>
+      <find>$allFormation</find>
+      <find>index</find>
     </findStrings>
     <replaceStrings>
       <replace>$this-&gt;dmd_emplois</replace>
@@ -199,25 +210,25 @@
         <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_langues.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_langues.orm.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_experience.php" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/detail.html.twig" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_experience.orm.yml" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_emplois.orm.yml" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_formationsType.php" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_experienceType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/web/assets/js/admin/demandeur/demandeur.js" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_cvs.orm.yml" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_villes.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_formations.orm.yml" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_formations.php" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_villes.orm.yml" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_formations.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/detail.html.twig" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_emplois.orm.yml" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig" />
       </list>
     </option>
   </component>
@@ -229,43 +240,43 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/twig/twig" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
-      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
-      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/psr/cache" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
-      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
-      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
-      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
-      <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
-      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
@@ -292,6 +303,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -357,30 +370,8 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="itjobmada" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdminBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -406,18 +397,60 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine" />
+              <option name="myItemId" value="Demandeur" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itjobmada" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itjobmada" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdminBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itjobmada" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itjobmada" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdminBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -561,14 +594,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="479403000" />
+    <option name="totallyTimeSpent" value="501869000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1358" height="726" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1780924" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17883755" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29954615" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -577,13 +611,23 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1780924" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29954615" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,37 +651,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php</url>
-          <line>807</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php</url>
-          <line>719</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php</url>
           <line>144</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php</url>
+          <line>88</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="31" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/ImageUpload.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/EventListener/ImageUploadListener.php" />
-    <entry file="file://$PROJECT_DIR$/web/admin/images/d7b3ee8aae90083fe418e178e4d1313a.jpeg" />
-    <entry file="file://$PROJECT_DIR$/web/admin/images/c127b067832549c409b5398e349292a3.jpeg" />
-    <entry file="file://$PROJECT_DIR$/web/admin/images/668824df35820783e725ecba17aaac41.jpeg" />
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="304" column="19" lean-forward="true" selection-start-line="304" selection-start-column="19" selection-end-line="304" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/epizy_users.php" />
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_certifications.orm.yml" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/epizy_users.orm.yml" />
@@ -662,26 +690,14 @@
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_langues.orm.yml" />
     <entry file="file://$PROJECT_DIR$/tests/AdminBundle/Controller/DefaultControllerTest.php" />
     <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/DefaultControllerTest.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_logiciels.orm.yml" />
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_logiciels.php" />
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_logicielsType.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/detail.html.twig" />
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_experience.orm.yml" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_emplois.php" />
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/services.yml" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_emplois.orm.yml" />
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_emploi_recherches.orm.yml" />
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_experience.php" />
     <entry file="file://$PROJECT_DIR$/app/config/config.yml" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig" />
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_experienceType.php" />
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="112" column="22" lean-forward="false" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
@@ -693,45 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
           <caret line="60" column="18" lean-forward="false" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="517" column="37" lean-forward="false" selection-start-line="517" selection-start-column="37" selection-end-line="517" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="107" column="42" lean-forward="false" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="42" />
-          <folding>
-            <element signature="e#760#894#0#PHP" expanded="false" />
-            <element signature="e#760#1502#0#PHP" expanded="false" />
-            <element signature="e#760#1818#0#PHP" expanded="false" />
-            <element signature="e#760#2159#0#PHP" expanded="false" />
-            <element signature="e#760#2653#0#PHP" expanded="false" />
-            <element signature="e#760#3169#0#PHP" expanded="false" />
-            <element signature="e#3413#3448#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_cvs.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="63" column="14" lean-forward="false" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -751,7 +728,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_villes.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_formations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="331" column="5" lean-forward="false" selection-start-line="331" selection-start-column="5" selection-end-line="331" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_formationsType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/detail.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="226" column="66" lean-forward="false" selection-start-line="226" selection-start-column="66" selection-end-line="226" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_logiciels.orm.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -761,42 +769,147 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_formations.orm.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
+        <state relative-caret-position="680">
           <caret line="64" column="12" lean-forward="false" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_cvs.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="63" column="14" lean-forward="false" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
+          <folding>
+            <element signature="e#151#267#0" expanded="false" />
+            <element signature="e#1341#1659#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_cvs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-405">
+          <caret line="349" column="27" lean-forward="false" selection-start-line="349" selection-start-column="14" selection-end-line="349" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_emplois.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_demandeur_emplois.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="42" column="33" lean-forward="false" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/CollectionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="50" column="25" lean-forward="false" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/DataTransformerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/FormConfigBuilderInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="32" column="20" lean-forward="false" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/FormEvents.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-519">
+          <caret line="22" column="12" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Event/FormEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="36" column="29" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_emploisType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="96" column="45" lean-forward="false" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+          <folding>
+            <element signature="e#36#83#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Form/epizy_demandeur_cvsType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+          <folding>
+            <element signature="e#760#894#0#PHP" expanded="false" />
+            <element signature="e#760#1818#0#PHP" expanded="false" />
+            <element signature="e#760#2159#0#PHP" expanded="false" />
+            <element signature="e#760#2653#0#PHP" expanded="false" />
+            <element signature="e#760#3169#0#PHP" expanded="false" />
+            <element signature="e#3413#3448#0#PHP" expanded="false" />
+            <element signature="e#3566#4530#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DemandeurController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="307" column="38" lean-forward="false" selection-start-line="307" selection-start-column="38" selection-end-line="307" selection-end-column="38" />
+        <state relative-caret-position="410">
+          <caret line="449" column="43" lean-forward="false" selection-start-line="449" selection-start-column="43" selection-end-line="449" selection-end-column="43" />
           <folding>
             <element signature="e#1662#2597#0#PHP" expanded="false" />
             <element signature="e#2603#2678#0#PHP" expanded="false" />
+            <element signature="e#2683#22689#0#PHP" expanded="false" />
             <element signature="e#6914#7294#0#PHP" expanded="false" />
             <element signature="e#7487#8275#0#PHP" expanded="false" />
             <element signature="e#7669#7943#0#PHP" expanded="false" />
             <element signature="e#7818#7943#0#PHP" expanded="false" />
             <element signature="e#7962#8275#0#PHP" expanded="false" />
             <element signature="e#8392#8748#0#PHP" expanded="false" />
-            <element signature="e#21925#22071#0#PHP" expanded="false" />
+            <element signature="e#22204#22350#0#PHP" expanded="false" />
+            <element signature="e#22695#22768#0#PHP" expanded="false" />
+            <element signature="e#22773#23019#0#PHP" expanded="false" />
+            <element signature="e#23025#23103#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Entity/epizy_demandeur_formations.php">
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Demandeur/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/config/doctrine/epizy_villes.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        <state relative-caret-position="306">
+          <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
           <folding />
         </state>
       </provider>
