@@ -13,9 +13,30 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                          <h1 class="page-header">
+                        <h1 class="page-header">
                             Toutes les Entreprises<small></small>
+                            <div style="float:right">
+                                <a class="btn btn-primary"  href="{{ path('admin_entreprise_create') }}"> NOUVELLE ENTREPRISE</a>
+                            </div>
                         </h1>
+                        <div class="panel-default" style="margin-top:-5%">
+                            <div class="panel-body">
+                                <div class="btn-group" role="group" >
+                                   <a class="btn btn-success" href="{{ path('admin_entreprise_index') }}"> 
+                                        <i class="glyphicon glyphicon-globe"> </i>TOUTES ENTREPRISES</a>
+                                   <a class="btn btn-info"  href="{{ path('admin_entreprise_filter') }}">
+                                   <i class=" glyphicon glyphicon-exclamation-sign"></i>ENTREPRISE DESACTIVE</a>
+                                </div>
+                                <div class="pull-right" id="form-search" style="float-right">
+                                    <form action="{{ path('admin_entreprise_search') }}" method="get">
+                                        <div class="form-inline">
+                                            <input type="search" class="form-control" name="search" id="search" placeholder="Rechercher">
+                                            <button class="btn btn-secondary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {% for success_message in app.session.flashbag.get('message') %}
@@ -32,15 +53,15 @@
                            
                             <div class="panel-body">
 
-                                <div class="btn-group" role="group" >
+                                {# <div class="btn-group" role="group" >
                                    <a class="btn btn-success" href="{{ path('admin_entreprise_index') }}"> 
                                         <i class="glyphicon glyphicon-globe"> </i>TOUTES ENTREPRISES</a>
                                    <a class="btn btn-info"  href="{{ path('admin_entreprise_filter') }}">
                                    <i class=" glyphicon glyphicon-exclamation-sign"></i>ENTREPRISE DESACTIVE</a>
-                                </div>
-                                <div style="float:right" >
+                                </div> #}
+                                {# <div style="float:right" >
                                      <a class="btn btn-primary"  href="{{ path('admin_entreprise_create') }}"> NOUVELLE ENTREPRISE</a>
-                                </div>
+                                </div> #}
                                        
                                
                                 <div class="table-responsive">
@@ -104,7 +125,7 @@
                                         </tbody>
                                     </table>
                                 {% else %}
-                                        <center>AUCUNE ENTREPRISE  </center>            
+                                        <center>AUCUNE ENTREPRISE  </center>           
                                 {% endif %}
                                 </div>
                                 <div class="text-center">{{ knp_pagination_render(listEntreprise) }}</div>
@@ -133,11 +154,11 @@
           
             <!-- /. PAGE INNER  -->
         </div>
-        {% raw %}
+        {% verbatim %}
             <script>
 
             </script>
-        {% endraw %}
+        {% endverbatim %}
     {% endblock body %}
 
   

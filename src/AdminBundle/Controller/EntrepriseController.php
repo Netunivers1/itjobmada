@@ -38,7 +38,6 @@ class EntrepriseController extends Controller
 
         $entreprises= $qb->getQuery()->getResult();
         $listEntreprise  = $this->get('knp_paginator')->paginate($entreprises,$request->query->get('page', 1),10);
-         //var_dump($listEntreprise);
         return $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig', array('listEntreprise'=>$listEntreprise));
     }
 
@@ -46,7 +45,7 @@ class EntrepriseController extends Controller
      *
      * @Route("/entreprise/filter/status=0", name="admin_entreprise_filter")
      */
-    public function list_desactiveAction(){
+    public function list_desactiveAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $qb = $em->createQueryBuilder();
         $qb ->select('e.id,e.idUser,e.nomEntreprise, e.secteurActivite, e.telMobilResponsable,e.emailResponsable, e.adressePhysique,e.notificationCvPoste, u.status')
@@ -56,6 +55,10 @@ class EntrepriseController extends Controller
             ->andWhere('u.status= 0');
 
         $listEntreprise= $qb->getQuery()->getResult();
+        //Modif Toky
+        $listEntreprise  = $this->get('knp_paginator')->paginate($listEntreprise,$request->query->get('page', 1)
+            ,10);
+        //endmodif//
         return $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig', array('listEntreprise'=>$listEntreprise));
     }
 
@@ -350,7 +353,6 @@ class EntrepriseController extends Controller
                    ->getResult();
     }
 
-
     public function addUser($name,$emailResponsable,$idRole) {
         $users   = new epizy_users(); 
         $str = 'abcdefghijklmnopqrstuvwxyz01234567891011121314151617181920212223242526';
@@ -393,8 +395,9 @@ class EntrepriseController extends Controller
      /**
      * @Route("/entreprise/search", name="admin_entreprise_search")
      */
-    /*
+    
     public function searchAction(Request $request){
+
         $entreprise = new epizy_entreprises();
 
         $form_search = $this->createFormBuilder()
@@ -414,14 +417,13 @@ class EntrepriseController extends Controller
         if ($form_search->isSubmitted() && $form_search->isValid())
         {
            
-
             return $this->redirectToRoute('admin_entreprise_index');
         }
 
       return  $this->render('AdminBundle:OffreEmploi:liste_entreprise.html.twig',array(
             'form_search' => $form_search->createView()  ));
     }
-    */
+    
     
 
 
