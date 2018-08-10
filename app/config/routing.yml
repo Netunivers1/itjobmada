@@ -1,6 +1,6 @@
 front:
     resource: "@FrontBundle/Controller/"
-    prefix:   /front
+    prefix:   /
     type: annotation
 
 admin:
@@ -8,9 +8,9 @@ admin:
     prefix:   /admin
     type: annotation
 
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+# app:
+#     resource: "@AppBundle/Controller/"
+#     type:     annotation
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
