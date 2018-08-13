@@ -1,0 +1,79 @@
+{% extends '@Admin/base-admin.html.twig' %}
+
+{% block stylesheets %}
+	<!-- DataTables -->
+	<link rel="stylesheet" href="{{ asset('AdminBundle/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+{% endblock stylesheets %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-xs-12">
+			<button class="btn btn-primary">Tous les éléments</button>
+		</div>
+	</div>
+ 	<div class="row">
+ 	  <div class="col-xs-12">
+ 	    <div class="box">
+ 	      <div class="box-header">
+ 	        <h3 class="box-title">{% block table_title %}List{% endblock %}</h3>
+ 	      </div>
+ 	      <!-- /.box-header -->
+ 	      <div class="box-body">
+ 	      	{% if lists %}
+	 	        <table id="example1" class="table table-bordered table-striped">
+	 	          <thead>
+		 	          <tr>
+		 	          	{% for key in lists[0]|keys %}
+		 	            	<th>{{key}}</th>
+		 	          	{% endfor %}
+		 	          </tr>
+	 	          </thead>
+	 	          <tbody>
+	 	          	{% for list in lists %}
+	 	          		<tr>
+	 	          		  <td>{{list.Rendering}}</td>
+	 	          		  <td>{{list.Browser}}</td>
+	 	          		  <td>{{list.Platform}}</td>
+	 	          		  <td>{{list.Engine}}</td>
+	 	          		  <td>{{list.CSS}}</td>
+	 	          		</tr>
+	 	          	{% endfor %}
+	 	          </tbody>
+	 	          <tfoot>
+		 	          <tr>
+		 	          	{% for key in lists[0]|keys %}
+		 	            	<th>{{key}}</th>
+		 	          	{% endfor %}
+		 	          </tr>
+	 	          </tfoot>
+	 	        </table>
+	 	      {% else %}
+	 	      	Résultat vide
+ 	        {% endif %}
+ 	      </div>
+ 	      <!-- /.box-body -->
+ 	    </div>
+ 	    <!-- /.box -->
+ 	  </div>
+ 	  <!-- /.col -->
+ 	</div>
+{% endblock body %}
+
+{% block scripts %}
+	<!-- DataTables -->
+	<script src="{{ asset('AdminBundle/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+	<script src="{{ asset('AdminBundle/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+	<script>
+	  $(function () {
+	    $('#example1').DataTable()
+	    /*$('#example2').DataTable({
+	      'paging'      : true,
+	      'lengthChange': false,
+	      'searching'   : false,
+	      'ordering'    : true,
+	      'info'        : true,
+	      'autoWidth'   : false
+	    })*/
+	  });
+	</script>
+{% endblock scripts %}
